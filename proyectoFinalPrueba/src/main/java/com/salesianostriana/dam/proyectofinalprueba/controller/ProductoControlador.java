@@ -1,5 +1,4 @@
-package com.salesianostriana.dam.proyectofinalprueba;
-
+package com.salesianostriana.dam.proyectofinalprueba.controller;
 
 import java.util.List;
 
@@ -9,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-
+import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
+import com.salesianostriana.dam.proyectofinalprueba.repository.ProductoRepositorio;
 
 @Controller
 public class ProductoControlador {

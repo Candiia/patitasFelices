@@ -10,7 +10,6 @@
 
 body {
     font-family: mons !important;
-
 }
 
 
@@ -32,11 +31,12 @@ body {
 }
 
 .imagen-cartas {
-    width: 400px;
+    width: 400px;    
 }
 
 .tamayo-carta {
-    width: 100%;
+    width: 400px;
+    height: 400px;
 }
 
 .tamayo-carrito {
@@ -50,7 +50,6 @@ body {
 a {
     color: #3aafa9 !important;
 }
-
 
 
 i {
