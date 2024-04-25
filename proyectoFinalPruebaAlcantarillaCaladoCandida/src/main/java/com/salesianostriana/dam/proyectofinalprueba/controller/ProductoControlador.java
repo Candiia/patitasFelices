@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
-import com.salesianostriana.dam.proyectofinalprueba.repository.ProductoRepositorio;
+import com.salesianostriana.dam.proyectofinalprueba.repository.ProductoRepository;
 
 @Controller
 public class ProductoControlador {
 	
 	@Autowired
-	private ProductoRepositorio productoRepositorio;
+	private ProductoRepository productoRepositorio;
 	
-	@GetMapping("/mostrarTodos")
+	@GetMapping("/mostrarProductos")
 	public String todosProductos(Model model) {
 		List<Producto> listaProductos= productoRepositorio.findAll();
 		model.addAttribute("listaProductos", listaProductos);
@@ -25,7 +25,7 @@ public class ProductoControlador {
 	} 
 	
 	@GetMapping("/detalleProducto")
-	public String detalleProducto(@RequestParam int id, Model model) {
+	public String detalleProducto(@RequestParam Long id, Model model) {
 		Producto p = productoRepositorio.findById(id).orElseThrow();
 		model.addAttribute("nombre", p.getNombre());
 		model.addAttribute("descripcion", p.getDescripcion());

@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.CategoriaProductos;
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
-import com.salesianostriana.dam.proyectofinalprueba.repository.CategoriaProducto;
-import com.salesianostriana.dam.proyectofinalprueba.repository.ProductoRepositorio;
+import com.salesianostriana.dam.proyectofinalprueba.repository.CategoriaProductoRepository;
+import com.salesianostriana.dam.proyectofinalprueba.repository.ProductoRepository;
 
 import jakarta.annotation.PostConstruct;
 
@@ -14,10 +14,10 @@ import jakarta.annotation.PostConstruct;
 public class MainMentira {
 	
 	@Autowired
-	private ProductoRepositorio producRepo;
+	private ProductoRepository producRepo;
 	
 	@Autowired
-	private CategoriaProducto cateRepo;
+	private CategoriaProductoRepository cateRepo;
 	
 	@PostConstruct
 	public void init() {

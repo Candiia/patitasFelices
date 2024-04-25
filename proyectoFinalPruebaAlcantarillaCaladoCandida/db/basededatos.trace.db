@@ -879,3 +879,27 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcanta
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 55 more
+2024-04-25 10:32:40.316446+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PRODCUTO" no encontrada
+Table "PRODCUTO" not found; SQL statement:
+SELECT * FROM CATEGORIA_PRODUCTOS JOIN PRODCUTO ON (ID) [42102-224]
+2024-04-25 10:32:47.081215+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PRODCUTO" no encontrada
+Table "PRODCUTO" not found; SQL statement:
+SELECT * FROM CATEGORIA_PRODUCTOS JOIN PRODCUTO USING (ID) [42102-224]
+2024-04-25 10:32:51.486262+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PRODCUTO" no encontrada
+Table "PRODCUTO" not found; SQL statement:
+SELECT * FROM CATEGORIA_PRODUCTOS JOIN PRODCUTO USING (ID) [42102-224]
+2024-04-25 10:32:52.390408+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PRODCUTO" no encontrada
+Table "PRODCUTO" not found; SQL statement:
+SELECT * FROM CATEGORIA_PRODUCTOS JOIN PRODCUTO USING (ID) [42102-224]
+2024-04-25 10:32:52.518498+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PRODCUTO" no encontrada
+Table "PRODCUTO" not found; SQL statement:
+SELECT * FROM CATEGORIA_PRODUCTOS JOIN PRODCUTO USING (ID) [42102-224]
+2024-04-25 10:32:52.638245+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PRODCUTO" no encontrada
+Table "PRODCUTO" not found; SQL statement:
+SELECT * FROM CATEGORIA_PRODUCTOS JOIN PRODCUTO USING (ID) [42102-224]

@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.CategoriaProductos;
 
-public interface CategoriaProducto extends JpaRepository<CategoriaProductos, Integer> {
+public interface CategoriaProductoRepository extends JpaRepository<CategoriaProductos, Integer> {
 
 }

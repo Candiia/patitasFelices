@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+<body>
+
+<header id="pie" 	th:fragment="cabeza">
+         <div class="container-fluid">
+             <nav class="navbar navbar-expand-sm ">
+                 <a class="navbar-brand text-light" href="paginaInicial.html">
+                     <h4 class="texto text-uppercase">
+                         <img src="../static/img/logo.png" th:src="@{/img/logo.png}" width="50px" alt="huella animal">
+                         Patitas felices
+                     </h4>
+                 </a>
+                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                     <span class="navbar-toggler-icon"></span>
+                 </button>
+                 <div class="collapse navbar-collapse h5" id="mynavbar">
+                     <ul class="navbar-nav">
+                         <li class="nav-item">
+                             <a class="nav-link text-light" href="tienda.html" role="button">Tienda</a>
+                         </li>
+
+                         <li class="nav-item ">
+                             <a class="nav-link text-light" href="adoptar.html" role="button">Adoptar</a>
+                         </li>
+
+                     </ul>
+                 </div>
+                 <div class="d-flex align-items-center">
+                     <input class="form-control me-2 w-100" type="text" placeholder="Buscar">
+                     <button class="btn" type="button"><i class="bi bi-search"></i></button>
+                     <a href="perfil.html" class="perfil mx-3  text-light"><i class="bi bi-person-circle"></i></a>
+                     <a href="carrito.html" class="mx-3 text-light"><i class="bi bi-cart"></i></a>
+                 </div>
+
+             </nav>
+         </div>
+     </header>
+
+</body>
