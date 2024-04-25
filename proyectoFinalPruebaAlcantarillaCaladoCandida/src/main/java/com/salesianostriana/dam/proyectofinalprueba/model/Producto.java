@@ -8,12 +8,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor @NoArgsConstructor
 @Entity 
+@Builder
 public class Producto {
 	
 	@Id @GeneratedValue

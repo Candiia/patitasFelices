@@ -1,4 +1,4 @@
-/*package com.salesianostriana.dam.proyectofinalprueba.controller;
+package com.salesianostriana.dam.proyectofinalprueba.controller;
 
 import java.util.List;
 
@@ -19,8 +19,8 @@ public class AnimalControlador {
 
 	@GetMapping("/mostrarAnimales")
 	public String todosProductos(Model model) {
-		List<Animal> listaProductos= animalRepo.findAll();
-		model.addAttribute("listaProductos", listaProductos);
+		List<Animal> listaAnimales= animalRepo.findAll();
+		model.addAttribute("listaAnimales", listaAnimales);
 		return "adoptar";
 	} 
 	
@@ -30,8 +30,16 @@ public class AnimalControlador {
 		Animal a = animalRepo.findById(id).orElseThrow();
 		
 		model.addAttribute("apodo", a.getApodo());
+		model.addAttribute("nombre", a.getNombre());
+		model.addAttribute("raza", a.getRaza());
+		model.addAttribute("genero", a.getGenero());
+		model.addAttribute("aspVeterianarios", a.getAspectosVeterianrios());
+		model.addAttribute("foto", a.getFoto());
+		model.addAttribute("historia", a.getHistoria());
+		model.addAttribute("tipoAnimal", a.getTipoAnimal());
+		model.addAttribute("fechaNacimiento", a.getFechaNacimieto());
 		
 		return "detalleAnimal";
 	}
 
-}*/
+}

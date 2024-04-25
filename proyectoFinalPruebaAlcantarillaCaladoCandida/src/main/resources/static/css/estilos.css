@@ -13,7 +13,7 @@ body {
 }
 
 
-#pie {
+.fondoAzul{
     background-color: #3aafa9 !important;
 }
 
@@ -22,7 +22,7 @@ body {
     color: white !important;
 }
 
-.fondo{
+.fondoBlanco{
     background-color: white !important;
 }
 
