@@ -22,13 +22,7 @@ public class MainMentira {
 	
 	@Autowired
 	private CategoriaProductoRepository cateRepo;
-	
-	@Autowired
-	private AnimalRepository animalRepo;
-	
-	@Autowired
-	private TipoAnimalRepository tipoRepo;
-	
+
 	@PostConstruct
 	public void init() {
 	
@@ -49,35 +43,6 @@ public class MainMentira {
 		producRepo.save(p1);
 		producRepo.save(p2);
 		
-		
-		TipoAnimal t = TipoAnimal.builder()
-						.tipo("Perro")
-						.build();
-		
-		TipoAnimal t2 = TipoAnimal.builder()
-				.tipo("Gato")
-				.build();		
-				
-		tipoRepo.save(t);
-		tipoRepo.save(t2);
-		
-		Animal a = Animal.builder()
-				.nombre("Luna")
-				.apodo("Luna la guapa")
-				.tipoAnimal(t)
-				.foto("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.micasarevista.com%2Fmascotas-perros-gatos%2Fg42105269%2Frazas-perros-mas-bonitas%2F&psig=AOvVaw0P3VcKTBefbdjh44Wc5S88&ust=1714149964823000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKjOwLDo3YUDFQAAAAAdAAAAABAE")
-				.build();
-		
-		Animal a2 = Animal.builder()
-				.nombre("Luna")
-				.apodo("Luna la guapa")
-				.tipoAnimal(t)
-				.build();
-		
-		animalRepo.save(a);
-		animalRepo.save(a2);
-		
-
 
 	}
 	
