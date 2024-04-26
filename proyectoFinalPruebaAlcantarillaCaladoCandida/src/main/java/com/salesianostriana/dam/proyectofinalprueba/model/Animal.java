@@ -9,6 +9,8 @@ import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,22 +33,16 @@ public class Animal {
 	
 	private LocalDate fechaNacimieto;
 	
-	@Column(columnDefinition = "VARHCAR 550")
+	@Column(columnDefinition = "VARCHAR 550")
 	private String historia;
 	
-	@Column(columnDefinition = "VARHCAR 550")
+	@Column(columnDefinition = "VARCHAR 550")
 	private String aspectosVeterianrios;
 	
 	private String foto;
 	private boolean adoptado;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_animal_tipo"))
-	private TipoAnimal tipoAnimal;
-	
-	public void addTipoAnimal(TipoAnimal tA) {
-		this.tipoAnimal = tA;
-	}
-	
-	
+	private TipoAnimal tipoAnimales;	
 }

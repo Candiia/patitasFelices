@@ -1037,3 +1037,331 @@ create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint 
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.salesianostriana.dam.proyectofinalprueba.ProyectoFinalPruebaApplication.main(ProyectoFinalPruebaApplication.java:10)
+2024-04-26 09:57:11.125692+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : "VARHCAR"
+Unknown data type: "VARHCAR"; SQL statement:
+create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARHCAR 550, foto varchar(255), genero varchar(255), historia VARHCAR 550, nombre varchar(255), raza varchar(255), primary key (id)) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:5866)
+	at org.h2.command.Parser.readIfDataType(Parser.java:5704)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5686)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5565)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8999)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createTables(SchemaCreatorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createSequencesTablesConstraints(SchemaCreatorImpl.java:340)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:239)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:172)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.proyectofinalprueba.ProyectoFinalPruebaApplication.main(ProyectoFinalPruebaApplication.java:10)
+2024-04-26 13:55:37.753746+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : "VARHCAR"
+Unknown data type: "VARHCAR"; SQL statement:
+create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARHCAR 550, foto varchar(255), genero varchar(255), historia VARHCAR 550, nombre varchar(255), raza varchar(255), primary key (id)) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:5866)
+	at org.h2.command.Parser.readIfDataType(Parser.java:5704)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5686)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5565)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8999)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createTables(SchemaCreatorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createSequencesTablesConstraints(SchemaCreatorImpl.java:340)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:239)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:172)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.proyectofinalprueba.ProyectoFinalPruebaApplication.main(ProyectoFinalPruebaApplication.java:10)
+2024-04-26 13:55:38.081045+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ANIMAL" no encontrada
+Table "ANIMAL" not found; SQL statement:
+insert into animal (adoptado,apodo,aspectos_veterianrios,fecha_nacimieto,foto,genero,historia,nombre,raza,tipo_animal_id,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-224]
+2024-04-26 13:56:29.187820+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : "VARHCAR"
+Unknown data type: "VARHCAR"; SQL statement:
+create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARHCAR 550, foto varchar(255), genero varchar(255), historia VARHCAR 550, nombre varchar(255), raza varchar(255), primary key (id)) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:5866)
+	at org.h2.command.Parser.readIfDataType(Parser.java:5704)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5686)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5565)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8999)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createTables(SchemaCreatorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createSequencesTablesConstraints(SchemaCreatorImpl.java:340)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:239)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:172)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.proyectofinalprueba.ProyectoFinalPruebaApplication.main(ProyectoFinalPruebaApplication.java:10)
+2024-04-26 13:56:29.504254+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ANIMAL" no encontrada
+Table "ANIMAL" not found; SQL statement:
+insert into animal (adoptado,apodo,aspectos_veterianrios,fecha_nacimieto,foto,genero,historia,nombre,raza,tipo_animal_id,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-224]
+2024-04-26 13:58:18.629184+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : "VARHCAR"
+Unknown data type: "VARHCAR"; SQL statement:
+create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARHCAR 550, foto varchar(255), genero varchar(255), historia VARHCAR 550, nombre varchar(255), raza varchar(255), primary key (id)) [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:5866)
+	at org.h2.command.Parser.readIfDataType(Parser.java:5704)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5686)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5565)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8999)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createTables(SchemaCreatorImpl.java:420)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createSequencesTablesConstraints(SchemaCreatorImpl.java:340)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:239)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:172)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.proyectofinalprueba.ProyectoFinalPruebaApplication.main(ProyectoFinalPruebaApplication.java:10)
+2024-04-26 13:58:18.947102+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ANIMAL" no encontrada
+Table "ANIMAL" not found; SQL statement:
+insert into animal (adoptado,apodo,aspectos_veterianrios,fecha_nacimieto,foto,genero,historia,nombre,raza,tipo_animal_id,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-224]
+2024-04-26 13:59:24.793909+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; se esperaba "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; expected "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR 550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id)) [42001-224]
+2024-04-26 13:59:25.128595+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ANIMAL" no encontrada
+Table "ANIMAL" not found; SQL statement:
+insert into animal (adoptado,apodo,aspectos_veterianrios,fecha_nacimieto,foto,genero,historia,nombre,raza,tipo_animal_id,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-224]
+2024-04-26 14:05:17.310140+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; se esperaba "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; expected "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR 550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id)) [42001-224]
+2024-04-26 14:05:17.649628+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ANIMAL" no encontrada
+Table "ANIMAL" not found; SQL statement:
+insert into animal (adoptado,apodo,aspectos_veterianrios,fecha_nacimieto,foto,genero,historia,nombre,raza,tipo_animal_id,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-224]
+2024-04-26 14:09:57.826374+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; se esperaba "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; expected "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR 550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id)) [42001-224]
+2024-04-26 14:09:58.168249+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ANIMAL" no encontrada
+Table "ANIMAL" not found; SQL statement:
+insert into animal (adoptado,apodo,aspectos_veterianrios,fecha_nacimieto,foto,genero,historia,nombre,raza,tipo_animal_id,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-224]
+2024-04-26 14:13:32.469182+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; se esperaba "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; expected "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animal_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR 550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id)) [42001-224]
+2024-04-26 14:13:32.806281+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ANIMAL" no encontrada
+Table "ANIMAL" not found; SQL statement:
+insert into animal (adoptado,apodo,aspectos_veterianrios,fecha_nacimieto,foto,genero,historia,nombre,raza,tipo_animal_id,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-224]
+2024-04-26 14:21:44.973997+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animales_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; se esperaba "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animales_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; expected "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animales_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR 550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id)) [42001-224]
+2024-04-26 14:21:45.303463+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ANIMAL" no encontrada
+Table "ANIMAL" not found; SQL statement:
+insert into animal (adoptado,apodo,aspectos_veterianrios,fecha_nacimieto,foto,genero,historia,nombre,raza,tipo_animales_id,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-224]
+2024-04-26 14:25:05.199337+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animales_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; se esperaba "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animales_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; expected "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animales_id bigint, apodo varchar(255), aspectos_veterianrios VARCHAR 550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id)) [42001-224]
+2024-04-26 14:25:05.521095+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ANIMAL" no encontrada
+Table "ANIMAL" not found; SQL statement:
+insert into animal (adoptado,apodo,aspectos_veterianrios,fecha_nacimieto,foto,genero,historia,nombre,raza,tipo_animales_id,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-224]

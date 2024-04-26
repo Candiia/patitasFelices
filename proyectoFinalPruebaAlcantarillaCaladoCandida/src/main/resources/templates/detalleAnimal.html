@@ -7,22 +7,21 @@
         <main class="container">
             <div class=" row mt-3">
                 <div class="d-flex">
-                    <h1 class="texto-color me-2">El alegre CRISPY</h1>
+                    <h1 class="texto-color me-2" th:text="${apodo}">El alegre CRISPY</h1>
                     <a href="#" class="btn btn-light mx-2 d-flex align-items-center "><i
                             class="bi bi-heart-fill me-2 "></i>Adoptar</a>
                 </div>
 
                 <div class="col-12 col-lg-6 mt-3">
-                    <img src="../img/perrito.jpg" class="w-100" alt="perrito">
+                    <img th:src="${foto}" class="w-100" alt="perrito">
                 </div>
 
                 <div class="col-12 col-lg-6 mt-3">
-                    <p><span class="texto-color ">Nombre:</span> Crispy</p>
-                    <p><span class="texto-color ">Clase:</span> Perro</p>
-                    <p><span class="texto-color ">Sexo:</span> Macho</p>
-                    <p><span class="texto-color ">Edad:</span> 4 años y medios</p>
-                    <p><span class="texto-color ">Raza:</span> Cruce</p>
-                    <p><span class="texto-color ">Fecha de nacimiento:</span> 11/02/2020</p>
+                    <p th:text="${nombre}"><span class="texto-color">Nombre:</span> Crispy</p>
+                    <p th:text="${tipoAnimal}"><span class="texto-color ">Clase:</span> Perro</p>
+                    <p th:text="${genero}"><span class="texto-color ">Género:</span> Macho</p>
+                    <p th:text="${raza}"><span class="texto-color ">Raza:</span> Cruce</p>
+                    <p th:text="${fechaNacimeinto}"><span class="texto-color ">Fecha de nacimiento:</span> 11/02/2020</p>
                 </div>
 
             </div>
@@ -30,21 +29,16 @@
             <div class="row mt-5">
                 <div class="col-12 col-12">
                     <h2 class="texto-color">Historia</h2>
-                    <p>
+                    <p th:text="${historia}">
                         No conocemos el pasado de CRISPY antes de ser rescatado y llegar a nuestro refugio. Suponemos que fue un
                         desecho de un cazador tras darse cuenta de que no valía para cazar.
                     </p>
-                    <p>
-                        CRISPY es un bretón de tamaño mediano. Tiene energía pa’ rato y es un perro muy activo, por lo que
-                        necesita
-                        una familia que sea activa y le proporcione las salidas y la actividad que necesita. Por lo demás, es muy
-                        cariñoso, noble, sociable y un excelente compañero con el que vivir inumerables aventuras.
-                    </p>
+                    
                 </div>
 
                 <div class="col-12 col-12">
                     <h2 class="texto-color">Aspectos veterinarios</h2>
-                    <p>
+                    <p th:text="${aspVeterianarios}">
                         CRISPY está totalmente sano. Se entrega con chip, pasaporte, vacunas al día, test de enfermedades negativo
                         de anaplasma, erliquia, filaria y leishmaniosis. Además, se entrega esterilizado.
                     </p>

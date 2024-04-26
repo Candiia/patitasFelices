@@ -36,7 +36,7 @@ public class AnimalControlador {
 		model.addAttribute("aspVeterianarios", a.getAspectosVeterianrios());
 		model.addAttribute("foto", a.getFoto());
 		model.addAttribute("historia", a.getHistoria());
-		model.addAttribute("tipoAnimal", a.getTipoAnimal());
+		model.addAttribute("tipoAnimal", a.getTipoAnimales());
 		model.addAttribute("fechaNacimiento", a.getFechaNacimieto());
 		
 		return "detalleAnimal";
