@@ -1365,3 +1365,11 @@ create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint 
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ANIMAL" no encontrada
 Table "ANIMAL" not found; SQL statement:
 insert into animal (adoptado,apodo,aspectos_veterianrios,fecha_nacimieto,foto,genero,historia,nombre,raza,tipo_animales_id,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-224]
+2024-04-26 19:54:48.442981+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animales_id bigint, apodo varchar(255), aspectos_veterinarios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; se esperaba "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animales_id bigint, apodo varchar(255), aspectos_veterinarios VARCHAR [*]550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id))"; expected "(, ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table animal (adoptado boolean not null, fecha_nacimieto date, id bigint not null, tipo_animales_id bigint, apodo varchar(255), aspectos_veterinarios VARCHAR 550, foto varchar(255), genero varchar(255), historia VARCHAR 550, nombre varchar(255), raza varchar(255), primary key (id)) [42001-224]
+2024-04-26 19:54:48.815757+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ANIMAL" no encontrada
+Table "ANIMAL" not found; SQL statement:
+insert into animal (adoptado,apodo,aspectos_veterinarios,fecha_nacimieto,foto,genero,historia,nombre,raza,tipo_animales_id,id) values (?,?,?,?,?,?,?,?,?,?,?) [42102-224]

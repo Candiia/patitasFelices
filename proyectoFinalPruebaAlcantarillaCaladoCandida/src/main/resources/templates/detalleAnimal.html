@@ -17,11 +17,12 @@
                 </div>
 
                 <div class="col-12 col-lg-6 mt-3">
-                    <p th:text="${nombre}"><span class="texto-color">Nombre:</span> Crispy</p>
-                    <p th:text="${tipoAnimal}"><span class="texto-color ">Clase:</span> Perro</p>
-                    <p th:text="${genero}"><span class="texto-color ">Género:</span> Macho</p>
-                    <p th:text="${raza}"><span class="texto-color ">Raza:</span> Cruce</p>
-                    <p th:text="${fechaNacimeinto}"><span class="texto-color ">Fecha de nacimiento:</span> 11/02/2020</p>
+                    <p><span class="texto-color">Nombre: </span> <span th:text="${nombre}">Crispy</span> </p>
+                    <p><span class="texto-color ">Clase: </span><span th:text="${tipoAnimal}">Perro</span></p>
+                    <p><span class="texto-color ">Género: </span><span th:text="${genero}">Macho</span></p>
+                    <p><span class="texto-color ">Raza: </span><span th:text="${raza}">Cruce</span></p>
+                    <p><span class="texto-color ">Fecha de nacimiento: </span><span
+                            th:text="${fechaNacimiento}">11/02/2020</span></p>
                 </div>
 
             </div>
@@ -33,7 +34,7 @@
                         No conocemos el pasado de CRISPY antes de ser rescatado y llegar a nuestro refugio. Suponemos que fue un
                         desecho de un cazador tras darse cuenta de que no valía para cazar.
                     </p>
-                    
+
                 </div>
 
                 <div class="col-12 col-12">
@@ -46,7 +47,7 @@
             </div>
         </main>
 
-		<footer th:replace="~{fragmentos/pie::pie}"></footer>
+        <footer th:replace="~{fragmentos/pie::pie}"></footer>
 
     </body>
 </html>

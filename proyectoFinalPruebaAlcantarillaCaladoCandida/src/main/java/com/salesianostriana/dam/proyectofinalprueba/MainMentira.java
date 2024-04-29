@@ -61,11 +61,11 @@ public class MainMentira {
 		producRepo.save(p2);
 		
 		TipoAnimal tA1 = TipoAnimal.builder()
-				.tipo("Perro")
+				.tipo("Perros")
 				.build();
 		
 		TipoAnimal tA2 = TipoAnimal.builder()
-				.tipo("Gato")
+				.tipo("Gatos")
 				.build();
 		
 		tipoAnimalRepo.save(tA1);
@@ -77,9 +77,10 @@ public class MainMentira {
 				.raza("chiguagua")
 				.adoptado(true)
 				.apodo("fgd")
-				.aspectosVeterianrios("sadsa")
-				.fechaNacimieto(LocalDate.of(2023, 04, 20))
+				.aspectosVeterinarios("sadsa")
+				.fechaNacimiento(LocalDate.of(2023, 04, 20))
 				.genero("macho")
+				.historia("dashsahdsjkdhkjasdjasjdasjkdhjkshdaskhdkjshdkashkdshjkdhsajkdhksjhdjkashdkjasdkjhsjdasjkdsajkdhsajkdhjshjdhkasjhdkajhdjkash")
 				.foto("https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg")
 				.tipoAnimales(tA1)
 				.build();
@@ -90,9 +91,10 @@ public class MainMentira {
 				.raza("chiguagua")
 				.adoptado(true)
 				.apodo("fgd")
-				.aspectosVeterianrios("asddsa")
-				.fechaNacimieto(LocalDate.of(2023, 04, 20))
+				.aspectosVeterinarios("asddsa")
+				.fechaNacimiento(LocalDate.of(2023, 04, 20))
 				.genero("macho")
+				.historia("dashsahdsjkdhkjasdjasjdasjkdhjkshdaskhdkjshdkashkdshjkdhsajkdhksjhdjkashdkjasdkjhsjdasjkdsajkdhsajkdhjshjdhkasjhdkajhdjkash")
 				.foto("https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg")
 				.tipoAnimales(tA1)
 				.build();
@@ -103,9 +105,10 @@ public class MainMentira {
 				.raza("pinche")
 				.adoptado(false)
 				.apodo("Lunita")
-				.aspectosVeterianrios("djjhasdgashgdasjdga")
-				.fechaNacimieto(LocalDate.of(2023, 04, 20))
+				.aspectosVeterinarios("djjhasdgashgdasjdga")
+				.fechaNacimiento(LocalDate.of(2023, 04, 20))
 				.genero("Hembra")
+				.historia("dashsahdsjkdhkjasdjasjdasjkdhjkshdaskhdkjshdkashkdshjkdhsajkdhksjhdjkashdkjasdkjhsjdasjkdsajkdhsajkdhjshjdhkasjhdkajhdjkash")
 				.foto("https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg")
 				.tipoAnimales(tA2)
 				.build();

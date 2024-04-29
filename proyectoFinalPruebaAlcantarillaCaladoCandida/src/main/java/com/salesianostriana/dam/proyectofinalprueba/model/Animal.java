@@ -2,7 +2,6 @@ package com.salesianostriana.dam.proyectofinalprueba.model;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
@@ -11,7 +10,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,13 +29,13 @@ public class Animal {
 	private String genero;
 	
 	
-	private LocalDate fechaNacimieto;
+	private LocalDate fechaNacimiento;
 	
-	@Column(columnDefinition = "VARCHAR 550")
+	@Column(columnDefinition = "VARCHAR (550)")
 	private String historia;
 	
-	@Column(columnDefinition = "VARCHAR 550")
-	private String aspectosVeterianrios;
+	@Column(columnDefinition = "VARCHAR (550)")
+	private String aspectosVeterinarios;
 	
 	private String foto;
 	private boolean adoptado;

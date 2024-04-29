@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head th:replace="~{fragmentos/head::cabeza}"></head>
-    <body class="d-flex flex-column justify-content-between min-vh-100">
+	<body class="d-flex flex-column justify-content-between min-vh-100">
 		<header th:replace="~{fragmentos/header::encabezado}"> </header>
-        <div class="mt-3 flex-grow-1">
-            <div class="row m-0">
+		<div class="mt-3 flex-grow-1">
+			<div class="row m-0">
+				<aside class="container col-12 col-lg-2 d-flex gap-2 flex-column mt-3">
+					<div>
+						<a href="/mostrarAnimales" class="btn w-75 ms-4" type="button">Todos</a>
 
-                <aside class="container col-12 col-lg-2 d-flex gap-2 flex-column mt-3">
-                    <a href="#" class="btn w-75 mx-auto" type="button">Perros</a>
-                    <a href="#" class="btn w-75 mx-auto" type="button">Gatos</a>
-                    <a href="#" class="btn w-75 mx-auto" type="button">Todos</a>
+					</div>
 
-                </aside>
+					<div th:each=" tipo:${listaTipos}">
+						<a href="#" class="btn w-75 ms-4" th:text="${tipo.tipo}" type="button"></a>
+
+					</div>
+				</aside>
 				<main class="container col-12 col-lg-10 ">
-				           <h1 class="texto-color text-center mt-4">Nuestros productos</h1>
-				             <div class="row">
-				                 <div class="col-12 col-lg-4 p-3" th:each="animal:${listaAnimales}">
-				                     <div class="card imagen-cartas">
-				                        <img class="card-img-top tamayo-carta" th:src="${animal.foto}" src="../img/pipeta.webp" alt="Card image">
-				                           <div class="card-body">
-				                              <h4 class="card-title" th:text="${animal.apodo}">Animal</h4>
-				                          	
-				                               <a th:href="@{/detalleAnimal?id={id}(id=${animal.id})}" class="btn btn-light">Saber más</a>
-				                            </div>
-				                      </div>
-				                  </div> 
-				             </div>
+					<h1 class="texto-color text-center mt-4">Nuestros Aniamles</h1>
+					<div class="row">
+						<div class="col-12 col-lg-4 p-3" th:each="animal:${listaAnimales}">
+							<div class="card imagen-cartas">
+								<img class="card-img-top tamayo-carta" th:src="${animal.foto}" src="../img/pipeta.webp" alt="Card image">
+								<div class="card-body">
+									<h4 class="card-title" th:text="${animal.apodo}">Animal</h4>
+
+									<a th:href="@{/detalleAnimal?id={id}(id=${animal.id})}" class="btn btn-light">Saber más</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</main>
-            </div>
-        </div>
+			</div>
+		</div>
 
 		<footer th:replace="~{fragmentos/pie::pie}"></footer>
-    </body>
+	</body>
 </html>
