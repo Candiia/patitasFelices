@@ -6,17 +6,17 @@
         <main class="container">
             <div class=" row">
                 <div class="col-12 col-lg-4">
-                    <img th:src="${foto}" class="w-100" alt="pipeta">
+                    <img th:src="${producto.foto}" class="w-100" alt="pipeta">
                 </div>
 
                 <div class="col-12 col-lg-8">
                     <div class="d-flex  align-items-center p-2 col-12 col-lg-2">
                         <a href="carrito.html" class="btn btn-light rounded-circle"><i class="bi bi-cart-plus"></i></a>
-                        <h4 class="texto-color px-2" th:text="${#numbers.formatDecimal(precio, 1, 2 )+'€'}">30.49€</h4>
+                        <h4 class="texto-color px-2" th:text="${#numbers.formatDecimal(producto.precio, 1, 2 )+'€'}">30.49€</h4>
                     </div>
-                    <h3 class="texto-color" th:text="${nombre}">FRONTLINE TRI-ACT PIPETAS ANTIPARASITARIAS PARA PERROS 20 - 40 KG</h3>
+                    <h3 class="texto-color" th:text="${producto.nombre}">FRONTLINE TRI-ACT PIPETAS ANTIPARASITARIAS PARA PERROS 20 - 40 KG</h3>
 					
-                    <p th:text="${descripcion}">
+                    <p th:text="${producto.descripcion}">
                         Frontline Tri-Act es el antiparasitario para perros de última generación. Producto altamente innovador,
                         brinda una nueva protección total de amplio espectro frente a los párasitos externos (pulgas, garrapatas e
                         insectos voladores) con su fórmula repelente reforzada frente flebotomos y mosquitos. En forma de pipetas

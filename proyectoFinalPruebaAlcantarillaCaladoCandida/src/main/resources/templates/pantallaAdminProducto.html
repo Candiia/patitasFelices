@@ -12,9 +12,9 @@
                     <a href="#" class="btn w-75 mx-auto" type="button">Mis datos</a>
 
                     <hr>
-                    <a href="pantallaAdminTrabaja.html" class="btn w-75 mx-auto" type="button">Trabajadores</a>
-                    <a href="pantallaAdminProducto.html" class="btn w-75 mx-auto" type="button">Productos</a>
-                    <a href="pantallaAdminAnimal.html" class="btn w-75 mx-auto" type="button">Animales</a>
+                    <a href="pantallaAdminTrabaja.html" class="btn w-75 mx-auto" type="button">Clientes</a>
+                    <a href="/detalleAdminProducto" class="btn w-75 mx-auto" type="button">Productos</a>
+                    <a href="/detalleAdminAnimal" class="btn w-75 mx-auto" type="button">Animales</a>
 
                 </aside>
 
@@ -45,18 +45,23 @@
                                 <div class="modal-body">
                                     <form>
                                         <div class="mb-3 mx-2 mt-2">
-                                            <label for="exampleInputnombreProd" class="form-label">Nombre producto<span class="text-danger ms-1">*</span></label>
-                                            <input type="text" class="form-control w-100" id="exampleInputnombreProd"aria-describedby="nombre" required>
+                                            <label for="exampleInputnombreProd" class="form-label">Nombre producto<span
+                                                    class="text-danger ms-1">*</span></label>
+                                            <input type="text" class="form-control w-100" id="exampleInputnombreProd"
+                                                aria-describedby="nombre" required>
                                         </div>
 
                                         <div class="mb-3 mx-2 mt-2">
                                             <label for="descripcion">Descripción<span class="text-danger ms-1">*</span></label>
-                                            <textarea class="form-control" rows="6" id="descripcion" name="text" required></textarea> 
+                                            <textarea class="form-control" rows="6" id="descripcion" name="text"
+                                                required></textarea>
                                         </div>
 
                                         <div class="mb-3 mt-2 mx-2">
-                                            <label for="exampleInputPrecio" class="form-label">Precio<span class="text-danger ms-1">*</span></label>
-                                            <input type="text" class="form-control w-100" id="exampleInputPrecio"aria-describedby="precio" required>
+                                            <label for="exampleInputPrecio" class="form-label">Precio<span
+                                                    class="text-danger ms-1">*</span></label>
+                                            <input type="text" class="form-control w-100" id="exampleInputPrecio"
+                                                aria-describedby="precio" required>
                                         </div>
 
                                         <div class="mb-3 mx-2 mt-2">
@@ -71,7 +76,8 @@
                                         </div>
 
                                         <div class="mb-3 mx-2 mt-2">
-                                            <label for="foto" class="form-label">Imágen<span class="text-danger ms-1">*</span></label>
+                                            <label for="foto" class="form-label">Imágen<span
+                                                    class="text-danger ms-1">*</span></label>
                                             <input type="url" class="form-control" name="foto" id="foto">
                                         </div>
                                     </form>
@@ -92,23 +98,24 @@
                                 <tr>
                                     <th>Nombre producto</th>
                                     <th>Descripción</th>
-                                    <th>Foto</th>
                                     <th>Precio</th>
                                     <th>Tipo producto</th>
                                     <th>&nbsp;</th>
-                                  
+
                                 </tr>
                             </thead>
-                            <tbody >
-                                <tr>
-                                    <td>johnDoe</td>
-                                    <td>kjsdfhjsdhfjdgsfjg</td>
-                                    <td>foto</td>
-                                    <td>40.23€</td>
-                                    <td>Alimentación</td>
-                                    
+                            <tbody>
+                                <tr th:each=" producto:${listaProductos}">
+                                    <td th:text="${producto.nombre}">johnDoe</td>
+                                    <td th:text="${producto.descripcion}">kjsdfhjsdhfjdgsfjg</td>
+                                    <td th:text="${#numbers.formatDecimal(producto.precio, 1, 2 )+'€'}">40.23€</td>
+                                    <td th:text="${producto.catProducto.categoria}">Alimentación</td>
+
                                     <td class="align-items-center fondo d-flex">
-                                        <button type="button" class="btn d-flex fondo" data-bs-toggle="modal"
+                                        <a th:href="@{/detalleProducto?id={id}(id=${producto.id})}"><button
+                                                class="btn text-black fondoBlanco" type="button"><i
+                                                    class="bi bi-search"></i></button></a>
+                                        <button type="button" class="btn d-flex fondoBlanco" data-bs-toggle="modal"
                                             data-bs-target="#myModal2">
                                             <i class="bi bi-pencil-square text-black"></i>
                                         </button>
@@ -117,33 +124,40 @@
                                     <div class="modal" id="myModal2">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
-    
+
                                                 <!-- Modal Header -->
                                                 <div class="modal-header">
                                                     <h4 class="modal-title">Modal Heading</h4>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                 </div>
-    
+
                                                 <!-- Modal body -->
                                                 <div class="modal-body">
                                                     <form>
                                                         <div class="mb-3 mx-2 mt-2">
-                                                            <label for="exampleInputnombreProd" class="form-label">Nombre producto<span class="text-danger ms-1">*</span></label>
-                                                            <input type="text" class="form-control w-100" id="exampleInputnombreProd"aria-describedby="nombre" required>
+                                                            <label for="exampleInputnombreProd" class="form-label">Nombre
+                                                                producto<span class="text-danger ms-1">*</span></label>
+                                                            <input type="text" class="form-control w-100"
+                                                                id="exampleInputnombreProd" aria-describedby="nombre" required>
                                                         </div>
-                
+
                                                         <div class="mb-3 mx-2 mt-2">
-                                                            <label for="descripcion">Descripción<span class="text-danger ms-1">*</span></label>
-                                                            <textarea class="form-control" rows="6" id="descripcion" name="text" required></textarea> 
+                                                            <label for="descripcion">Descripción<span
+                                                                    class="text-danger ms-1">*</span></label>
+                                                            <textarea class="form-control" rows="6" id="descripcion" name="text"
+                                                                required></textarea>
                                                         </div>
-                
+
                                                         <div class="mb-3 mt-2 mx-2">
-                                                            <label for="exampleInputPrecio" class="form-label">Precio<span class="text-danger ms-1">*</span></label>
-                                                            <input type="text" class="form-control w-100" id="exampleInputPrecio"aria-describedby="precio" required>
+                                                            <label for="exampleInputPrecio" class="form-label">Precio<span
+                                                                    class="text-danger ms-1">*</span></label>
+                                                            <input type="text" class="form-control w-100" id="exampleInputPrecio"
+                                                                aria-describedby="precio" required>
                                                         </div>
-                
+
                                                         <div class="mb-3 mx-2 mt-2">
-                                                            <label for="tipoProduct ">Tipo producto<span class="text-danger ms-1">*</span></label>
+                                                            <label for="tipoProduct ">Tipo producto<span
+                                                                    class="text-danger ms-1">*</span></label>
                                                             <select id="tipoProduct" class="ms-2" name="tipoProduct">
                                                                 <option value></option>
                                                                 <option value="tipoProduct1">Alimentación</option>
@@ -151,14 +165,15 @@
                                                                 <option value="tipoProduct3">Accesorio</option>
                                                             </select>
                                                         </div>
-                
+
                                                         <div class="mb-3 mx-2 mt-2">
-                                                            <label for="foto" class="form-label">Imágen<span class="text-danger ms-1">*</span></label>
+                                                            <label for="foto" class="form-label">Imágen<span
+                                                                    class="text-danger ms-1">*</span></label>
                                                             <input type="url" class="form-control" name="foto" id="foto">
                                                         </div>
                                                     </form>
                                                 </div>
-    
+
                                                 <!-- Modal footer -->
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger"
@@ -171,7 +186,7 @@
                             </tbody>
                         </table>
                     </div>
-                   
+
                 </main>
             </div>
 

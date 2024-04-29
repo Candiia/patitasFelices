@@ -44,18 +44,12 @@ public class AnimalControlador {
 	
 
 	
-	@GetMapping("/detalleAdmin")
+	@GetMapping("/detalleAdminAnimal")
 	public String detalleAdmin(Model model) {
 		List<Animal> listaAnimales= animalServ.findAll();
 		model.addAttribute("listaAnimal", listaAnimales);
 		return "pantallaAdminAnimal";
 	} 
 	
-	
-	@PostMapping("/addAnimal")
-	public String add(@ModelAttribute("animalForm") Model model, Animal a) {
-		model.addAttribute("animal", a);
-		return "pantallaAdminAnimal";
-	}
 
 }

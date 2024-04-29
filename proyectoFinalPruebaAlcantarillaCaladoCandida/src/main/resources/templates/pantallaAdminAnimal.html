@@ -12,9 +12,9 @@
                     <a href="#" class="btn w-75 mx-auto" type="button">Mis datos</a>
 
                     <hr>
-                    <a href="pantallaAdminTrabaja.html" class="btn w-75 mx-auto" type="button">Trabajadores</a>
-                    <a href="pantallaAdminProducto.html" class="btn w-75 mx-auto" type="button">Productos</a>
-                    <a href="pantallaAdminAnimal.html" class="btn w-75 mx-auto" type="button">Animales</a>
+                    <a href="pantallaAdminTrabaja.html" class="btn w-75 mx-auto" type="button">Clientess</a>
+                    <a href="/detalleAdminProducto" class="btn w-75 mx-auto" type="button">Productos</a>
+                    <a href="/detalleAdminAnimal" class="btn w-75 mx-auto" type="button">Animales</a>
 
                 </aside>
 
@@ -43,17 +43,17 @@
 
                                 <!-- Modal body -->
                                 <div class="modal-body">
-                                    <form method="POST" th:action="addAnimal" th:object="${animalForm}">
+                                    <form>
                                         <div class="mb-3 mx-2 mt-2 d-flex align-items-center">
                                             <label for="exampleInputApodo" class="form-label me-2">Apodo<span
                                                     class="text-danger ms-1">*</span></label>
-                                            <input type="text" th:field="*{animal.apodo}" class="form-control w-50" id="exampleInputApodo"
+                                            <input type="text" class="form-control w-50" id="exampleInputApodo"
                                                 aria-describedby="apodo" required>
 
                                             <label for="exampleInputNombre"
                                                 class="form-label me-2 ms-2">Nombre<span
                                                     class="text-danger ms-1">*</span></label>
-                                            <input type="text" th:field="*{nombre}" class="form-control w-50" id="exampleInputNombre"
+                                            <input type="text" class="form-control w-50" id="exampleInputNombre"
                                                 aria-describedby="nombre" required>
                                         </div>
 
@@ -63,14 +63,15 @@
                                             <input type="text" class="form-control w-50" id="exampleInputRaza"
                                                 required>
 
-                                                <div class="mb-3 mx-2 mt-2">
-                                                    <label for="tipoAnimal ">Tipo animal<span class="text-danger ms-1">*</span></label>
-                                                    <select id="tipoAnimal" class="ms-2" name="tipoAnimal">
-                                                        <option value></option>
-                                                        <option value="tipoAnimal1">Perro</option>
-                                                        <option value="tipoAnimal2">Gato</option>
-                                                    </select>
-                                                </div>
+                                            <div class="mb-3 mx-2 mt-2">
+                                                <label for="tipoAnimal ">Tipo animal<span
+                                                        class="text-danger ms-1">*</span></label>
+                                                <select id="tipoAnimal" class="ms-2" name="tipoAnimal">
+                                                    <option value></option>
+                                                    <option value="tipoAnimal1">Perro</option>
+                                                    <option value="tipoAnimal2">Gato</option>
+                                                </select>
+                                            </div>
                                         </div>
 
                                         <div class="mb-3 mt-2 mx-2 d-flex">
@@ -93,8 +94,9 @@
                                         </div>
 
                                         <div class="mb-3 mt-2 mx-2 align-items-center d-flex">
-                       
-                                            <label for="exampleInputFecha" class="form-label">Fecha nacimiento<span class="text-danger ms-1">*</span></label>
+
+                                            <label for="exampleInputFecha" class="form-label">Fecha nacimiento<span
+                                                    class="text-danger ms-1">*</span></label>
                                             <input type="date" class="form-control w-50 ms-2" id="exampleInputFecha"
                                                 required>
                                         </div>
@@ -132,7 +134,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered text-center">
                             <thead>
-                                <tr >
+                                <tr>
                                     <th>Nombre</th>
                                     <th>Apodo</th>
                                     <th>Sexo</th>
@@ -148,12 +150,15 @@
                                     <td th:text="${animal.nombre}">Luna</td>
                                     <td th:text="${animal.apodo}">Lunita la perra feliz</td>
                                     <td th:text="${animal.genero}">Hembra</td>
+                                    <td th:text="${animal.tipoAnimal.tipo}">Hembra</td>
                                     <td th:text="${animal.raza}">Podenco</td>
                                     <td th:text="${animal.fechaNacimiento}">20/02/2012</td>
                                     <td th:text="${animal.adoptado}">Sí</td>
 
                                     <td class="align-items-center fondo d-flex">
-                                        <button class="btn text-black fondoBlanco" type="button"><i class="bi bi-search"></i></button>
+                                        <a th:href="@{/detalleAnimal?id={id}(id=${animal.id})}"><button
+                                                class="btn text-black fondoBlanco" type="button"><i
+                                                    class="bi bi-search"></i></button></a>
                                         <button type="button" class="btn d-flex fondoBlanco" data-bs-toggle="modal"
                                             data-bs-target="#myModal2">
                                             <i class="bi bi-pencil-square text-black"></i>
@@ -193,14 +198,15 @@
                                                             <input type="text" class="form-control w-50" id="exampleInputRaza"
                                                                 required>
 
-                                                                <div class="mb-3 mx-2 mt-2">
-                                                                    <label for="tipoAnimal ">Tipo animal<span class="text-danger ms-1">*</span></label>
-                                                                    <select id="tipoAnimal" class="ms-2" name="tipoAnimal">
-                                                                        <option value></option>
-                                                                        <option value="tipoAnimal1">Perro</option>
-                                                                        <option value="tipoAnimal2">Gato</option>
-                                                                    </select>
-                                                                </div>
+                                                            <div class="mb-3 mx-2 mt-2">
+                                                                <label for="tipoAnimal ">Tipo animal<span
+                                                                        class="text-danger ms-1">*</span></label>
+                                                                <select id="tipoAnimal" class="ms-2" name="tipoAnimal">
+                                                                    <option value></option>
+                                                                    <option value="tipoAnimal1">Perro</option>
+                                                                    <option value="tipoAnimal2">Gato</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                         <div class="mb-3 mt-2 mx-2 d-flex">
@@ -223,9 +229,11 @@
                                                         </div>
 
                                                         <div class="mb-3 mt-2 mx-2 align-items-center d-flex">
-                                       
-                                                            <label for="exampleInputFecha" class="form-label">Fecha nacimiento<span class="text-danger ms-1">*</span></label>
-                                                            <input type="date" class="form-control w-50 ms-2" id="exampleInputFecha"
+
+                                                            <label for="exampleInputFecha" class="form-label">Fecha
+                                                                nacimiento<span class="text-danger ms-1">*</span></label>
+                                                            <input type="date" class="form-control w-50 ms-2"
+                                                                id="exampleInputFecha"
                                                                 required>
                                                         </div>
 

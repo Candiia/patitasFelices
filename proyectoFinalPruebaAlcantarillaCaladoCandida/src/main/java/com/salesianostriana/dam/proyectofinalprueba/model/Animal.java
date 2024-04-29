@@ -43,5 +43,5 @@ public class Animal {
 	
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_animal_tipo"))
-	private TipoAnimal tipoAnimales;	
+	private TipoAnimal tipoAnimal;	
 }

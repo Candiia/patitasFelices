@@ -8,10 +8,8 @@
             <div class="row m-0">
                 <aside class="container col-12 col-lg-2 d-flex gap-2 flex-column mt-3">
                     <a href="/mostrarProductos" class="btn w-75 ms-4" type="button">Todas</a>
-                    <div th:each=" producto:${listaProductos}">
-                        <a href="#" class="btn w-75 ms-4"
-                            th:text="${producto.catProducto}  "
-                            type="button">Pipetas</a>
+                    <div th:each=" categoria:${listaCateg}">
+                        <a href="#" class="btn w-75 ms-4" th:text="${categoria.categoria}" type="button">Pipetas</a>
                     </div>
 
                 </aside>
