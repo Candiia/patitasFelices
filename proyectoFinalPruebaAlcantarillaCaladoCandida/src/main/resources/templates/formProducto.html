@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form th:action="addProducto" method="post" th:object="${productoForm}">
+            <div class="mb-3 mx-2 mt-2">
+                <label for="exampleInputnombreProd" class="form-label">Nombre
+                    producto<span class="text-danger ms-1">*</span></label>
+                <input type="text" th:field="*{nombre}" class="form-control w-100"
+                    id="exampleInputnombreProd" aria-describedby="nombre" required>
+            </div>
+
+            <div class="mb-3 mx-2 mt-2">
+                <label for="descripcion">Descripción<span
+                        class="text-danger ms-1">*</span></label>
+                <textarea class="form-control" rows="6" id="descripcion" name="text"
+                    required></textarea>
+            </div>
+
+            <div class="mb-3 mt-2 mx-2">
+                <label for="exampleInputPrecio" class="form-label">Precio<span
+                        class="text-danger ms-1">*</span></label>
+                <input type="text" class="form-control w-100" id="exampleInputPrecio"
+                    aria-describedby="precio" required>
+            </div>
+
+            <div class="mb-3 mx-2 mt-2">
+                <label for="tipoProduct ">Tipo producto<span
+                        class="text-danger ms-1">*</span></label>
+                <select id="tipoProduct" class="ms-2" name="tipoProduct">
+                    <option value></option>
+                    <option value="tipoProduct1">Alimentación</option>
+                    <option value="tipoProduct2">Medicina</option>
+                    <option value="tipoProduct3">Accesorio</option>
+                </select>
+            </div>
+
+            <div class="mb-3 mx-2 mt-2">
+                <label for="foto" class="form-label">Imágen<span
+                        class="text-danger ms-1">*</span></label>
+                <input type="url" class="form-control" name="foto" id="foto">
+            </div>
+        </form>
+
+    </body>
+</html>
