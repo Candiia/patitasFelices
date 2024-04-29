@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Animal;
@@ -26,28 +28,34 @@ public class AnimalControlador {
 	@GetMapping("/mostrarAnimales")
 	public String todosProductos(Model model) {
 		List<Animal> listaAnimales= animalServ.findAll();
-		List<TipoAnimal> listaTipos = tipoServ.findByAll();
+		List<TipoAnimal> listaTipos = tipoServ.findAll();
 		model.addAttribute("listaAnimales", listaAnimales);
 		model.addAttribute("listaTipos", listaTipos);
 		return "adoptar";
 	} 
 	
 	@GetMapping("/detalleAnimal")
-	public String detalleAnimal(@RequestParam Long id ,Model model) {
+	public String detalleAnimal(@RequestParam Long id,  Model model) {
 		
-		Animal a = animalServ.findById(id);
-		
-		model.addAttribute("apodo", a.getApodo());
-		model.addAttribute("nombre", a.getNombre());
-		model.addAttribute("raza", a.getRaza());
-		model.addAttribute("genero", a.getGenero());
-		model.addAttribute("aspVeterianarios", a.getAspectosVeterinarios());
-		model.addAttribute("foto", a.getFoto());
-		model.addAttribute("historia", a.getHistoria());
-		model.addAttribute("tipoAnimal", a.getTipoAnimales().getTipo());
-		model.addAttribute("fechaNacimiento", a.getFechaNacimiento());
-		
+		Animal animal = animalServ.findById(id).get();
+		model.addAttribute("animal", animal);
 		return "detalleAnimal";
+	}
+	
+
+	
+	@GetMapping("/detalleAdmin")
+	public String detalleAdmin(Model model) {
+		List<Animal> listaAnimales= animalServ.findAll();
+		model.addAttribute("listaAnimal", listaAnimales);
+		return "pantallaAdminAnimal";
+	} 
+	
+	
+	@PostMapping("/addAnimal")
+	public String add(@ModelAttribute("animalForm") Model model, Animal a) {
+		model.addAttribute("animal", a);
+		return "pantallaAdminAnimal";
 	}
 
 }

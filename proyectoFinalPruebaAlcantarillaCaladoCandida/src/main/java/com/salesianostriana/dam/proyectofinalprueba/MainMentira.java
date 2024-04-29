@@ -21,12 +21,6 @@ public class MainMentira {
 	@Autowired
 	private ProductoRepository producRepo;
 	
-	@Autowired
-	private TipoAnimalRepository tipoAnimalRepo;
-	
-	@Autowired
-	private AnimalRepository animalRepo;
-
 	@PostConstruct
 	public void init() {
 
@@ -59,63 +53,7 @@ public class MainMentira {
 		producRepo.save(p);
 		producRepo.save(p1);
 		producRepo.save(p2);
-		
-		TipoAnimal tA1 = TipoAnimal.builder()
-				.tipo("Perros")
-				.build();
-		
-		TipoAnimal tA2 = TipoAnimal.builder()
-				.tipo("Gatos")
-				.build();
-		
-		tipoAnimalRepo.save(tA1);
-		tipoAnimalRepo.save(tA2);
-		
-		
-		Animal a1 = Animal.builder()
-				.nombre("lucas")
-				.raza("chiguagua")
-				.adoptado(true)
-				.apodo("fgd")
-				.aspectosVeterinarios("sadsa")
-				.fechaNacimiento(LocalDate.of(2023, 04, 20))
-				.genero("macho")
-				.historia("dashsahdsjkdhkjasdjasjdasjkdhjkshdaskhdkjshdkashkdshjkdhsajkdhksjhdjkashdkjasdkjhsjdasjkdsajkdhsajkdhjshjdhkasjhdkajhdjkash")
-				.foto("https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg")
-				.tipoAnimales(tA1)
-				.build();
-		
-		
-		Animal a2 = Animal.builder()
-				.nombre("lucas")
-				.raza("chiguagua")
-				.adoptado(true)
-				.apodo("fgd")
-				.aspectosVeterinarios("asddsa")
-				.fechaNacimiento(LocalDate.of(2023, 04, 20))
-				.genero("macho")
-				.historia("dashsahdsjkdhkjasdjasjdasjkdhjkshdaskhdkjshdkashkdshjkdhsajkdhksjhdjkashdkjasdkjhsjdasjkdsajkdhsajkdhjshjdhkasjhdkajhdjkash")
-				.foto("https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg")
-				.tipoAnimales(tA1)
-				.build();
-				
-				
-		Animal a3 = Animal.builder()
-				.nombre("Luna")
-				.raza("pinche")
-				.adoptado(false)
-				.apodo("Lunita")
-				.aspectosVeterinarios("djjhasdgashgdasjdga")
-				.fechaNacimiento(LocalDate.of(2023, 04, 20))
-				.genero("Hembra")
-				.historia("dashsahdsjkdhkjasdjasjdasjkdhjkshdaskhdkjshdkashkdshjkdhsajkdhksjhdjkashdkjasdkjhsjdasjkdsajkdhsajkdhjshjdhkasjhdkajhdjkash")
-				.foto("https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg")
-				.tipoAnimales(tA2)
-				.build();
-		
-		animalRepo.save(a1);
-		animalRepo.save(a2);
-		animalRepo.save(a3);
+
 
 	}
 	

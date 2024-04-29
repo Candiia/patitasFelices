@@ -7,22 +7,20 @@
         <main class="container">
             <div class=" row mt-3">
                 <div class="d-flex">
-                    <h1 class="texto-color me-2" th:text="${apodo}">El alegre CRISPY</h1>
+                    <h1 class="texto-color me-2" th:text="${animal.apodo}">El alegre CRISPY</h1>
                     <a href="#" class="btn btn-light mx-2 d-flex align-items-center "><i
                             class="bi bi-heart-fill me-2 "></i>Adoptar</a>
                 </div>
 
                 <div class="col-12 col-lg-6 mt-3">
-                    <img th:src="${foto}" class="w-100" alt="perrito">
+                    <img th:src="${animal.foto}" class="w-100" alt="perrito">
                 </div>
 
                 <div class="col-12 col-lg-6 mt-3">
-                    <p><span class="texto-color">Nombre: </span> <span th:text="${nombre}">Crispy</span> </p>
-                    <p><span class="texto-color ">Clase: </span><span th:text="${tipoAnimal}">Perro</span></p>
-                    <p><span class="texto-color ">Género: </span><span th:text="${genero}">Macho</span></p>
-                    <p><span class="texto-color ">Raza: </span><span th:text="${raza}">Cruce</span></p>
-                    <p><span class="texto-color ">Fecha de nacimiento: </span><span
-                            th:text="${fechaNacimiento}">11/02/2020</span></p>
+                    <p><span class="texto-color">Nombre: </span> <span th:text="${animal.nombre}">Crispy</span> </p>
+                    <p><span class="texto-color ">Género: </span><span th:text="${animal.genero}">Macho</span></p>
+                    <p><span class="texto-color ">Raza: </span><span th:text="${animal.raza}">Cruce</span></p>
+                    <p><span class="texto-color ">Fecha de nacimiento: </span> <span th:text="${animal.fechaNacimiento}">11/02/2020</span></p>
                 </div>
 
             </div>
@@ -30,7 +28,7 @@
             <div class="row mt-5">
                 <div class="col-12 col-12">
                     <h2 class="texto-color">Historia</h2>
-                    <p th:text="${historia}">
+                    <p th:text="${animal.historia}">
                         No conocemos el pasado de CRISPY antes de ser rescatado y llegar a nuestro refugio. Suponemos que fue un
                         desecho de un cazador tras darse cuenta de que no valía para cazar.
                     </p>
@@ -39,7 +37,7 @@
 
                 <div class="col-12 col-12">
                     <h2 class="texto-color">Aspectos veterinarios</h2>
-                    <p th:text="${aspVeterianarios}">
+                    <p th:text="${animal.aspectosVeterinarios}">
                         CRISPY está totalmente sano. Se entrega con chip, pasaporte, vacunas al día, test de enfermedades negativo
                         de anaplasma, erliquia, filaria y leishmaniosis. Además, se entrega esterilizado.
                     </p>

@@ -37,6 +37,7 @@ public class Animal {
 	@Column(columnDefinition = "VARCHAR (550)")
 	private String aspectosVeterinarios;
 	
+	@Column(columnDefinition = "VARCHAR (550)")
 	private String foto;
 	private boolean adoptado;
 	

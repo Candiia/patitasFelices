@@ -10,7 +10,7 @@
                     <a href="/mostrarProductos" class="btn w-75 ms-4" type="button">Todas</a>
                     <div th:each=" producto:${listaProductos}">
                         <a href="#" class="btn w-75 ms-4"
-                            th:text="${#strings.capitalizeWords(0#strings.toLowerCase(producto.catProducto))}  "
+                            th:text="${producto.catProducto}  "
                             type="button">Pipetas</a>
                     </div>
 
