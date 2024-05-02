@@ -4649,9 +4649,15 @@ INSERT INTO producto (id, nombre, precio, descripcion, foto, categoria_producto_
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.salesianostriana.dam.proyectofinalprueba.ProyectoFinalPruebaApplication.main(ProyectoFinalPruebaApplication.java:10)
+<<<<<<< HEAD
 2024-05-02 08:15:39.146056+02:00 database: flush
 org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcantarilla.cacan24/Desktop/1º DAM/pruebaProyectoFinal/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]"
 General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcantarilla.cacan24/Desktop/1º DAM/pruebaProyectoFinal/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]" [50000-224]
+=======
+2024-05-01 11:18:43.970222+02:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]" [50000-224]
+>>>>>>> 46de8090e5a136a8e73d6f6e790fc2028020b80d
 	at org.h2.message.DbException.get(DbException.java:212)
 	at org.h2.message.DbException.convert(DbException.java:407)
 	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
@@ -4750,21 +4756,36 @@ General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/al
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.salesianostriana.dam.proyectofinalprueba.ProyectoFinalPruebaApplication.main(ProyectoFinalPruebaApplication.java:10)
+<<<<<<< HEAD
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcantarilla.cacan24/Desktop/1º DAM/pruebaProyectoFinal/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]"
 General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcantarilla.cacan24/Desktop/1º DAM/pruebaProyectoFinal/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]" [50000-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	... 98 more
 Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcantarilla.cacan24/Desktop/1º DAM/pruebaProyectoFinal/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]
+=======
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 98 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]
+>>>>>>> 46de8090e5a136a8e73d6f6e790fc2028020b80d
 	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
 	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 92 more
+<<<<<<< HEAD
 2024-05-02 08:15:40.664025+02:00 database: flush
 org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcantarilla.cacan24/Desktop/1º DAM/pruebaProyectoFinal/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]"
 General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcantarilla.cacan24/Desktop/1º DAM/pruebaProyectoFinal/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]" [50000-224]
+=======
+2024-05-01 11:18:45.392761+02:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]" [50000-224]
+>>>>>>> 46de8090e5a136a8e73d6f6e790fc2028020b80d
 	at org.h2.message.DbException.get(DbException.java:212)
 	at org.h2.message.DbException.convert(DbException.java:407)
 	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
@@ -4826,19 +4847,32 @@ General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/al
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.salesianostriana.dam.proyectofinalprueba.ProyectoFinalPruebaApplication.main(ProyectoFinalPruebaApplication.java:10)
+<<<<<<< HEAD
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcantarilla.cacan24/Desktop/1º DAM/pruebaProyectoFinal/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]"
 General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcantarilla.cacan24/Desktop/1º DAM/pruebaProyectoFinal/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]" [50000-224]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	... 61 more
 Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcantarilla.cacan24/Desktop/1º DAM/pruebaProyectoFinal/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]
+=======
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 61 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]
+>>>>>>> 46de8090e5a136a8e73d6f6e790fc2028020b80d
 	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
 	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 55 more
+<<<<<<< HEAD
 2024-05-02 08:16:04.914478+02:00 jdbc[3]: exception
+=======
+2024-05-01 21:46:16.773746+02:00 jdbc[3]: exception
+>>>>>>> 46de8090e5a136a8e73d6f6e790fc2028020b80d
 org.h2.jdbc.JdbcSQLSyntaxErrorException: La cantidad de columnas no coincide
 Column count does not match; SQL statement:
 INSERT INTO producto (id, nombre, precio, descripcion, foto, cat_producto_id) VALUES (7, 'CATZILLA ADULT STERILISED PIENSO PARA GATOS ESTERILIZADOS', 17.95, 'Los gatos y gatas esterilizadas tienen tendencia a ganar peso, es posible que se vuelvan más tranquilos y con menos nivel de energía, para evitar esto necesitan un tipo de alimentación adecuada a su estilo de vida. El pienso de Catzilla Sterilised para gatos y gatas esterilizadas tiene la composición ideal para que tu mascota no tenga problema a la hora de controlar su peso.', 3) [21002-224]
@@ -4897,7 +4931,11 @@ INSERT INTO producto (id, nombre, precio, descripcion, foto, cat_producto_id) VA
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.salesianostriana.dam.proyectofinalprueba.ProyectoFinalPruebaApplication.main(ProyectoFinalPruebaApplication.java:10)
+<<<<<<< HEAD
 2024-05-02 08:26:56.115849+02:00 jdbc[3]: exception
+=======
+2024-05-01 21:47:38.717215+02:00 jdbc[3]: exception
+>>>>>>> 46de8090e5a136a8e73d6f6e790fc2028020b80d
 org.h2.jdbc.JdbcSQLSyntaxErrorException: La cantidad de columnas no coincide
 Column count does not match; SQL statement:
 INSERT INTO producto (id, nombre, precio, descripcion, foto, cat_producto_id) VALUES (7, 'CATZILLA ADULT STERILISED PIENSO PARA GATOS ESTERILIZADOS', 17.95, 'Los gatos y gatas esterilizadas tienen tendencia a ganar peso, es posible que se vuelvan más tranquilos y con menos nivel de energía, para evitar esto necesitan un tipo de alimentación adecuada a su estilo de vida. El pienso de Catzilla Sterilised para gatos y gatas esterilizadas tiene la composición ideal para que tu mascota no tenga problema a la hora de controlar su peso.', 3) [21002-224]
@@ -4956,6 +4994,7 @@ INSERT INTO producto (id, nombre, precio, descripcion, foto, cat_producto_id) VA
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.salesianostriana.dam.proyectofinalprueba.ProyectoFinalPruebaApplication.main(ProyectoFinalPruebaApplication.java:10)
+<<<<<<< HEAD
 2024-05-02 08:27:53.126652+02:00 database: flush
 org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcantarilla.cacan24/Desktop/1º DAM/pruebaProyectoFinal/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]"
 General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcantarilla.cacan24/Desktop/1º DAM/pruebaProyectoFinal/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]" [50000-224]
@@ -5964,3 +6003,5 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/alcanta
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 55 more
+=======
+>>>>>>> 46de8090e5a136a8e73d6f6e790fc2028020b80d

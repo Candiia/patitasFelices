@@ -5,6 +5,7 @@
         <header th:replace="fragmentos/header::encabezado"> </header>
         <div class="mx-auto w-50">
 
+<<<<<<< HEAD
             <h1>Añadir un producto</h1>
 
             <form th:action="addProducto" method="post" th:object="${productoForm}" class="border rounded-3">
@@ -43,6 +44,36 @@
             </form>
         </div>
        
+=======
+            <div class="mb-3 mx-2 mt-2">
+                <label for="descripcion">Descripción<span
+                        class="text-danger ms-1">*</span></label>
+                <textarea class="form-control" rows="6" th:field="*{descripcion}" id="descripcion" name="text"
+                    required></textarea>
+            </div>
+
+            <div class="mb-3 mt-2 mx-2">
+                <label for="exampleInputPrecio" class="form-label">Precio<span
+                        class="text-danger ms-1">*</span></label>
+                <input type="text" class="form-control w-100" th:field=*{precio}  id="exampleInputPrecio"
+                    aria-describedby="precio" required>
+            </div>
+
+            <div class="mb-3 mx-2 mt-2">
+                <label for="tipoProduct ">Tipo producto<span  class="text-danger ms-1">*</span></label>
+                <select id="tipoProduct" th:field="*{catProducto}" class="ms-2" name="tipoProduct">
+                    <option th:each=" categoria : ${listaCat}" th:value="${categoria.id}" th:text="${categoria.categoria}" >Medicinas</option>
+                </select>
+            </div>
+
+            <div class="mb-3 mx-2 mt-2">
+                <label for="foto" class="form-label">Imagen<span
+                        class="text-danger ms-1">*</span></label>
+                <input type="url" class="form-control" th:field="*{foto}" name="foto" id="foto">
+            </div>
+            <input type="submit" value="Añadir">
+        </form>
+>>>>>>> 46de8090e5a136a8e73d6f6e790fc2028020b80d
         <footer th:replace="fragmentos/pie::pie"></footer>
     </body>
 </html>

@@ -23,7 +23,7 @@
                     <div class="mb-3 d-flex justify-content-end me-3 mt-3">
                         <input class="form-control me-2 w-50" type="text" placeholder="Buscar">
                         <button class="btn me-2" type="button"><i class="bi bi-search"></i></button>
-                        <a href="pantallaAdminTrabaja.html" class="btn btn-light d-flex align-items-center" type="button">Añadir
+                        <a href="/addProducto" class="btn btn-light d-flex align-items-center" type="button">Añadir
                             <i class="bi bi-plus-circle ms-2"></i> </a>
                     </div>
 
@@ -44,8 +44,12 @@
                                         <td th:text="${producto.nombre}">johnDoe</td>
                                         <td th:text="${producto.descripcion}">kjsdfhjsdhfjdgsfjg</td>
                                         <td th:text="${#numbers.formatDecimal(producto.precio, 1, 2 )+'€'}">40.23€</td>
+<<<<<<< HEAD
                                         <td th:text="${producto.catProducto.nombre}">Alimentación</td>
     
+=======
+                                        <td th:text="${producto.catProducto.categoria}">Alimentación</td>
+>>>>>>> 46de8090e5a136a8e73d6f6e790fc2028020b80d
                                         <td class="align-items-center fondo d-flex">
                                             <a th:href="@{/detalleProducto?id={id}(id=${producto.id})}"><button
                                                     class="btn text-black fondoBlanco" type="button"><i
