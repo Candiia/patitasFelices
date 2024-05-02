@@ -17,7 +17,7 @@
                     <h1 class="texto-color text-center mt-4">Nuestros productos</h1>
                     <div class="row">
                         <div class="col-12 col-lg-4 p-3" th:each="producto:${listaProductos}">
-                            <div class="card imagen-cartas">
+                            <div class="card imagen-cartas" data-aos="zoom-in">
                                 <img class="card-img-top tamayo-carta" th:src="${producto.foto}" src="../img/pipeta.webp"
                                     alt="Card image">
                                 <div class="card-body">
@@ -32,5 +32,9 @@
             </div>
         </div>
         <footer th:replace="~{fragmentos/pie::pie}"></footer>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
     </body>
 </html>
