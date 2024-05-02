@@ -50,16 +50,18 @@ public class ProductoControlador {
 	} 
 
 	
-	@GetMapping("/formProducto")
+	@GetMapping("/addProducto")
 	public String formProducto(Model model) {
 		Producto producto = new Producto();
+		List<CategoriaProducto> listaCat =  catServ.findAll();
 		model.addAttribute("productoForm", producto);
+		model.addAttribute("listaCat", listaCat); 
 		return "formProducto";
 	}
 	
 	@PostMapping("/addProducto")
-	public String submit(@ModelAttribute("productoForm") Producto producto, Model model) {
-		model.addAttribute("producto", productServ.save(producto));
-		return "pantallaAdminProducto";
+	public String submit(@ModelAttribute("productoForm") Producto producto) {
+		productServ.save(producto);
+		return "redirect:/detalleAdminProducto";
 	}
 }

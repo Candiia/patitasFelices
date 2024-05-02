@@ -17,6 +17,6 @@ public class CategoriaProducto {
 	@Id @GeneratedValue
 	private Long id;
 	 
-	private String categoria;
+	private String nombre;
 
 }
