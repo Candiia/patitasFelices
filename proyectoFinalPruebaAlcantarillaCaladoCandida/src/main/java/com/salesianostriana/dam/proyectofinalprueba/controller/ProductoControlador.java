@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.salesianostriana.dam.proyectofinalprueba.model.Animal;
 import com.salesianostriana.dam.proyectofinalprueba.model.CategoriaProducto;
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
 import com.salesianostriana.dam.proyectofinalprueba.service.CategoriaProductoService;
@@ -51,18 +50,20 @@ public class ProductoControlador {
 	} 
 
 	
-	@GetMapping("/formProducto")
+	@GetMapping("/addProducto")
 	public String formProducto(Model model) {
 		Producto producto = new Producto();
+		List<CategoriaProducto> listaCat =  catServ.findAll();
 		model.addAttribute("productoForm", producto);
+
+		model.addAttribute("listaCat", listaCat);
+
 		return "formProducto";
-
-
 	}
 	
 	@PostMapping("/addProducto")
-	public String submit(@ModelAttribute("productoForm") Producto producto, Model model) {
-		model.addAttribute("producto", producto);
-		return "pantallaAdminProducto";
+	public String submit(@ModelAttribute("productoForm") Producto producto) {
+		productServ.save(producto);
+		return "redirect:/detalleAdminProducto";
 	}
 }

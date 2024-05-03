@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head th:replace="~{fragmentos/head::cabeza}"></head>
-    <body class="d-flex flex-column justify-content-between min-vh-100">
+    <body class="d-flex flex-column justify-content-between min-vh-100 ">
         <header th:replace="~{fragmentos/header::encabezado}"></header>
         <div class="mt-4 flex-grow-1 container-fluid">
             <div class="row m-0">
@@ -23,7 +23,7 @@
                     <div class="mb-3 d-flex justify-content-end me-3 mt-3">
                         <input class="form-control me-2 w-50" type="text" placeholder="Buscar">
                         <button class="btn me-2" type="button"><i class="bi bi-search"></i></button>
-                        <a href="pantallaAdminTrabaja.html" class="btn btn-light d-flex align-items-center" type="button">Añadir
+                        <a href="/addProducto" class="btn btn-light d-flex align-items-center" type="button">Añadir
                             <i class="bi bi-plus-circle ms-2"></i> </a>
                     </div>
 
@@ -44,7 +44,7 @@
                                     <td th:text="${producto.nombre}">johnDoe</td>
                                     <td th:text="${producto.descripcion}">kjsdfhjsdhfjdgsfjg</td>
                                     <td th:text="${#numbers.formatDecimal(producto.precio, 1, 2 )+'€'}">40.23€</td>
-                                    <td th:text="${producto.catProducto.categoria}">Alimentación</td>
+                                    <td th:text="${producto.catProducto.nombre}">Alimentación</td>
 
                                     <td class="align-items-center fondo d-flex">
                                         <a th:href="@{/detalleProducto?id={id}(id=${producto.id})}"><button
@@ -121,7 +121,6 @@
                             </tbody>
                         </table>
                     </div>
-
                 </main>
             </div>
 

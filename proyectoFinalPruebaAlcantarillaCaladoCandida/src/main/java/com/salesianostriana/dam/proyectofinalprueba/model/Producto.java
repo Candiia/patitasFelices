@@ -24,7 +24,7 @@ public class Producto {
 	private String nombre;
 	@Column(columnDefinition = "VARCHAR (550)")
 	private double precio;
-	@Column(columnDefinition = "VARCHAR (550)")
+	@Column(columnDefinition = "TEXT")
 	private String descripcion;
 	private String foto;
 	

@@ -9,4 +9,5 @@ import com.salesianostriana.dam.proyectofinalprueba.service.base.BaseServiceImpl
 @Service
 public class ProductoService extends BaseServiceImple<Producto, Long, ProductoRepository>{
 	
+	
 } 

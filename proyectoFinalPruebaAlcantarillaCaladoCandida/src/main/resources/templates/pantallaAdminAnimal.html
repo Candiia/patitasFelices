@@ -152,7 +152,7 @@
                                     <td th:text="${animal.genero}">Hembra</td>
                                     <td th:text="${animal.tipoAnimal.tipo}">Hembra</td>
                                     <td th:text="${animal.raza}">Podenco</td>
-                                    <td th:text="${animal.fechaNacimiento}">20/02/2012</td>
+                                    <td th:text="${#temporals.format(animal.fechaNacimiento)}">20/02/2012</td>
                                     <td th:text="${animal.adoptado}">Sí</td>
 
                                     <td class="align-items-center fondo d-flex">
@@ -272,10 +272,7 @@
                     </div>
                 </main>
             </div>
-
         </div>
-
         <footer th:replace="fragmentos/pie::pie"></footer>
-
     </body>
 </html>
