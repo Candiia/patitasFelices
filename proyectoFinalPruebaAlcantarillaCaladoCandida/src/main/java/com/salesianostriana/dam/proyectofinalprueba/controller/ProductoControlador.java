@@ -55,7 +55,6 @@ public class ProductoControlador {
 		Producto producto = new Producto();
 		List<CategoriaProducto> listaCat =  catServ.findAll();
 		model.addAttribute("productoForm", producto);
-
 		model.addAttribute("listaCat", listaCat);
 
 		return "formProducto";
