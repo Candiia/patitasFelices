@@ -9,11 +9,11 @@ INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, 
 INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, adoptado, raza) VALUES (5, 'wrerr', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,2, 'dkjasgdjagsdasgdjsd', false, 'jhhgdasjhgashd' );
 ALTER SEQUENCE animal_seq RESTART WITH 100;
 
-INSERT INTO categoria_producto(id, nombre) VALUES (1,'Medicinas');
-INSERT INTO categoria_producto(id, nombre) VALUES (2,'Juguetes');
-INSERT INTO categoria_producto(id, nombre) VALUES (3,'Alimentos');
-INSERT INTO categoria_producto(id, nombre) VALUES (4,'Accesorios');
-ALTER SEQUENCE categoria_producto_seq RESTART WITH 100;
+INSERT INTO categoria(id, nombre) VALUES (1,'Medicinas');
+INSERT INTO categoria(id, nombre) VALUES (2,'Juguetes');
+INSERT INTO categoria(id, nombre) VALUES (3,'Alimentos');
+INSERT INTO categoria(id, nombre) VALUES (4,'Accesorios');
+ALTER SEQUENCE categoria_seq RESTART WITH 100;
 
 INSERT INTO producto (id, nombre, precio, descripcion, foto, cat_producto_id) VALUES (1, 'TREATTRICKS PUPPY MORDEDOR EN FORMA DE T-REX PARA PERROS', 7.99, 'Este juguete para perros es de goma en color morado. La forma simula un dinosaurio T-Rex, es de un material flexible y muy resistente para que pueda jugar sin poner en peligro su salud. Además, sirve para colocar snacks y que tu peludo pueda jugar con él hasta conseguir comérselos. Es una forma de premiarle y que se entretenga durante el día. Este tipo de juguetes ayudan a desarrollar la parte inteligente del cerebro de tu perro. Deberás dar este alimento complementario a tu peludo junto con una alimentación sana y equilibrada. Además de hidratarle siempre con agua fresca. Este producto junto sus snacks deberás mantenerle un lugar fresco y seco. No está indicado para perros menores de 6 meses.', 'https://www.kiwoko.com/dw/image/v2/BDLQ_PRD/on/demandware.static/-/Sites-kiwoko-master-catalog/default/dw43a14d2c/images/juguetes_perro_treat_tricks_dental_puppy_trex_TRT88638_M.jpg?sw=780&sh=780&q=85', 2);
 INSERT INTO producto (id, nombre, precio, descripcion, foto, cat_producto_id) VALUES (2, 'HILLS SCIENCE PLAN ADULT MEDIUM POLLO PIENSO PARA PERROS', 20.50, 'El pienso para perros Hills Adult Light  con pollo es un pienso para perros de 1 a 7 años de edad que necesiten una menor cantidad de calorías: perros poco activos, esterilizados o con tendencia al sobrepeso. ', 'https://www.kiwoko.com/dw/image/v2/BDLQ_PRD/on/demandware.static/-/Sites-kiwoko-master-catalog/default/dwcb551f6d/images/pienso_perros_hills_adult_light_pollo_newpack_HIL7703DA_M_JN23%20(1).jpg?sw=528&sh=528', 3);
