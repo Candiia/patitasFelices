@@ -43,20 +43,20 @@ public class ProductoControlador {
 	} 
 
 	
-	@GetMapping("/agregar")
+	@GetMapping("/agregarProducto")
 	public String agregarProducto(Model model) {
 		model.addAttribute("producto", new Producto());
 		model.addAttribute("listaCat", catServ.findAll());
 		return "formProducto";
 	}
 	
-	@PostMapping("/agregar/submit")
+	@PostMapping("/agregarProducto/submit")
 	public String submit(@ModelAttribute("producto") Producto producto) {
 		productServ.guardar(producto.getCatProducto(), producto);
 		return "redirect:/detalleAdminProducto";
 	}
 	
-	@GetMapping("/editar/{id}")
+	@GetMapping("/editarProducto/{id}")
 	public String editarProducto(@PathVariable("id") Long id, Model model) {
 	
 		if(productServ.findById(id).isPresent()) {
@@ -68,13 +68,13 @@ public class ProductoControlador {
 		}
 	}
 	
-	@PostMapping("/editar/submit")
+	@PostMapping("/editarProducto/submit")
 	public String procesarEditar(@ModelAttribute("producto") Producto producto) {
 		productServ.guardar(producto.getCatProducto(), producto);
 		return "redirect:/detalleAdminProducto"; 
 	}
 	
-	@GetMapping("/eliminar/{id}")
+	@GetMapping("/eliminarProducto/{id}")
 	public String eliminar(@PathVariable("id") Long id) {
 		productServ.deleteById(id);
 		return "redirect:/detalleAdminProducto";

@@ -8,19 +8,17 @@
 				<aside class="container col-12 col-lg-2 d-flex gap-2 flex-column mt-3">
 					<div>
 						<a href="/mostrarAnimales" class="btn w-75 ms-4" type="button">Todos</a>
-
 					</div>
 
 					<div th:each=" tipo:${listaTipos}">
 						<a href="#" class="btn w-75 ms-4" th:text="${tipo.nombre}" type="button"></a>
-
 					</div>
 				</aside>
 				<main class="container col-12 col-lg-10 ">
 					<h1 class="texto-color text-center mt-4">Nuestros Animales</h1>
 					<div class="row">
 						<div class="col-12 col-lg-4 p-3" th:each="animal:${listaAnimales}">
-							<div class="card imagen-cartas">
+							<div class="card imagen-cartas" data-aos="zoom-in">
 								<img class="card-img-top tamayo-carta" th:src="${animal.foto}" src="../img/pipeta.webp" alt="Card image">
 								<div class="card-body">
 									<h4 class="card-title" th:text="${animal.apodo}">Animal</h4>
@@ -35,5 +33,9 @@
 		</div>
 
 		<footer th:replace="~{fragmentos/pie::pie}"></footer>
+		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+		<script>
+          AOS.init();
+        </script>
 	</body>
 </html>

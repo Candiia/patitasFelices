@@ -2,6 +2,8 @@ package com.salesianostriana.dam.proyectofinalprueba.model;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
@@ -28,7 +30,7 @@ public class Animal {
 	private String raza; 
 	private String genero;
 	
-	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
 	
 	@Column(columnDefinition = "VARCHAR (550)")
