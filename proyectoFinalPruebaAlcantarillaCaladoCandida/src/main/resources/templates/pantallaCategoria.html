@@ -12,7 +12,7 @@
                     <a href="#" class="btn w-75 mx-auto" type="button">Mis datos</a>
 
                     <hr>
-                    <a href="#" class="btn w-75 mx-auto" type="button">Clientes</a>
+                    <a href="pantallaAdminTrabaja.html" class="btn w-75 mx-auto" type="button">Clientes</a>
                     <a href="/detalleAdminProducto" class="btn w-75 mx-auto" type="button">Productos</a>
                     <a href="/detalleCategoria" class="btn w-75 mx-auto" type="button">Categoría</a>
                     <a href="/detalleAdminAnimal" class="btn w-75 mx-auto" type="button">Animales</a>
@@ -24,9 +24,32 @@
                     <div class="mb-3 d-flex justify-content-end me-3 mt-3">
                         <input class="form-control me-2 w-50" type="text" placeholder="Buscar">
                         <button class="btn me-2" type="button"><i class="bi bi-search"></i></button>
-                        <a th:href="@{/agregarAnimal}" class="btn btn-light d-flex align-items-center" type="button">Añadir
-                            <i class="bi bi-plus-circle ms-2"></i>
-                        </a>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalCategoria">Añadir <i
+                                class="bi bi-plus-circle ms-2"></i></button>
+                        <div class="modal fade" id="modalCategoria" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <form th:action="@{/agregarCategoria/submit}" method="post" th:object="${categoria}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title fw-bold" id="exampleModalLabel">Nueva categoría</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label for="recipient-name" class="col-form-label fw-bold">Nombre:</label>
+                                                <input type="text" class="form-control" id="recipient-name" name="nombre"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn">Enviar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
 
                     <div class="table-responsive">
@@ -34,43 +57,21 @@
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
-                                    <th>Apodo</th>
-                                    <th>Género</th>
-                                    <th>Tipo animal</th>
-                                    <th>Raza</th>
-                                    <th>Fecha nacimiento</th>
-                                    <th>Adoptado</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each=" animal:${listaAnimal}">
-                                    <td th:text="${animal.nombre}">Luna</td>
-                                    <td th:text="${animal.apodo}">Lunita la perra feliz</td>
-                                    <td th:text="${animal.genero}">Hembra</td>
-                                    <td th:text="${animal.tipoAnimal.nombre}">Hembra</td>
-                                    <td th:text="${animal.raza}">Podenco</td>
-                                    <td th:text="${#temporals.format(animal.fechaNacimiento)}">20/02/2012</td>
-                                    <td th:if="${animal.adoptado}" class="text-center align-middle">
-                                        <i class="bi bi-check-circle text-success"></i>
-                                    </td>
-                                    <td th:unless="${animal.adoptado}" class="text-center align-middle">
-                                        <i class="bi bi-x-circle text-danger"></i>
-                                    </td>
+                                <tr th:each=" categoria:${listaCateg}">
+                                    <td th:text="${categoria.nombre}">Alimentos</td>
 
                                     <td class="align-items-center fondo d-flex">
-                                        <a th:href="@{/detalleAnimal?id={id}(id=${animal.id})}">
-                                            <button
-                                                class="btn text-black fondoBlanco" type="button"><i class="bi bi-search"></i>
-                                            </button>
-                                        </a>
-                                        <a th:href="@{/editarAnimal/{id}(id=${animal.id})}">
+                                        <a href="#">
                                             <button type="button" class="btn d-flex fondoBlanco">
                                                 <i class="bi bi-pencil-square text-black"></i>
                                             </button>
                                         </a>
 
-                                        <a th:href="@{/eliminarAnimal/{id}(id=${animal.id})}"><i
+                                        <a href="#"><i
                                                 class="bi bi-trash text-black me-2"></i>
                                         </a>
                                     </td>
