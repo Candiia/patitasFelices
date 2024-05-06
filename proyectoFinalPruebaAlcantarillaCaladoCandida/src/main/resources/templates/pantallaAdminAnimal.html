@@ -63,11 +63,11 @@
                                                 class="btn text-black fondoBlanco" type="button"><i class="bi bi-search"></i>
                                             </button>
                                         </a>
-                                         <a thref="#"> 
-                                            <button type="button" class="btn d-flex fondoBlanco">
-                                                <i class="bi bi-pencil-square text-black"></i>
-                                            </button>
-                                        </a>
+										<a th:href="@{/editarAnimal/{id}(id=${animal.id})}"> 
+										      <button type="button" class="btn d-flex fondoBlanco">
+										     	 <i class="bi bi-pencil-square text-black"></i>
+											 </button>
+										  </a>
                                                  
                                         <a href="#"><i class="bi bi-trash text-black me-2"></i></a>
                                     </td>

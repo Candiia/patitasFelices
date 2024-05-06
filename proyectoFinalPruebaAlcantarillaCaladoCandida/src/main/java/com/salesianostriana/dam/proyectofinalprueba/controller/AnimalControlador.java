@@ -5,10 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Animal;
+import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
 import com.salesianostriana.dam.proyectofinalprueba.service.AnimalService;
 import com.salesianostriana.dam.proyectofinalprueba.service.TipoAnimalService;
 
@@ -55,5 +57,22 @@ public class AnimalControlador {
 		return "redirect:/detalleAdminAnimal";
 	}
 	
+	@GetMapping("/editarAnimal/{id}")
+	public String editarProducto(@PathVariable("id") Long id, Model model) {
+	
+		if(animalServ.findById(id).isPresent()) {
+			model.addAttribute("animal",  animalServ.findById(id).get());
+			model.addAttribute("listaTipos", tipoServ.findAll());
+			return  "formAnimal" ; 
+		}else {
+			return "redirect:/detalleAdminAnimal";
+		}
+	}
+	
+	@PostMapping("/editarAnimal/submit")
+	public String procesarEditar(@ModelAttribute("animal") Animal animal) {
+		animalServ.save(animal);
+		return "redirect:/detalleAdminAnimal"; 
+	}
 
 }

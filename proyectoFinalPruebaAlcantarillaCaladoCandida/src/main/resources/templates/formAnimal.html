@@ -4,8 +4,9 @@
     <body class="d-flex flex-column justify-content-between min-vh-100">
         <header th:replace="fragmentos/header::encabezado"></header>
         <div class="mx-auto w-50">
-            <form th:action="@{/agregarAnimal/submit}" method="post" th:object="${animal}" class="border rounded-2">
-                <div class="mb-3 mx-2 mt-2 d-flex align-items-center">
+            <form th:action="${animal.id != 0} ?  @{/agregarAnimal/submit} : @{/editarAnimal/submit}" method="post" th:object="${animal}" class="border rounded-2">
+				<input th:if="${animal.id != 0}" type="hidden" name="id" th:field="*{id}" /> 
+				<div class="mb-3 mx-2 mt-2 d-flex align-items-center">
                     <label for="exampleInputApodo" class="form-label me-2 fw-bold">Apodo<span
                             class="text-danger ms-1">*</span></label>
                     <input type="text" class="form-control w-50" id="exampleInputApodo"
