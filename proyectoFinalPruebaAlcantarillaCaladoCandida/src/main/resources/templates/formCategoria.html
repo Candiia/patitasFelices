@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head th:replace="fragmentos/head::cabeza"></head>
+    <body class="d-flex flex-column justify-content-between min-vh-100">
+        <header th:replace="fragmentos/header::encabezado"> </header>
+        <div class="mx-auto w-50">
+            <form th:action="${categoria.id != 0} ? @{/editarCategoria/submit} : @{/agregarCategoria/submit}" method="post"
+                th:object="${categoria}" class="border rounded-3">
+                <input th:if="${categoria.id != 0}" type="hidden" name="id" th:field="*{id}" />
+                <div class="mb-3 mx-2 mt-2">
+                    <label for="exampleInputnombreProd" class="form-label fw-bold">Nombre
+                        <span class="text-danger ms-1">*</span></label>
+                    <input type="text" th:field="*{nombre}" class="form-control w-100"
+                        id="exampleInputnombreProd" aria-describedby="nombre" required>
+                </div>
+
+                <input type="submit" class="ms-2 mb-2 btn" value="Enviar">
+            </form>
+        </div>
+
+        <footer th:replace="fragmentos/pie::pie"></footer>
+    </body>
+</html>
