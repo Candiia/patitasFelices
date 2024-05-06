@@ -8,26 +8,26 @@
             <form th:action="${producto.id != 0} ? @{/editar/submit} : @{/agregar/submit}" method="post" th:object="${producto}" class="border rounded-3">
 				<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" /> 
 				<div class="mb-3 mx-2 mt-2">
-                    <label for="exampleInputnombreProd" class="form-label">Nombre
+                    <label for="exampleInputnombreProd" class="form-label fw-bold">Nombre
                         <span class="text-danger ms-1">*</span></label>
-                    <input type="text" th:field="*{nombre}" class="form-control w-25"
+                    <input type="text" th:field="*{nombre}" class="form-control w-100"
                         id="exampleInputnombreProd" aria-describedby="nombre" required>
                 </div>
 
                 <div class="mb-3 mx-2 mt-2">
-                    <label for="descripcion">Descripción<span
+                    <label for="descripcion" class="fw-bold">Descripción<span
                             class="text-danger ms-1">*</span></label>
                     <textarea class="form-control w-100" rows="6" th:field="*{descripcion}" id="descripcion" name="text"
                         required></textarea>
                 </div>
 
                 <div class="mb-3 mt-2 mx-2 d-flex">
-                    <label for="exampleInputPrecio" class="form-label me-2">Precio<span
+                    <label for="exampleInputPrecio" class="form-label me-2 fw-bold">Precio<span
                             class="text-danger ms-1">*</span></label>
                     <input type="text" class="form-control w-25 me-5" th:field=*{precio} id="exampleInputPrecio"
                         aria-describedby="precio" required>
 
-                    <label for="tipoProduct ">Categoría<span class="text-danger ms-1">*</span></label>
+                    <label for="tipoProduct " class="fw-bold">Categoría<span class="text-danger ms-1">*</span></label>
                     <select id="tipoProduct" th:field="*{catProducto}" class="ms-2 " name="tipoProduct">
                         <option th:each=" categoria : ${listaCat}" th:value="${categoria.id}"
                             th:text="${categoria.nombre}">Medicinas</option>
@@ -35,11 +35,11 @@
                 </div>
 
                 <div class="mb-3 mx-2 mt-2">
-                    <label for="foto" class="form-label">Imagen<span
+                    <label for="foto" class="form-label fw-bold">Imagen<span
                             class="text-danger ms-1">*</span></label>
                     <input type="url" class="form-control w-100" th:field="*{foto}" name="foto" id="foto">
                 </div>
-                <input type="submit" class="ms-2 mb-2" value="Añadir">
+                <input type="submit" class="ms-2 mb-2 btn" value="Enviar">
             </form>
         </div>
 

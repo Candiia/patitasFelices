@@ -25,7 +25,7 @@ public class Animal {
 	
 	private String apodo;
 	private String nombre;
-	private String raza;
+	private String raza; 
 	private String genero;
 	
 	

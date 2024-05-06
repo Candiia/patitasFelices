@@ -17,7 +17,7 @@ public class TipoAnimal {
 	@Id @GeneratedValue
 	private Long id;
 	
-	private String tipo;
+	private String nombre;
 
 
 }
