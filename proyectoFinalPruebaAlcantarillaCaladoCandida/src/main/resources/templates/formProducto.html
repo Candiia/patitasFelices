@@ -5,8 +5,9 @@
         <header th:replace="fragmentos/header::encabezado"> </header>
         <div class="mx-auto w-50">
 
-            <form th:action="agregar" method="post" th:object="${productoForm}" class="border rounded-3">
-                <div class="mb-3 mx-2 mt-2">
+            <form th:action="${producto.id != 0} ? @{/editar/submit} : @{/agregar/submit}" method="post" th:object="${producto}" class="border rounded-3">
+				<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" /> 
+				<div class="mb-3 mx-2 mt-2">
                     <label for="exampleInputnombreProd" class="form-label">Nombre
                         <span class="text-danger ms-1">*</span></label>
                     <input type="text" th:field="*{nombre}" class="form-control w-25"

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
 import com.salesianostriana.dam.proyectofinalprueba.service.CategoriaService;
 import com.salesianostriana.dam.proyectofinalprueba.service.ProductoService;
@@ -48,13 +47,13 @@ public class ProductoControlador {
 	
 	@GetMapping("/agregar")
 	public String agregarProducto(Model model) {
-		model.addAttribute("productoForm", new Producto());
+		model.addAttribute("producto", new Producto());
 		model.addAttribute("listaCat", catServ.findAll());
 		return "formProducto";
 	}
 	
-	@PostMapping("/agregar")
-	public String submit(@ModelAttribute("productoForm") Producto producto) {
+	@PostMapping("/agregar/submit")
+	public String submit(@ModelAttribute("producto") Producto producto) {
 		productServ.guardar(producto.getCatProducto(), producto);
 		return "redirect:/detalleAdminProducto";
 	}
@@ -64,6 +63,7 @@ public class ProductoControlador {
 	
 		if(productServ.findById(id).isPresent()) {
 			model.addAttribute("producto",  productServ.findById(id).get());
+			model.addAttribute("listaCat", catServ.findAll());
 			return  "formProducto" ; 
 		}else {
 			return "redirect:/detalleAdminProducto";
@@ -71,9 +71,9 @@ public class ProductoControlador {
 	}
 	
 	@PostMapping("/editar/submit")
-	public String procesarEditar(@ModelAttribute("producto") Producto p) {
-		productServ.edit(p);
-		return "redirect:/detalleAdminProducto";
+	public String procesarEditar(@ModelAttribute("producto") Producto producto) {
+		productServ.guardar(producto.getCatProducto(), producto);
+		return "redirect:/detalleAdminProducto"; 
 	}
 	
 	

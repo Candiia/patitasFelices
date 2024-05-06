@@ -3,6 +3,15 @@
     height: 70px;
 }
 
+body{
+    font-family: "mons" !important;
+}
+
+@font-face {
+    font-family: "mons" ;
+    src: url(../fonts/Montserrat-Light.ttf);
+}
+
 .fondoAzul{
     background-color: #3aafa9 !important;
 }
