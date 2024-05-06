@@ -23,7 +23,7 @@
                     <div class="mb-3 d-flex justify-content-end me-3 mt-3">
                         <input class="form-control me-2 w-50" type="text" placeholder="Buscar">
                         <button class="btn me-2" type="button"><i class="bi bi-search"></i></button>
-                        <a th:href="@{/agregar}" class="btn btn-light d-flex align-items-center" type="button">Añadir
+                        <a th:href="@{/agregarProducto}" class="btn btn-light d-flex align-items-center" type="button">Añadir
                             <i class="bi bi-plus-circle ms-2"></i> </a>
                     </div>
 
@@ -43,7 +43,8 @@
                                 <tr th:each=" producto:${listaProductos}">
                                     <td th:text="${producto.nombre}">johnDoe</td>
                                     <td th:text="${producto.descripcion}">kjsdfhjsdhfjdgsfjg</td>
-                                    <td class="text-center" th:text="${#numbers.formatDecimal(producto.precio, 1, 2 )+'€'}">40.23€</td>
+                                    <td class="text-center"
+                                        th:text="${#numbers.formatDecimal(producto.precio, 1, 2 )+'€'}">40.23€</td>
                                     <td class="text-center" th:text="${producto.catProducto.nombre}">Alimentación</td>
 
                                     <td class="align-items-center fondo d-flex">
@@ -51,12 +52,13 @@
                                                 class="btn text-black fondoBlanco" type="button"><i
                                                     class="bi bi-search"></i></button>
                                         </a>
-                                        <a th:href="@{/editar/{id}(id=${producto.id})}"> 
+                                        <a th:href="@{/editarProducto/{id}(id=${producto.id})}">
                                             <button type="button" class="btn d-flex fondoBlanco">
-                                            <i class="bi bi-pencil-square text-black"></i></button>
+                                                <i class="bi bi-pencil-square text-black"></i></button>
                                         </a>
-                                     
-                                        <a th:href="@{/eliminar/{id}(id=${producto.id})}"><i class="bi bi-trash text-black me-2"></i></a>
+
+                                        <a th:href="@{/eliminarProducto/{id}(id=${producto.id})}"><i
+                                                class="bi bi-trash text-black me-2"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
