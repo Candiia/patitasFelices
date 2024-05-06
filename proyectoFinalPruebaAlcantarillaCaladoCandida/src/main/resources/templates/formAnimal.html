@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head th:replace="fragmentos/head::cabeza"></head>
+    <body class="d-flex flex-column justify-content-between min-vh-100">
+        <header th:replace="fragmentos/header::encabezado"></header>
+        <div class="mx-auto w-50">
+            <form th:action="@{/agregarAnimal/submit}" method="post" th:object="${animal}" class="border rounded-2">
+                <div class="mb-3 mx-2 mt-2 d-flex align-items-center">
+                    <label for="exampleInputApodo" class="form-label me-2 fw-bold">Apodo<span
+                            class="text-danger ms-1">*</span></label>
+                    <input type="text" class="form-control w-50" id="exampleInputApodo"
+                        aria-describedby="apodo" th:field="*{apodo}" required>
+            
+                    <label for="exampleInputNombre"
+                        class="form-label me-2 ms-2 fw-bold">Nombre<span
+                            class="text-danger ms-1">*</span></label>
+                    <input type="text" class="form-control w-50" id="exampleInputNombre"
+                        aria-describedby="nombre" th:field="*{nombre}" required>
+                </div>
+            
+                <div class="mb-3 mx-2">
+                    <label for="exampleInputRaza" class="form-label me-2 fw-bold">Raza<span
+                            class="text-danger ms-1">*</span></label>
+                    <input type="text" class="form-control w-50" id="exampleInputRaza" th:field="*{raza}" required>
+                </div>
+            
+                <div class="mb-3 mt-2 mx-2 d-flex">
+                    <div>
+                            <label class="form-check-label me-2 fw-bold" for="genero">Género <span class="text-danger ms-1">*</span></label>
+
+                            <input class="form-check-input" type="radio" name="genero" th:field="*{genero}" value="Hembra" id="genero" required> Hembra
+                            
+                            <input class="form-check-input" type="radio" name="genero" th:field="*{genero}" value="Macho" id="genero" required> Macho
+                    </div>
+            
+                    <div class="ms-5">
+                            <label class="form-check-label me-2 fw-bold" for="adoptar">Adoptado<span class="text-danger ms-1">*</span></label>
+
+                            <input class="form-check-input" type="radio" name="adoptar" th:field="*{adoptado}" value="true" id="adoptar"> Sí
+                            
+                            <input class="form-check-input" type="radio" name="adoptar" th:field="*{adoptado}" value="false" id="adoptar"> No    
+                    </div>
+                    
+                    <div class="ms-5">
+                        <label for="tipoAnimal" class="fw-bold">Tipo Animal<span class="text-danger ms-1">*</span></label>
+                        <select id="tipoAnimal" th:field="*{tipoAnimal}" class="ms-2 " name="tipoAnimal" required>
+                            <option th:each=" tipos : ${listaTipos}" th:value="${tipos.id}"
+                                th:text="${tipos.nombre}">Medicinas</option>
+                        </select>
+                    </div>
+                </div>
+            
+                <div class="mb-3 mt-2 mx-2 align-items-center d-flex">
+            
+                    <label for="exampleInputFecha" class="form-label fw-bold">Fecha nacimiento<span
+                            class="text-danger ms-1">*</span></label>
+                    <input type="date" class="form-control w-50 ms-2" id="exampleInputFecha" th:field="*{fechaNacimiento}"
+                        required>
+                </div>
+            
+                <div class="mb-3 mx-2 mt-2">
+                    <label for="historia" class="fw-bold">Historia<span class="text-danger ms-1">*</span></label>
+                    <textarea class="form-control" rows="6" id="historia" name="text" th:field="*{historia}"></textarea>
+                </div>
+            
+                <div class="mb-3 mx-2 mt-2">
+                    <label for="veterinario" class="fw-bold">Aspectos veterinarios<span class="text-danger ms-1">*</span></label>
+                    <textarea class="form-control" rows="6" id="veterinario" name="text" th:field="*{aspectosVeterinarios}"></textarea>
+                </div>
+            
+                <div class="mb-3 mx-2 mt-2">
+                    <label for="foto" class="form-label fw-bold">Imagen</label>
+                    <input type="text" class="form-control" name="foto" id="foto" th:field="*{foto}">
+                </div>
+
+                <input type="submit" class="ms-2 mb-2 btn" value="Enviar">
+            </form>
+        </div>
+
+        <footer th:replace="fragmentos/pie::pie"></footer>
+    </body>
+</html>

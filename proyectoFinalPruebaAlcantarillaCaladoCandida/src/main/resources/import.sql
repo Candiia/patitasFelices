@@ -1,5 +1,5 @@
-INSERT INTO tipo_animal(id, tipo) VALUES (1,'Perro');
-INSERT INTO tipo_animal(id,tipo) VALUES (2,'Gato');
+INSERT INTO tipo_animal(id, nombre) VALUES (1,'Perro');
+INSERT INTO tipo_animal(id, nombre) VALUES (2,'Gato');
 ALTER SEQUENCE tipo_animal_seq RESTART WITH 100;
 
 INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, adoptado, raza) VALUES (1, 'lucas', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,1, 'dkjasgdjagsdasgdjsd', true, 'jhhgdasjhgashd' );
