@@ -75,4 +75,9 @@ public class AnimalControlador {
 		return "redirect:/detalleAdminAnimal"; 
 	}
 
+	@GetMapping("/eliminarAnimal/{id}")
+	public String eliminar(@PathVariable("id") Long id) {
+		animalServ.deleteById(id);
+		return "redirect:/detalleAdminAnimal";
+	}
 }

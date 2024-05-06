@@ -51,10 +51,10 @@
                                     <td th:text="${animal.raza}">Podenco</td>
                                     <td th:text="${#temporals.format(animal.fechaNacimiento)}">20/02/2012</td>
                                     <td th:if="${animal.adoptado}" class="text-center align-middle">
-										<i class="bi bi-check-circle text-success"></i>
+                                        <i class="bi bi-check-circle text-success"></i>
                                     </td>
                                     <td th:unless="${animal.adoptado}" class="text-center align-middle">
-										<i class="bi bi-x-circle text-danger"></i>
+                                        <i class="bi bi-x-circle text-danger"></i>
                                     </td>
 
                                     <td class="align-items-center fondo d-flex">
@@ -63,13 +63,15 @@
                                                 class="btn text-black fondoBlanco" type="button"><i class="bi bi-search"></i>
                                             </button>
                                         </a>
-										<a th:href="@{/editarAnimal/{id}(id=${animal.id})}"> 
-										      <button type="button" class="btn d-flex fondoBlanco">
-										     	 <i class="bi bi-pencil-square text-black"></i>
-											 </button>
-										  </a>
-                                                 
-                                        <a href="#"><i class="bi bi-trash text-black me-2"></i></a>
+                                        <a th:href="@{/editarAnimal/{id}(id=${animal.id})}">
+                                            <button type="button" class="btn d-flex fondoBlanco">
+                                                <i class="bi bi-pencil-square text-black"></i>
+                                            </button>
+                                        </a>
+
+                                        <a th:href="@{/eliminarAnimal/{id}(id=${animal.id})}"><i
+                                                class="bi bi-trash text-black me-2"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             </tbody>
