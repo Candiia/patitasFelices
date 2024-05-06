@@ -30,7 +30,17 @@ public class Producto {
 	
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_producto_categoria"))
-	private CategoriaProducto catProducto;
+	private Categoria catProducto;
+	
+	public void addToCategoria(Categoria categoria) {
+		this.catProducto = categoria; 
+		categoria.getListaProducto().add(this);
+	}
+	
+	public void removeFromCategoria(Categoria categoria) {
+		this.catProducto = null;
+		categoria.getListaProducto().remove(this);
+	}
 	
 
 

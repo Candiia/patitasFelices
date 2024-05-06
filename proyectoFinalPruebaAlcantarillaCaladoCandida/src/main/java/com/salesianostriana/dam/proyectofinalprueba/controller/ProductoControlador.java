@@ -1,18 +1,19 @@
 package com.salesianostriana.dam.proyectofinalprueba.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.salesianostriana.dam.proyectofinalprueba.model.CategoriaProducto;
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
-import com.salesianostriana.dam.proyectofinalprueba.service.CategoriaProductoService;
+import com.salesianostriana.dam.proyectofinalprueba.service.CategoriaService;
 import com.salesianostriana.dam.proyectofinalprueba.service.ProductoService;
 
 @Controller
@@ -22,48 +23,58 @@ public class ProductoControlador {
 	private ProductoService productServ;
 	
 	@Autowired
-	private CategoriaProductoService catServ;;
+	private CategoriaService catServ;;
 	
 	@GetMapping("/mostrarProductos")
 	public String todosProductos(Model model) {
-		List<Producto> listaProductos= productServ.findAll();
-		List<CategoriaProducto> listaCat = catServ.findAll();
-		model.addAttribute("listaProductos", listaProductos);
-		model.addAttribute("listaCateg", listaCat);
+		model.addAttribute("listaProductos", productServ.findAll());
+		model.addAttribute("listaCateg", catServ.findAll());
 		return "tienda";
 	} 
 	
 	@GetMapping("/detalleProducto")
 	public String detalleProducto(@RequestParam Long id, Model model) {
-		Producto producto = productServ.findById(id).get();
-		model.addAttribute("producto", producto);
-		return "detalleProducto";
-		
-		
+		model.addAttribute("producto", productServ.findById(id).get());
+		return "detalleProducto";	
 	}
 	
 	@GetMapping("/detalleAdminProducto")
 	public String detalleAdmin(Model model) {
-		List<Producto> listaProducto= productServ.findAll();
-		model.addAttribute("listaProductos", listaProducto);
+		model.addAttribute("listaProductos", productServ.findAll());
 		return "pantallaAdminProducto";
 	} 
 
 	
-	@GetMapping("/addProducto")
-	public String formProducto(Model model) {
-		Producto producto = new Producto();
-		List<CategoriaProducto> listaCat =  catServ.findAll();
-		model.addAttribute("productoForm", producto);
-
-		model.addAttribute("listaCat", listaCat);
-
+	@GetMapping("/agregar")
+	public String agregarProducto(Model model) {
+		model.addAttribute("producto", new Producto());
+		model.addAttribute("listaCat", catServ.findAll());
 		return "formProducto";
 	}
 	
-	@PostMapping("/addProducto")
-	public String submit(@ModelAttribute("productoForm") Producto producto) {
-		productServ.save(producto);
+	@PostMapping("/agregar/submit")
+	public String submit(@ModelAttribute("producto") Producto producto) {
+		productServ.guardar(producto.getCatProducto(), producto);
 		return "redirect:/detalleAdminProducto";
 	}
+	
+	@GetMapping("/editar/{id}")
+	public String editarProducto(@PathVariable("id") Long id, Model model) {
+	
+		if(productServ.findById(id).isPresent()) {
+			model.addAttribute("producto",  productServ.findById(id).get());
+			model.addAttribute("listaCat", catServ.findAll());
+			return  "formProducto" ; 
+		}else {
+			return "redirect:/detalleAdminProducto";
+		}
+	}
+	
+	@PostMapping("/editar/submit")
+	public String procesarEditar(@ModelAttribute("producto") Producto producto) {
+		productServ.guardar(producto.getCatProducto(), producto);
+		return "redirect:/detalleAdminProducto"; 
+	}
+	
+	
 }

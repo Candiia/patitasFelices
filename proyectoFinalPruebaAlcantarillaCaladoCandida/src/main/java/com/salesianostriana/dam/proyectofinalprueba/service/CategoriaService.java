@@ -2,11 +2,11 @@ package com.salesianostriana.dam.proyectofinalprueba.service;
 
 import org.springframework.stereotype.Service;
 
-import com.salesianostriana.dam.proyectofinalprueba.model.CategoriaProducto;
+import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
 import com.salesianostriana.dam.proyectofinalprueba.repository.CategoriaProductoRepository;
 import com.salesianostriana.dam.proyectofinalprueba.service.base.BaseServiceImple;
 
 @Service
-public class CategoriaProductoService extends BaseServiceImple<CategoriaProducto, Long, CategoriaProductoRepository>{
+public class CategoriaService extends BaseServiceImple<Categoria, Long, CategoriaProductoRepository>{
 
 }

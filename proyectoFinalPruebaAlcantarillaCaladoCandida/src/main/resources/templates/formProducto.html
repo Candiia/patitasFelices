@@ -5,12 +5,11 @@
         <header th:replace="fragmentos/header::encabezado"> </header>
         <div class="mx-auto w-50">
 
-            <h1>Añadir un producto</h1>
-
-            <form th:action="addProducto" method="post" th:object="${productoForm}" class="border rounded-3">
-                <div class="mb-3 mx-2 mt-2">
+            <form th:action="${producto.id != 0} ? @{/editar/submit} : @{/agregar/submit}" method="post" th:object="${producto}" class="border rounded-3">
+				<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" /> 
+				<div class="mb-3 mx-2 mt-2">
                     <label for="exampleInputnombreProd" class="form-label">Nombre
-                        producto<span class="text-danger ms-1">*</span></label>
+                        <span class="text-danger ms-1">*</span></label>
                     <input type="text" th:field="*{nombre}" class="form-control w-25"
                         id="exampleInputnombreProd" aria-describedby="nombre" required>
                 </div>
@@ -28,8 +27,8 @@
                     <input type="text" class="form-control w-25 me-5" th:field=*{precio} id="exampleInputPrecio"
                         aria-describedby="precio" required>
 
-                    <label for="tipoProduct ">Tipo producto<span class="text-danger">*</span></label>
-                    <select id="tipoProduct" th:field="*{catProducto}" class="ms-2" name="tipoProduct">
+                    <label for="tipoProduct ">Categoría<span class="text-danger ms-1">*</span></label>
+                    <select id="tipoProduct" th:field="*{catProducto}" class="ms-2 " name="tipoProduct">
                         <option th:each=" categoria : ${listaCat}" th:value="${categoria.id}"
                             th:text="${categoria.nombre}">Medicinas</option>
                     </select>
