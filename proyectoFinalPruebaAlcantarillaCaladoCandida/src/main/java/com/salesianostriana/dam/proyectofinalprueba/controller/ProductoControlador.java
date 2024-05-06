@@ -1,7 +1,5 @@
 package com.salesianostriana.dam.proyectofinalprueba.controller;
 
-import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -75,6 +73,13 @@ public class ProductoControlador {
 		productServ.guardar(producto.getCatProducto(), producto);
 		return "redirect:/detalleAdminProducto"; 
 	}
+	
+	@GetMapping("/eliminar/{id}")
+	public String eliminar(@PathVariable("id") Long id) {
+		productServ.deleteById(id);
+		return "redirect:/detalleAdminProducto";
+	}
+	
 	
 	
 }
