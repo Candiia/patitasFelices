@@ -38,7 +38,7 @@ public class CategoriaControlador {
 	
 	@GetMapping("/eliminarCategoria/{id}")
 	public String eliminar(@PathVariable("id") Long id) {
-		catService.eliminarCategoria(id);
+		catService.deleteById(id); 
 		return "redirect:/detalleCategoria";
 	}
 	
