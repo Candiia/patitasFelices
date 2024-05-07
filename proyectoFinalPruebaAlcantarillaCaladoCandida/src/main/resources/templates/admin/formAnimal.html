@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head th:replace="fragmentos/head::cabeza"></head>
+    <head th:replace="~{fragmentos/head::cabeza}"></head>
     <body class="d-flex flex-column justify-content-between min-vh-100">
-        <header th:replace="fragmentos/header::encabezado"></header>
+        <header th:replace="~{fragmentos/header::encabezado}"></header>
         <div class="mx-auto w-50">
             <form th:action="${animal.id != 0} ?  @{/admin/agregarAnimal/submit} : @{/admin/editarAnimal/submit}" method="post"
                 th:object="${animal}" class="border rounded-2 mt-3">
@@ -86,6 +86,6 @@
             </form>
         </div>
 
-        <footer th:replace="fragmentos/pie::pie"></footer>
+        <footer th:replace="~{fragmentos/pie::pie}"></footer>
     </body>
 </html>

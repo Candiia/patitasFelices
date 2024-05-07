@@ -5,9 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
 import com.salesianostriana.dam.proyectofinalprueba.model.TipoAnimal;
 import com.salesianostriana.dam.proyectofinalprueba.service.TipoAnimalService;
 
@@ -36,4 +38,20 @@ public class TipoAnimalControlador {
 		return "redirect:/admin/listadoTipoAnimal";
 	}
 
+	@GetMapping("/editarTipo/{id}")
+	public String editarTipo(@PathVariable("id") Long id, Model model) {
+	
+		if(tipoService.findById(id).isPresent()) {
+			model.addAttribute("tipo",  tipoService.findById(id).get());
+			return "/admin/formTipoAnimal"; 
+		}else {
+			return "redirect:/admin/listadoTipoAnimal";
+		}
+	}
+	
+	@PostMapping("/editarTipo/submit")
+	public String procesarEditar(@ModelAttribute("tipo") TipoAnimal tipo) {
+		tipoService.save(tipo);
+		return "redirect:/admin/listadoTipoAnimal"; 
+	}
 }
