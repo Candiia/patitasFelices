@@ -13,10 +13,10 @@
 
                     <hr>
                     <a href="pantallaAdminTrabaja.html" class="btn w-75 mx-auto" type="button">Clientes</a>
-                    <a href="/detalleAdminProducto" class="btn w-75 mx-auto" type="button">Productos</a>
-                    <a href="/detalleCategoria" class="btn w-75 mx-auto" type="button">Categorías</a>
-                    <a href="/detalleAdminAnimal" class="btn w-75 mx-auto" type="button">Animales</a>
-                    <a href="/detalleTipos" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
+                    <a href="/admin/detalleAdminProducto" class="btn w-75 mx-auto" type="button">Productos</a>
+                    <a href="/admin/detalleCategoria" class="btn w-75 mx-auto" type="button">Categorías</a>
+                    <a href="/admin/detalleAdminAnimal" class="btn w-75 mx-auto" type="button">Animales</a>
+                    <a href="/admin/listadoTipoAnimal" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
                 </aside>
 
                 <main class="col-12 col-lg-10">
@@ -24,7 +24,7 @@
                     <div class="mb-3 d-flex justify-content-end me-3 mt-3">
                         <input class="form-control me-2 w-50" type="text" placeholder="Buscar">
                         <button class="btn me-2" type="button"><i class="bi bi-search"></i></button>
-                        <a th:href="@{/admin/agregarCategoria}" class="btn btn-light d-flex align-items-center"
+                        <a th:href="@{/admin/agregarTipoAnimal}" class="btn btn-light d-flex align-items-center"
                             type="button">Añadir
                             <i class="bi bi-plus-circle ms-2"></i>
                         </a>
@@ -39,17 +39,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each=" categoria:${listaCateg}">
-                                    <td th:text="${categoria.nombre}">Alimentos</td>
+                                <tr th:each=" tipo:${listaTipo}">
+                                    <td th:text="${tipo.nombre}">Alimentos</td>
                                     <td class="align-items-center fondo d-flex">
 
-                                        <a th:href="@{/admin/editarCategoria/{id}(id=${categoria.id})}">
+                                        <a th:href="@{/admin/editarTipoAnimal/{id}(id=${tipo.id})}">
                                             <button type="button" class="btn d-flex fondoBlanco">
                                                 <i class="bi bi-pencil-square text-black"></i>
                                             </button>
                                         </a>
 
-                                        <a th:href="@{/admin/eliminarCategoria/{id}(id=${categoria.id})}"><i
+                                        <a th:href="@{/admin/eliminarTipoAnimal/{id}(id=${tipo.id})}"><i
                                                 class="bi bi-trash text-black me-2"></i>
                                         </a>
                                     </td>
