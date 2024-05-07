@@ -40,9 +40,7 @@ public class Producto {
 	public void removeFromCategoria(Categoria categoria) {
 		this.catProducto = null;
 		categoria.getListaProducto().remove(this);
-	}
-	
-
+	} 
 
 }
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-	   <head th:replace="~{fragmentos/head::cabeza}"></head>
+    <head th:replace="~{fragmentos/head::cabeza}"></head>
     <body class="d-flex flex-column justify-content-between min-vh-100">
-		<header th:replace="~{fragmentos/header::encabezado}"></header>
+        <header th:replace="~{fragmentos/header::encabezado}"></header>
         <div class="container-fluid mt-4 flex-grow-1">
             <div class="row m-0">
                 <aside class="col-12 col-lg-2 d-flex flex-column gap-2">
@@ -16,7 +16,7 @@
                     <a href="/admin/detalleAdminProducto" class="btn w-75 mx-auto" type="button">Productos</a>
                     <a href="/admin/detalleCategoria" class="btn w-75 mx-auto" type="button">Categorías</a>
                     <a href="/admin/detalleAdminAnimal" class="btn w-75 mx-auto" type="button">Animales</a>
-                    <a href="/detalleTipos" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
+                    <a href="/admin/listadoTipoAnimal" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
                 </aside>
 
                 <main class="col-12 col-lg-10">
@@ -81,6 +81,6 @@
                 </main>
             </div>
         </div>
-		<footer th:replace="~{fragmentos/pie::pie}"></footer>
+        <footer th:replace="~{fragmentos/pie::pie}"></footer>
     </body>
 </html>
