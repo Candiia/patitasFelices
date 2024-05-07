@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor @AllArgsConstructor
 @Entity
-@Builder
+@Builder 
 public class TipoAnimal {
-	
-	@Id @GeneratedValue
+
+	@Id @GeneratedValue 
 	private Long id;
 	
 	private String nombre;

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -36,4 +37,10 @@ public class TipoAnimalControlador {
 		return "redirect:/admin/listadoTipoAnimal";
 	}
 
+	@GetMapping("/eliminarTipoAnimal/{id}")
+	public String eliminar(@PathVariable("id") Long id) {
+		tipoService.deleteById(id);  
+		return "redirect:/admin/listadoTipoAnimal";
+	}
+	
 }

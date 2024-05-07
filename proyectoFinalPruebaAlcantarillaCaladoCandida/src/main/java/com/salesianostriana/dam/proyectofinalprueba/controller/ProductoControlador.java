@@ -63,7 +63,8 @@ public class ProductoControlador {
 	
 		if(productServ.findById(id).isPresent()) {
 			model.addAttribute("producto",  productServ.findById(id).get());
-			model.addAttribute("listaCat", catServ.findAll());
+			model.addAttribute("listaCat", catServ.findAll()); 
+			System.out.println(productServ.findById(id));
 			return  "/admin/formProducto" ; 
 		}else {
 			return "redirect:/admin/detalleAdminProducto";
