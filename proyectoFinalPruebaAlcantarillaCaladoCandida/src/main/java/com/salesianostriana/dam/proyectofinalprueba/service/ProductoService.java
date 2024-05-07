@@ -18,4 +18,5 @@ public class ProductoService extends BaseServiceImple<Producto, Long, ProductoRe
 		producto.addToCategoria(categoria);
 		return repositorio.save(producto);
 	}
+
 } 

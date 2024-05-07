@@ -28,7 +28,7 @@ public class Producto {
 	private String descripcion;
 	private String foto;
 	
-	@ManyToOne
+	@ManyToOne 
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_producto_categoria"))
 	private Categoria catProducto;
 	
