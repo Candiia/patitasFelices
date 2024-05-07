@@ -15,7 +15,7 @@ import com.salesianostriana.dam.proyectofinalprueba.service.AnimalService;
 import com.salesianostriana.dam.proyectofinalprueba.service.TipoAnimalService;
 
 @Controller
-@RequestMapping("/admin/")
+@RequestMapping("/admin")
 public class AnimalControlador {
 	
 	@Autowired
@@ -48,7 +48,7 @@ public class AnimalControlador {
 	public String agregarAnimal(Model model) {
 		model.addAttribute("animal", new Animal());
 		model.addAttribute("listaTipos", tipoServ.findAll());
-		return "formAnimal";
+		return "/admin/formAnimal";
 	}
 	
 	@PostMapping("/agregarAnimal/submit")
@@ -63,7 +63,7 @@ public class AnimalControlador {
 		if(animalServ.findById(id).isPresent()) {
 			model.addAttribute("animal",  animalServ.findById(id).get());
 			model.addAttribute("listaTipos", tipoServ.findAll());
-			return  "formAnimal" ; 
+			return  "/admin/formAnimal" ; 
 		}else {
 			return "redirect:/admin/detalleAdminAnimal";
 		}

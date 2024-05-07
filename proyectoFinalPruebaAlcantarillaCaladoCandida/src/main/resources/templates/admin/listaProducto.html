@@ -25,7 +25,8 @@
                     <div class="mb-3 d-flex justify-content-end me-3 mt-3">
                         <input class="form-control me-2 w-50" type="text" placeholder="Buscar">
                         <button class="btn me-2" type="button"><i class="bi bi-search"></i></button>
-                        <a th:href="@{/admin/agregarProducto}" class="btn btn-light d-flex align-items-center" type="button">Añadir <i class="bi bi-plus-circle ms-2"></i>
+                        <a th:href="@{/admin/agregarProducto}" class="btn btn-light d-flex align-items-center"
+                            type="button">Añadir <i class="bi bi-plus-circle ms-2"></i>
                         </a>
                     </div>
 
@@ -60,8 +61,8 @@
                                         </a>
 
                                         <a th:href="@{/admin/eliminarProducto/{id}(id=${producto.id})}"><i
-                                            class="bi bi-trash text-black me-2"></i>
-                                    </a>
+                                                class="bi bi-trash text-black me-2"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             </tbody>

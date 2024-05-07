@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/admin/")
+@RequestMapping("/admin")
 public class CategoriaControlador {
 
 	@Autowired
@@ -30,7 +30,7 @@ public class CategoriaControlador {
 	@GetMapping("/agregarCategoria")
 	public String agregarCategoria(Model model) {
 		model.addAttribute("categoria", new Categoria());
-		return "redirect:/admin/detalleCategoria";
+		return "/admin/formCategoria";
 	}
 	
 	@PostMapping("/agregarCategoria/submit")
@@ -50,7 +50,7 @@ public class CategoriaControlador {
 	
 		if(catService.findById(id).isPresent()) {
 			model.addAttribute("categoria",  catService.findById(id).get());
-			return  "redirect:/admin/detalleCategoria"; 
+			return "/admin/formCategoria"; 
 		}else {
 			return "redirect:/admin/detalleCategoria";
 		}

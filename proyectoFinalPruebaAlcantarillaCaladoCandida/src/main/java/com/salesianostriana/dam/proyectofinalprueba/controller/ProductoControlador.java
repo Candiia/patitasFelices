@@ -16,7 +16,7 @@ import com.salesianostriana.dam.proyectofinalprueba.service.CategoriaService;
 import com.salesianostriana.dam.proyectofinalprueba.service.ProductoService;
 
 @Controller
-@RequestMapping("/admin/")
+@RequestMapping("/admin")
 public class ProductoControlador {
 	
 	@Autowired
@@ -41,7 +41,7 @@ public class ProductoControlador {
 	@GetMapping("/detalleAdminProducto")
 	public String detalleAdmin(Model model) {
 		model.addAttribute("listaProductos", productServ.findAll());
-		return "admin/listaProducto";
+		return "/admin/listaProducto";
 	} 
 
 	
@@ -49,7 +49,7 @@ public class ProductoControlador {
 	public String agregarProducto(Model model) {
 		model.addAttribute("producto", new Producto());
 		model.addAttribute("listaCat", catServ.findAll());
-		return "formProducto";
+		return "/admin/formProducto";
 	}
 	
 	@PostMapping("/agregarProducto/submit")
@@ -64,7 +64,7 @@ public class ProductoControlador {
 		if(productServ.findById(id).isPresent()) {
 			model.addAttribute("producto",  productServ.findById(id).get());
 			model.addAttribute("listaCat", catServ.findAll());
-			return  "formProducto" ; 
+			return  "/admin/formProducto" ; 
 		}else {
 			return "redirect:/admin/detalleAdminProducto";
 		}
@@ -72,7 +72,7 @@ public class ProductoControlador {
 	
 	@PostMapping("/editarProducto/submit")
 	public String procesarEditar(@ModelAttribute("producto") Producto producto) {
-		productServ.guardar(producto.getCatProducto(), producto);
+		productServ.editar(producto.getCatProducto(), producto);
 		return "redirect:/admin/detalleAdminProducto"; 
 	}
 	
@@ -81,6 +81,7 @@ public class ProductoControlador {
 		productServ.deleteById(id);
 		return "redirect:/admin/detalleAdminProducto";
 	}
+
 	
 	
 	

@@ -18,5 +18,11 @@ public class ProductoService extends BaseServiceImple<Producto, Long, ProductoRe
 		producto.addToCategoria(categoria);
 		return repositorio.save(producto);
 	}
-
+	
+	public Producto editar(Categoria categoria, Producto producto) {
+		producto.removeFromCategoria(categoria);
+		producto.addToCategoria(categoria); 
+		return repositorio.save(producto);
+		
+	}
 } 
