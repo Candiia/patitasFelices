@@ -28,11 +28,12 @@
                                 class="bi bi-plus-circle ms-2"></i></button>
                         <div class="modal fade" id="modalCategoria" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
-                            <form th:action="@{/agregarCategoria/submit}" method="post" th:object="${categoria}">
+                            <form th:action="@{/agregarCategoria/submit}" method="post"
+                                th:object="${categoria}" class="border rounded-2 mt-3">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title fw-bold" id="exampleModalLabel">Nueva categoría</h5>
+                                            <h5 class="modal-title fw-bold" id="exampleModalLabel">Categoría</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -65,13 +66,10 @@
                                     <td th:text="${categoria.nombre}">Alimentos</td>
 
                                     <td class="align-items-center fondo d-flex">
-                                        <a href="#">
-                                            <button type="button" class="btn d-flex fondoBlanco">
-                                                <i class="bi bi-pencil-square text-black"></i>
-                                            </button>
-                                        </a>
+                                        <button type="button" id="modalCategoria1"  class="btn" data-bs-toggle="modal" data-bs-target="#modalCategoria2">Añadir <i
+                                            class="bi bi-plus-circle ms-2"></i></button>
 
-                                        <a th:href="@{/eliminarCategoria/{id}(id=${categoria.id})}">
+                                        <a th:href="@{/admin/eliminarCategoria/{id}(id=${categoria.id})}">
                                             <i class="bi bi-trash text-black me-2"></i>
                                         </a>
                                     </td>
