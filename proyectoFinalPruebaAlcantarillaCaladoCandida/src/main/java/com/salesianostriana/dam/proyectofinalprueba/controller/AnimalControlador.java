@@ -7,14 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Animal;
-import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
 import com.salesianostriana.dam.proyectofinalprueba.service.AnimalService;
 import com.salesianostriana.dam.proyectofinalprueba.service.TipoAnimalService;
 
 @Controller
+@RequestMapping("/admin")
 public class AnimalControlador {
 	
 	@Autowired
@@ -24,8 +25,7 @@ public class AnimalControlador {
 	private TipoAnimalService tipoServ;
 
 	@GetMapping("/mostrarAnimales")
-	public String todosProductos(Model model) {
-		
+	public String listaAnimalAdopcion(Model model) {
 		model.addAttribute("listaAnimales", animalServ.findAll());
 		model.addAttribute("listaTipos", tipoServ.findAll());
 		return "adoptar";
@@ -38,9 +38,9 @@ public class AnimalControlador {
 	}
 	
 	@GetMapping("/detalleAdminAnimal")
-	public String detalleAdmin(Model model) {
+	public String detalleAniaml(Model model) {
 		model.addAttribute("listaAnimal", animalServ.findAll());
-		return "pantallaAdminAnimal";
+		return "/admin/listaAnimal";
 	} 
 	
 	
@@ -48,13 +48,13 @@ public class AnimalControlador {
 	public String agregarAnimal(Model model) {
 		model.addAttribute("animal", new Animal());
 		model.addAttribute("listaTipos", tipoServ.findAll());
-		return "formAnimal";
+		return "/admin/formAnimal";
 	}
 	
 	@PostMapping("/agregarAnimal/submit")
 	public String submit(@ModelAttribute("animal") Animal animal) {
 		animalServ.save(animal);
-		return "redirect:/detalleAdminAnimal";
+		return "redirect:/admin/detalleAdminAnimal";
 	}
 	
 	@GetMapping("/editarAnimal/{id}")
@@ -63,21 +63,21 @@ public class AnimalControlador {
 		if(animalServ.findById(id).isPresent()) {
 			model.addAttribute("animal",  animalServ.findById(id).get());
 			model.addAttribute("listaTipos", tipoServ.findAll());
-			return  "formAnimal" ; 
+			return  "/admin/formAnimal" ; 
 		}else {
-			return "redirect:/detalleAdminAnimal";
+			return "redirect:/admin/detalleAdminAnimal";
 		}
 	}
 	
 	@PostMapping("/editarAnimal/submit")
 	public String procesarEditar(@ModelAttribute("animal") Animal animal) {
 		animalServ.save(animal);
-		return "redirect:/detalleAdminAnimal"; 
+		return "redirect:/admin/detalleAdminAnimal"; 
 	}
 
 	@GetMapping("/eliminarAnimal/{id}")
 	public String eliminar(@PathVariable("id") Long id) {
 		animalServ.deleteById(id);
-		return "redirect:/detalleAdminAnimal";
+		return "redirect:/admin/detalleAdminAnimal";
 	}
 }

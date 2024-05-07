@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
@@ -15,6 +16,7 @@ import com.salesianostriana.dam.proyectofinalprueba.service.CategoriaService;
 import com.salesianostriana.dam.proyectofinalprueba.service.ProductoService;
 
 @Controller
+@RequestMapping("/admin")
 public class ProductoControlador {
 	
 	@Autowired
@@ -39,7 +41,7 @@ public class ProductoControlador {
 	@GetMapping("/detalleAdminProducto")
 	public String detalleAdmin(Model model) {
 		model.addAttribute("listaProductos", productServ.findAll());
-		return "pantallaAdminProducto";
+		return "/admin/listaProducto";
 	} 
 
 	
@@ -47,13 +49,13 @@ public class ProductoControlador {
 	public String agregarProducto(Model model) {
 		model.addAttribute("producto", new Producto());
 		model.addAttribute("listaCat", catServ.findAll());
-		return "formProducto";
+		return "/admin/formProducto";
 	}
 	
 	@PostMapping("/agregarProducto/submit")
 	public String submit(@ModelAttribute("producto") Producto producto) {
 		productServ.guardar(producto.getCatProducto(), producto);
-		return "redirect:/detalleAdminProducto";
+		return "redirect:/admin/detalleAdminProducto";
 	}
 	
 	@GetMapping("/editarProducto/{id}")
@@ -62,23 +64,24 @@ public class ProductoControlador {
 		if(productServ.findById(id).isPresent()) {
 			model.addAttribute("producto",  productServ.findById(id).get());
 			model.addAttribute("listaCat", catServ.findAll());
-			return  "formProducto" ; 
+			return  "/admin/formProducto" ; 
 		}else {
-			return "redirect:/detalleAdminProducto";
+			return "redirect:/admin/detalleAdminProducto";
 		}
 	}
 	
 	@PostMapping("/editarProducto/submit")
 	public String procesarEditar(@ModelAttribute("producto") Producto producto) {
-		productServ.guardar(producto.getCatProducto(), producto);
-		return "redirect:/detalleAdminProducto"; 
+		productServ.editar(producto.getCatProducto(), producto);
+		return "redirect:/admin/detalleAdminProducto"; 
 	}
 	
 	@GetMapping("/eliminarProducto/{id}")
 	public String eliminar(@PathVariable("id") Long id) {
 		productServ.deleteById(id);
-		return "redirect:/detalleAdminProducto";
+		return "redirect:/admin/detalleAdminProducto";
 	}
+
 	
 	
 	
