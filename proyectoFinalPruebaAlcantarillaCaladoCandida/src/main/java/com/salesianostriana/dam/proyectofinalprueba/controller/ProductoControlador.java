@@ -61,7 +61,6 @@ public class ProductoControlador {
 	
 	@GetMapping("/editarProducto/{id}")
 	public String editarProducto(@PathVariable("id") Long id, Model model) {
-	
 		if(productServ.findById(id).isPresent()) {
 			model.addAttribute("producto",  productServ.findById(id).get());
 			model.addAttribute("listaCat", catServ.findAll()); 

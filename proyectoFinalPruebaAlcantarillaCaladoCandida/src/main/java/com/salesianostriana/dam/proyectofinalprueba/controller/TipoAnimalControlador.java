@@ -43,4 +43,20 @@ public class TipoAnimalControlador {
 		return "redirect:/admin/listadoTipoAnimal";
 	}
 	
+	@GetMapping("/editarTipo/{id}")
+	public String editarTipo(@PathVariable("id") Long id, Model model) {
+	
+		if(tipoService.findById(id).isPresent()) {
+			model.addAttribute("tipo",  tipoService.findById(id).get());
+			return "/admin/formTipoAnimal"; 
+		}else {
+			return "redirect:/admin/listadoTipoAnimal";
+		}
+	}
+	
+	@PostMapping("/editarTipo/submit")
+	public String procesarEditar(@ModelAttribute("tipo") TipoAnimal tipo) {
+		tipoService.save(tipo);
+		return "redirect:/admin/listadoTipoAnimal"; 
+	}
 }
