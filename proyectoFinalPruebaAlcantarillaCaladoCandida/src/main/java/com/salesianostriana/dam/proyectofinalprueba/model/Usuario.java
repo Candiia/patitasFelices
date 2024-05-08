@@ -2,6 +2,7 @@ package com.salesianostriana.dam.proyectofinalprueba.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -17,6 +18,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor @AllArgsConstructor
 @SuperBuilder
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_clase")
+
 public class Usuario {
 
 	@Id @GeneratedValue
