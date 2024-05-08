@@ -32,11 +32,19 @@ ALTER SEQUENCE producto_seq RESTART WITH 100;
 
 
 
-INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (1,'Perro' , 'sdas', 'dsbajdsa', 'skdasjd', 'sjkdasgj', '47266163J', 'sjkdbsjad',  '2014-03-20', 'C');
-INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (2,'Perro' , 'sdas', 'dsbajdsa', 'skdasjd', 'sjkdasgj', '47266163J', 'sjkdbsjad',  '2014-03-20', 'C');
-INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (3,'Perro' , 'sdas', 'dsbajdsa', 'skdasjd', 'sjkdasgj', '47266163J', 'sjkdbsjad',  '2014-03-20', 'C');
-INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (4,'Perro' , 'sdas', 'dsbajdsa', 'skdasjd', 'sjkdasgj', '47266163J', 'sjkdbsjad',  '2014-03-20', 'C');
-INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (5,'Perro' , 'sdas', 'dsbajdsa', 'skdasjd', 'sjkdasgj', '47266163J', 'sjkdbsjad',  '2014-03-20', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_clase) VALUES (1, 'Juan', 'Lopez', 'juanito123', 'contraseña123', '12345678A' ,'juan@example.com' , '123456789', '1990-05-08','C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_clase) VALUES (2, 'María', 'García', 'maria89', 'secreto123', 'maria@example.com', '987654321', '87654321B', '1992-10-15', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_clase) VALUES (3, 'Pedro', 'Martínez', 'pedritomtz', 'clave123', 'pedro@example.com', '555444333', '7654321C', '1985-03-20', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_clase) VALUES (4, 'Ana', 'Rodríguez', 'anarodri', 'password123', 'ana@example.com', '111222333', '6543217D', '1998-07-12', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_clase) VALUES (5, 'Carlos', 'Sánchez', 'carlitos', 'seguridad123', 'carlos@example.com', '999888777', '5432178E', '1994-12-30', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_clase) VALUES (6, 'Laura', 'Fernández', 'laufer', 'contraseña321', 'laura@example.com', '333222111', '4321789F', '1987-09-25', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_clase) VALUES(7, 'David', 'López', 'davidlpz', 'david123', 'david@example.com', '777666555', '3217890G', '1996-02-18', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_clase) VALUES(8, 'Sofía', 'Gómez', 'sofiag', 'sofia456', 'sofia@example.com', '888777666', '2178901H', '1991-11-05', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_clase) VALUES(9, 'Marta', 'Díaz', 'martadz', 'martapass', 'marta@example.com', '222333444', '1789012I', '1989-08-09', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_clase) VALUES(10, 'Javier', 'Alvarez', 'javieralv', 'javierpass', 'javier@example.com', '666555444', '7890123J', '1997-04-03', 'C');
 
-INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (6,'Candi' , 'Alcantarilla', 'admin', 'admin', '47251642L', '47266163J', 'admin@gmail.com',  '2002-02-11', 'A');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_clase) VALUES (11,'Candi' , 'Alcantarilla', 'admin', 'admin', '47251642L', '47266163J', 'admin@gmail.com',  '2002-02-11', 'A');
 ALTER SEQUENCE usuario_seq RESTART WITH 100;
+
+
+
