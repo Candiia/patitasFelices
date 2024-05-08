@@ -27,7 +27,7 @@ public class Categoria {
 	 
 	private String nombre;
 	
-	@OneToMany(mappedBy = "catProducto", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "catProducto", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@Builder.Default
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

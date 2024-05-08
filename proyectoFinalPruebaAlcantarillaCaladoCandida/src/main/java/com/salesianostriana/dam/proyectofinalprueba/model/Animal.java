@@ -2,14 +2,18 @@ package com.salesianostriana.dam.proyectofinalprueba.model;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +26,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Animal {
 	@Id @GeneratedValue
+	@Lob
 	private Long id;
 	
 	private String apodo;
@@ -43,6 +48,7 @@ public class Animal {
 	private boolean adoptado;
 	
 	@ManyToOne
+	@OnDelete (action = OnDeleteAction.CASCADE)
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_animal_tipo"))
 	private TipoAnimal tipoAnimal;	
 }

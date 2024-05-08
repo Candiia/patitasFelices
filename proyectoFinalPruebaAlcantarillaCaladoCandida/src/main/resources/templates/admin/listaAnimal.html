@@ -48,7 +48,7 @@
                                     <td th:text="${animal.nombre}">Luna</td>
                                     <td th:text="${animal.apodo}">Lunita la perra feliz</td>
                                     <td th:text="${animal.genero}">Hembra</td>
-                                    <td th:text="${animal.tipoAnimal.nombre}">Hembra</td>
+                                    <td th:text="${animal.tipoAnimal.nombre}">Perro</td>
                                     <td th:text="${animal.raza}">Podenco</td>
                                     <td th:text="${#temporals.format(animal.fechaNacimiento)}">20/02/2012</td>
                                     <td th:if="${animal.adoptado}" class="text-center align-middle">
@@ -69,7 +69,6 @@
                                                 <i class="bi bi-pencil-square text-black"></i>
                                             </button>
                                         </a>
-
                                         <a th:href="@{/admin/eliminarAnimal/{id}(id=${animal.id})}"><i
                                                 class="bi bi-trash text-black me-2"></i>
                                         </a>

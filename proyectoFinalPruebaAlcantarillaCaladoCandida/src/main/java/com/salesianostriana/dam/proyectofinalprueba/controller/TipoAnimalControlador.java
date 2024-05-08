@@ -37,6 +37,12 @@ public class TipoAnimalControlador {
 		return "redirect:/admin/listadoTipoAnimal";
 	}
 
+	@GetMapping("/eliminarTipoAnimal/{id}")
+	public String eliminar(@PathVariable("id") Long id) {
+		tipoService.deleteById(id);  
+		return "redirect:/admin/listadoTipoAnimal";
+	}
+	
 	@GetMapping("/editarTipo/{id}")
 	public String editarTipo(@PathVariable("id") Long id, Model model) {
 	

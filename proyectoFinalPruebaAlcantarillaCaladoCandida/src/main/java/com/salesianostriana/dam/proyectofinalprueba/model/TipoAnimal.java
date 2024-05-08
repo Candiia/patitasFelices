@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.proyectofinalprueba.model;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -11,13 +12,13 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor @AllArgsConstructor
 @Entity
-@Builder
+@Builder 
 public class TipoAnimal {
-	
-	@Id @GeneratedValue
+
+	@Id @GeneratedValue 
 	private Long id;
-	
 	private String nombre;
 
 
 }
+ 

@@ -1,5 +1,8 @@
 package com.salesianostriana.dam.proyectofinalprueba.model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
@@ -28,7 +31,8 @@ public class Producto {
 	private String descripcion;
 	private String foto;
 	
-	@ManyToOne 
+	@ManyToOne
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_producto_categoria"))
 	private Categoria catProducto;
 	

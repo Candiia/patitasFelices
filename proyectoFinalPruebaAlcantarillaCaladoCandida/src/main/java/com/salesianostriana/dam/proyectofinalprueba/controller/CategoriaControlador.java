@@ -42,7 +42,7 @@ public class CategoriaControlador {
 	public String eliminar(@PathVariable("id") Long id) {
 		catService.deleteById(id); 
 		return "redirect:/admin/detalleCategoria";
-	}
+	} 
 	
 	@GetMapping("/editarCategoria/{id}")
 	public String editarProducto(@PathVariable("id") Long id, Model model) {

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
 import com.salesianostriana.dam.proyectofinalprueba.service.CategoriaService;
 import com.salesianostriana.dam.proyectofinalprueba.service.ProductoService;
@@ -62,7 +63,7 @@ public class ProductoControlador {
 	public String editarProducto(@PathVariable("id") Long id, Model model) {
 		if(productServ.findById(id).isPresent()) {
 			model.addAttribute("producto",  productServ.findById(id).get());
-			model.addAttribute("listaCat", catServ.findAll());
+			model.addAttribute("listaCat", catServ.findAll()); 
 			return  "/admin/formProducto" ; 
 		}else {
 			return "redirect:/admin/detalleAdminProducto";
@@ -74,10 +75,10 @@ public class ProductoControlador {
 		productServ.editar(producto.getCatProducto(), producto);
 		return "redirect:/admin/detalleAdminProducto"; 
 	}
-	
+	 
 	@GetMapping("/eliminarProducto/{id}")
 	public String eliminar(@PathVariable("id") Long id) {
-		productServ.deleteById(id);
+		productServ.borrar(id, productServ.findById(id).get().getCatProducto());
 		return "redirect:/admin/detalleAdminProducto";
 	}
 
