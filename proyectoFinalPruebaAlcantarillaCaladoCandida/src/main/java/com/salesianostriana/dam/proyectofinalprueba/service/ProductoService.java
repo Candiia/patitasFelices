@@ -20,9 +20,14 @@ public class ProductoService extends BaseServiceImple<Producto, Long, ProductoRe
 	}
 	
 	public Producto editar(Categoria categoria, Producto producto) {
-		producto.removeFromCategoria(categoria);
+		producto.removeFromCategoria(producto.getCatProducto());
 		producto.addToCategoria(categoria); 
 		return repositorio.save(producto);
 		
+	}
+	
+	public void borrar(Long id, Categoria c) {
+		repositorio.findById(id).get().removeFromCategoria(c);
+		repositorio.deleteById(id);
 	}
 } 
