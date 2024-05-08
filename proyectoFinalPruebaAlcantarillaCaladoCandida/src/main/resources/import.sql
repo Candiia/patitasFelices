@@ -1,5 +1,5 @@
-INSERT INTO tipo_animal(id, nombre) VALUES (1,'Perro');
-INSERT INTO tipo_animal(id, nombre) VALUES (2,'Gato');
+INSERT INTO tipo_animal (id, nombre) VALUES (1,'Perro');
+INSERT INTO tipo_animal (id, nombre) VALUES (2,'Gato');
 ALTER SEQUENCE tipo_animal_seq RESTART WITH 100;
 
 INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, adoptado, raza) VALUES (1, 'lucas', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,1, 'dkjasgdjagsdasgdjsd', true, 'jhhgdasjhgashd' );
@@ -29,3 +29,6 @@ INSERT INTO producto (id, nombre, precio, descripcion, foto, cat_producto_id) VA
 INSERT INTO producto (id, nombre, precio, descripcion, foto, cat_producto_id) VALUES (12, 'PLAY&BITE PELOTA ROJA DE PLÁSTICO CON SONIDO', 4.99, 'Esta pelota Squeaky de Play&Bite para perros tiene un sonido integrado que llama la atención de tu perro cuando suena, además protege las encías de tu mascota y limpia sus dientes evitando el sarro gracias al relieve.', 'https://www.kiwoko.com/dw/image/v2/BDLQ_PRD/on/demandware.static/-/Sites-kiwoko-master-catalog/default/dw83a47ba8/images/play_bite_pelota_sonido_perros_PLB16482.jpg?sw=528&sh=528', 4);
 INSERT INTO producto (id, nombre, precio, descripcion, foto, cat_producto_id) VALUES (13, 'PLAY&BITE PELOTA ROJA DE PLÁSTICO CON SONIDO', 4.99, 'Esta pelota Squeaky de Play&Bite para perros tiene un sonido integrado que llama la atención de tu perro cuando suena, además protege las encías de tu mascota y limpia sus dientes evitando el sarro gracias al relieve.', 'https://www.kiwoko.com/dw/image/v2/BDLQ_PRD/on/demandware.static/-/Sites-kiwoko-master-catalog/default/dw83a47ba8/images/play_bite_pelota_sonido_perros_PLB16482.jpg?sw=528&sh=528', 4);
 ALTER SEQUENCE producto_seq RESTART WITH 100;
+
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (1,'Perro' , 'sdas', 'dsbajdsa', 'skdasjd', 'sjkdasgj', '47266163J', 'sjkdbsjad',  '2014-03-20', 'C');
+ALTER SEQUENCE usuario_seq RESTART WITH 100;

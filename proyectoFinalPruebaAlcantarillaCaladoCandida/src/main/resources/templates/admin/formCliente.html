@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head th:replace="~{fragmentos/head::cabeza}"></head>
+    <body class="d-flex flex-column justify-content-between min-vh-100">
+        <header th:replace="~{fragmentos/header::encabezado}"> </header>
+        <div class="mx-auto w-50">
+            <form class="rounded-1 border">
+                <div class="mb-3 mx-2 mt-2">
+                    <label for="exampleInputNombreUsu" class="form-label">Nombre de usuario <span
+                            class="text-danger">*</span> </label>
+                    <input type="text" class="form-control" id="exampleInputNombreUsu" aria-describedby="nombreUsuario"
+                        required>
+                </div>
+                <div class="mb-3 mx-2">
+                    <label for="exampleInputPassword1" class="form-label">Contraseña <span
+                            class="text-danger">*</span></label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" minlength="8" required>
+                </div>
+            
+                <div class="mb-3 mx-2">
+                    <label for="exampleInputPassword2" class="form-label">Repetir Contraseña <span
+                            class="text-danger">*</span></label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" minlength="8" required>
+                </div>
+            
+                <div class="mb-3 mx-2 mt-2">
+                    <label for="exampleInputEmail" class="form-label">Correo electrónico <span
+                            class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="email" required>
+                </div>
+            
+                <div class="mb-3 mx-2 mt-2">
+                    <label for="exampleInputNombre" class="form-label">Nombre <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="nombre" required>
+                </div>
+            
+                <div class="mb-3 mx-2 mt-2">
+                    <label for="exampleInputApellido" class="form-label">Apellido <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="exampleInputApellido" aria-describedby="apellido" required>
+                </div>
+            
+                <div class="mb-3 mx-2 mt-2">
+                    <label for="exampleInputDNI" class="form-label">DNI <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="exampleInputDNI" aria-describedby="DNI" required>
+                </div>
+            
+                <div class="mb-3 mx-2 mt-2">
+                    <label for="exampleInputEdad" class="form-label">Edad <span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" min="18" value="18" id="exampleInputEdad"
+                        aria-describedby="edad" required>
+                </div>
+            
+                <button type="submit" class="btn mx-2 mb-2">Registrar</button>
+            </form>
+        </div>
+
+        <footer th:replace="~{fragmentos/pie::pie}"></footer>
+    </body>
+</html>
+

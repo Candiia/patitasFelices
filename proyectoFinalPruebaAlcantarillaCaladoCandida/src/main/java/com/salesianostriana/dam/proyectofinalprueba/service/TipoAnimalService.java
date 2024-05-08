@@ -1,7 +1,6 @@
 package com.salesianostriana.dam.proyectofinalprueba.service;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.TipoAnimal;
@@ -12,9 +11,5 @@ import com.salesianostriana.dam.proyectofinalprueba.service.base.BaseServiceImpl
 @Service
 public class TipoAnimalService extends BaseServiceImple<TipoAnimal, Long, TipoAnimalRepository>{
 	
-	@Autowired
-	private TipoAnimalRepository repositorio;
-
-
 }
  
