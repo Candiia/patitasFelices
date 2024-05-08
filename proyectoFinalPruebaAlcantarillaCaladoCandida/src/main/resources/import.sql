@@ -30,5 +30,13 @@ INSERT INTO producto (id, nombre, precio, descripcion, foto, cat_producto_id) VA
 INSERT INTO producto (id, nombre, precio, descripcion, foto, cat_producto_id) VALUES (13, 'PLAY&BITE PELOTA ROJA DE PLÁSTICO CON SONIDO', 4.99, 'Esta pelota Squeaky de Play&Bite para perros tiene un sonido integrado que llama la atención de tu perro cuando suena, además protege las encías de tu mascota y limpia sus dientes evitando el sarro gracias al relieve.', 'https://www.kiwoko.com/dw/image/v2/BDLQ_PRD/on/demandware.static/-/Sites-kiwoko-master-catalog/default/dw83a47ba8/images/play_bite_pelota_sonido_perros_PLB16482.jpg?sw=528&sh=528', 4);
 ALTER SEQUENCE producto_seq RESTART WITH 100;
 
+
+
 INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (1,'Perro' , 'sdas', 'dsbajdsa', 'skdasjd', 'sjkdasgj', '47266163J', 'sjkdbsjad',  '2014-03-20', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (2,'Perro' , 'sdas', 'dsbajdsa', 'skdasjd', 'sjkdasgj', '47266163J', 'sjkdbsjad',  '2014-03-20', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (3,'Perro' , 'sdas', 'dsbajdsa', 'skdasjd', 'sjkdasgj', '47266163J', 'sjkdbsjad',  '2014-03-20', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (4,'Perro' , 'sdas', 'dsbajdsa', 'skdasjd', 'sjkdasgj', '47266163J', 'sjkdbsjad',  '2014-03-20', 'C');
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (5,'Perro' , 'sdas', 'dsbajdsa', 'skdasjd', 'sjkdasgj', '47266163J', 'sjkdbsjad',  '2014-03-20', 'C');
+
+INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, dtype) VALUES (6,'Candi' , 'Alcantarilla', 'admin', 'admin', '47251642L', '47266163J', 'admin@gmail.com',  '2002-02-11', 'A');
 ALTER SEQUENCE usuario_seq RESTART WITH 100;
