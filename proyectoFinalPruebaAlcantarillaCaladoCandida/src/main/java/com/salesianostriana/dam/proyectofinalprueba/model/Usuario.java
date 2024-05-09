@@ -10,6 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 
 import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -48,7 +49,7 @@ public class Usuario implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		String role = "ROLE_";
 		
-		if (this instanceof Administrador) {
+		if ("A".equals(this.getClass().getAnnotation(DiscriminatorValue.class).value())) {
 	        role += "ADMIN";
 	    } else {
 	        role += "USER";

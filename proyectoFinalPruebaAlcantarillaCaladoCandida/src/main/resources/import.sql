@@ -42,8 +42,6 @@ INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, emai
 INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_usuario) VALUES(8, 'Sofía', 'Gómez', 'sofiag', 'sofia456', 'sofia@example.com', '888777666', '2178901H', '1991-11-05', 'C');
 INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_usuario) VALUES(9, 'Marta', 'Díaz', 'martadz', 'martapass', 'marta@example.com', '222333444', '1789012I', '1989-08-09', 'C');
 INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_usuario) VALUES(10, 'Javier', 'Alvarez', 'javieralv', 'javierpass', 'javier@example.com', '666555444', '7890123J', '1997-04-03', 'C');
-
-INSERT INTO usuario (id, nombre, apellido, nombre_usuario, contraseya, dni, email, telefono, fecha_nacimiento, tipo_usuario) VALUES (11,'Candi' , 'Alcantarilla', 'admin', 'admin', '47251642L', '47266163J', 'admin@gmail.com',  '2002-02-11', 'A');
 ALTER SEQUENCE usuario_seq RESTART WITH 100;
 
 
