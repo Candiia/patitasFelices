@@ -1,10 +1,8 @@
 package com.salesianostriana.dam.proyectofinalprueba.model;
 
-import java.time.LocalDate;
-
-import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
@@ -17,21 +15,13 @@ import lombok.experimental.SuperBuilder;
 @Entity
 @NoArgsConstructor @AllArgsConstructor
 @SuperBuilder
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tipo_clase")
-
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario {
 
 	@Id @GeneratedValue
 	private Long id;
 	
-	private String nombre;
-	private String apellido;
-	private String nombreUsuario;
-	private String contraseya;
-	private String dNI;
-	private String email;
-	private String telefono;
-	private LocalDate fechaNacimiento;
+	private String username;
+	private String password;
 	
 }

@@ -4,24 +4,25 @@
     <body class="d-flex flex-column justify-content-between min-vh-100">
         <header th:replace="~{fragmentos/header::encabezado}"> </header>
         <div class="mx-auto w-50">
-            <form th:action="${cliente.id != 0} ?  @{/admin/agregarCliente/submit} : @{/admin/editarCliente/submit}"
+            <form th:action="@{/admin/agregarCliente/submit}"
             method="post" th:object="${cliente}" class="rounded-1 border">
+				<input th:if="${cliente.id != 0}" type="hidden" name="id" th:field="*{id}">
                 <div class="mb-3 mx-2 mt-2">
                     <label for="exampleInputNombreUsu" class="form-label">Nombre de usuario <span
                             class="text-danger">*</span> </label>
-                    <input type="text" class="form-control" id="exampleInputNombreUsu" th:field="*{nombreUsuario}" aria-describedby="nombreUsuario"
+                    <input type="text" class="form-control" id="exampleInputNombreUsu" th:field="*{username}" aria-describedby="nombreUsuario"
                         required>
                 </div>
                 <div class="mb-3 mx-2">
                     <label for="exampleInputPassword1" class="form-label">Contraseña <span
                             class="text-danger">*</span></label>
-                    <input type="password" class="form-control" th:field="*{contraseya}" id="exampleInputPassword1" minlength="8" required>
+                    <input type="password" class="form-control" th:field="*{password}" id="exampleInputPassword1"  required>
                 </div>
             
                 <div class="mb-3 mx-2">
                     <label for="exampleInputPassword2" class="form-label">Repetir Contraseña <span
                             class="text-danger">*</span></label>
-                    <input type="password" class="form-control"  id="exampleInputPassword2" minlength="8" required>
+                    <input type="password" class="form-control"  id="exampleInputPassword2" required>
                 </div>
             
                 <div class="mb-3 mx-2 mt-2">
@@ -47,7 +48,7 @@
             
                 <div class="mb-3 mx-2 mt-2 d-flex">
                     <label for="exampleInputDNI" class="form-label">DNI <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="exampleInputDNI" th:field="*{dNI}" aria-describedby="DNI" required>
+                    <input type="text" class="form-control" id="exampleInputDNI" th:field="*{dni}" aria-describedby="DNI" required>
                 
                     <label for="exampleInputFecha" class="form-label">Fecha nacimiento <span class="text-danger">*</span></label>
                     <input type="date" class="form-control"  th:field="*{fechaNacimiento}" id="exampleInputFecha" aria-describedby="fecha" required>
