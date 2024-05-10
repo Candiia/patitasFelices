@@ -2,7 +2,8 @@
 <html lang="es">
     <head th:replace="~{fragmentos/head::cabeza}"></head>
     <body class="d-flex flex-column justify-content-between min-vh-100">
-        <header th:replace="~{fragmentos/header::encabezado}"> </header> <div class="mx-auto w-50">
+        <header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
+        <div class="mx-auto w-50">
             <form th:action="${categoria.id != 0} ? @{/admin/editarCategoria/submit} : @{/admin/agregarCategoria/submit}" method="post"
                 th:object="${categoria}" class="border rounded-3">
                 <input th:if="${categoria.id != 0}" type="hidden" name="id" th:field="*{id}" />

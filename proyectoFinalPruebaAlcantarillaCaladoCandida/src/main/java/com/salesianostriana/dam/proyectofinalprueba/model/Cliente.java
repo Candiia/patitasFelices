@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+@SuppressWarnings("serial")
 @Entity
 @NoArgsConstructor 
 @EqualsAndHashCode(callSuper = true)
@@ -30,6 +32,8 @@ public class Cliente extends Usuario{
 	private String dni;
 	private String email;
 	private String telefono;
+	@Column(columnDefinition = "VARCHAR (600)")
+	private String foto;
 
 	@OneToMany (mappedBy = "cliente", fetch = FetchType.EAGER)
 	@ToString.Exclude

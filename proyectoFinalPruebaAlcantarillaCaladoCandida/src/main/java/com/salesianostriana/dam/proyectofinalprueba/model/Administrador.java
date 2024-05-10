@@ -6,7 +6,6 @@ import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,6 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+@SuppressWarnings("serial")
 @Entity
 @NoArgsConstructor 
 @ToString(callSuper = true)
@@ -21,6 +21,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Data
 public class Administrador extends Usuario{
+	
+	private String foto;
+	private String nombre;
+	private String apellido;
 
 	@OneToMany (mappedBy = "admin", fetch = FetchType.EAGER)
 	@ToString.Exclude

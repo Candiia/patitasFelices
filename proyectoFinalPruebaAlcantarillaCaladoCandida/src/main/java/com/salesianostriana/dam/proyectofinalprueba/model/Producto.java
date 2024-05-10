@@ -1,7 +1,10 @@
 package com.salesianostriana.dam.proyectofinalprueba.model;
 
+import java.time.LocalDate;
+
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,7 +32,12 @@ public class Producto {
 	private double precio;
 	@Column(columnDefinition = "TEXT")
 	private String descripcion;
+	
+	@Column(columnDefinition = "VARCHAR (600)")
 	private String foto;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate fechaIngreso;
 	
 	@ManyToOne
 	@OnDelete(action = OnDeleteAction.CASCADE)

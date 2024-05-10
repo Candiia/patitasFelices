@@ -30,4 +30,5 @@ public class ProductoService extends BaseServiceImple<Producto, Long, ProductoRe
 		repositorio.findById(id).get().removeFromCategoria(c);
 		repositorio.deleteById(id);
 	}
+
 } 
