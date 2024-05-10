@@ -41,4 +41,8 @@ INSERT INTO administrador (id) VALUES (1);
 INSERT INTO cliente (id, nombre, apellido, fecha_nacimiento, dni, email, telefono) VALUES (2, 'Candi', 'Alcanatrilla', '2002-02-11', '47266163J', 'candicalado@gmail.com', '603662811');
 INSERT INTO cliente (id, nombre, apellido, fecha_nacimiento, dni, email, telefono) VALUES (3, 'Fran', 'Gamero', '2002-02-11', '47266163J', 'candicalado@gmail.com', '603662811');
 
+ALTER SEQUENCE usuario_seq RESTART WITH 100;
+
+INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta) VALUES (1, 2, 1, 203.2, '2002-02-14');
+ALTER SEQUENCE venta_seq RESTART WITH 100;
 

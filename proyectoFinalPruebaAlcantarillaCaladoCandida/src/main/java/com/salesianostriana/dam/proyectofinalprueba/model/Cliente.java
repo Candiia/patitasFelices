@@ -9,7 +9,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -32,10 +31,10 @@ public class Cliente extends Usuario{
 	private String email;
 	private String telefono;
 
-	/*@OneToMany (mappedBy = "cliente", fetch = FetchType.EAGER)
+	@OneToMany (mappedBy = "cliente", fetch = FetchType.EAGER)
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	@Builder.Default
-	private List<Venta> listaVenta = new ArrayList<>();*/
+	private List<Venta> listaVenta = new ArrayList<>();
 }
  

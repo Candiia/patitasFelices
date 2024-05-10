@@ -18,7 +18,7 @@ import lombok.experimental.SuperBuilder;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario {
 
-	@Id @GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Id @GeneratedValue
 	private Long id;
 	
 	private String username;

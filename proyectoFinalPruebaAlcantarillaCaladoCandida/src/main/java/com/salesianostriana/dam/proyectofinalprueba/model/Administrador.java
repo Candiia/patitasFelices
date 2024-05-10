@@ -22,9 +22,9 @@ import lombok.experimental.SuperBuilder;
 @Data
 public class Administrador extends Usuario{
 
-	/*@OneToMany (mappedBy = "admin", fetch = FetchType.EAGER)
+	@OneToMany (mappedBy = "admin", fetch = FetchType.EAGER)
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	@Builder.Default
-	private List<Venta> listaVenta = new ArrayList<>();*/
+	private List<Venta> listaVenta = new ArrayList<>();
 }
