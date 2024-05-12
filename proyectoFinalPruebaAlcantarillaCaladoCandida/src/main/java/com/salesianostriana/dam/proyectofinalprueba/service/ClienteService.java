@@ -14,16 +14,8 @@ public class ClienteService extends BaseServiceImple<Cliente, Long, ClienteRepos
 	@Autowired
 	private ClienteRepository repository;
 	
-	public Cliente guardarCliente(Cliente cliente)  {
-		if(comprobarUsername(cliente)) {
-			throw new UsernameRepetidoExceptinon("Nombre de usuario en uso");
-		} 
-		return repository.save(cliente);
-	}
 	
-	public boolean comprobarUsername(Cliente cliente) {
-		return repository.findAll().stream()
-		.anyMatch(c -> c.getUsername().equalsIgnoreCase(cliente.getUsername()));	
-	}
+	
+	
 
 }

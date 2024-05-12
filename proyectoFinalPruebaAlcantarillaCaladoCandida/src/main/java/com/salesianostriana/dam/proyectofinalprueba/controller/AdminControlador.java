@@ -60,6 +60,13 @@ public class AdminControlador {
 		return "redirect:/admin/listaCliente"; 
 	}
 	
+	@GetMapping("/eliminarCliente/{id}")
+	public String eliminar(@PathVariable("id") Long id) {
+		clienteServ.deleteById(id); 
+		return "redirect:/admin/listaCliente";
+	} 
+	
+	
 
 
 }
