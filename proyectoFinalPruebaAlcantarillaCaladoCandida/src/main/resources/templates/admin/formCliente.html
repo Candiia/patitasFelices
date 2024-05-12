@@ -4,61 +4,65 @@
     <body class="d-flex flex-column justify-content-between min-vh-100">
         <header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
         <div class="mx-auto w-50">
-            <form th:action="@{/admin/agregarCliente/submit}"
-            method="post" th:object="${cliente}" class="rounded-1 border">
-				<input th:if="${cliente.id != 0}" type="hidden" name="id" th:field="*{id}">
+            <form th:action="${cliente.id != 0} ? @{/admin/editarCliente/submit}  : @{/admin/agregarCliente/submit} "
+                method="post" th:object="${cliente}" class="rounded-1 border mt-2 mb-2">
+                <input th:if="${cliente.id != 0}" type="hidden" name="id" th:field="*{id}">
                 <div class="mb-3 mx-2 mt-2">
-                    <label for="exampleInputNombreUsu" class="form-label">Nombre de usuario <span
+                    <label for="exampleInputNombreUsu" class="form-label fw-bold">Nombre de usuario <span
                             class="text-danger">*</span> </label>
-                    <input type="text" class="form-control" id="exampleInputNombreUsu" th:field="*{username}" aria-describedby="nombreUsuario"
+                    <input type="text" class="form-control w-50" id="exampleInputNombreUsu" th:field="*{username}"
+                        aria-describedby="nombreUsuario"
                         required>
                 </div>
-                <div class="mb-3 mx-2">
-                    <label for="exampleInputPassword1" class="form-label">Contraseña <span
+
+                <div class="mb-3 mx-2" th:if="${editar}">
+                    <label for="exampleInputPassword1" class="form-label fw-bold">Contraseña <span
                             class="text-danger">*</span></label>
-                    <input type="password" class="form-control" th:field="*{password}" id="exampleInputPassword1"  required>
-                </div>
-            
-                <div class="mb-3 mx-2">
-                    <label for="exampleInputPassword2" class="form-label">Repetir Contraseña <span
-                            class="text-danger">*</span></label>
-                    <input type="password" class="form-control"  id="exampleInputPassword2" required>
-                </div>
-            
-                <div class="mb-3 mx-2 mt-2">
-                    <label for="exampleInputEmail" class="form-label">Correo electrónico<span
-                            class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="exampleInputEmail" th:field="*{email}" aria-describedby="email" required>
-                </div>
-            
-                <div class="mb-3 mx-2 mt-2">
-                    <label for="exampleInputNombre" class="form-label">Nombre <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="exampleInputNombre" th:field="*{nombre}" aria-describedby="nombre" required>
-                </div>
-            
-                <div class="mb-3 mx-2 mt-2">
-                    <label for="exampleInputApellido" class="form-label">Apellido <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="exampleInputApellido" th:field="*{apellido}" aria-describedby="apellido" required>
+                    <input type="password" class="form-control" th:field="*{password}" id="exampleInputPassword1" required>
                 </div>
 
                 <div class="mb-3 mx-2 mt-2">
-                    <label for="exampleInputTelefono" class="form-label">Teléfono <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="exampleInputTelefono" th:field="*{telefono}" aria-describedby="telefono" required>
+                    <label for="exampleInputEmail" class="form-label fw-bold">Email<span
+                            class="text-danger ms-1">*</span> </label>
+                    <input type="email" class="form-control w-50" id="exampleInputEmail" th:field="*{email}"
+                        aria-describedby="email"
+                        required>
                 </div>
-            
+
                 <div class="mb-3 mx-2 mt-2 d-flex">
-                    <label for="exampleInputDNI" class="form-label">DNI <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="exampleInputDNI" th:field="*{dni}" aria-describedby="DNI" required>
-                
-                    <label for="exampleInputFecha" class="form-label">Fecha nacimiento <span class="text-danger">*</span></label>
-                    <input type="date" class="form-control"  th:field="*{fechaNacimiento}" id="exampleInputFecha" aria-describedby="fecha" required>
+                    <label for="exampleInputNombre" class="form-label fw-bold">Nombre <span
+                            class="text-danger me-2">*</span></label>
+                    <input type="text" class="form-control w-25 me-2" id="exampleInputNombre" th:field="*{nombre}"
+                        aria-describedby="nombre" required>
+
+                    <label for="exampleInputApellido" class="form-label ms-2 fw-bold">Apellido <span
+                            class="text-danger me-2">*</span></label>
+                    <input type="text" class="form-control w-50" id="exampleInputApellido" th:field="*{apellido}"
+                        aria-describedby="apellido" required>
                 </div>
-            
-                <button type="submit" class="btn mx-2 mb-2">Registrar</button>
+
+                <div class="mb-3 mx-2 mt-2 d-flex">
+                    <label for="exampleInputTelefono" class="form-label me-2 fw-bold">Teléfono<span
+                            class="text-danger ms-1">*</span></label>
+                    <input type="text" class="form-control w-25" id="exampleInputTelefono" th:field="*{telefono}"
+                        aria-describedby="telefono" required>
+
+                    <label for="exampleInputDNI" class="form-label ms-2 fw-bold">DNI<span
+                            class="text-danger ms-1">*</span></label>
+                    <input type="text" class="form-control w-25 ms-1 me-2" id="exampleInputDNI" th:field="*{dni}"
+                        aria-describedby="DNI"
+                        required>
+
+                    <label for="exampleInputFecha" class="form-label me-2 fw-bold">F/nacimiento<span
+                            class="text-danger ms-1">*</span></label>
+                    <input type="date" class="form-control w-25" th:field="*{fechaNacimiento}" id="exampleInputFecha"
+                        aria-describedby="fecha" required>
+                </div>
+
+                <button type="submit" class="btn mx-2 mb-2" value="Enviar">Enviar</button>
             </form>
         </div>
 
         <footer th:replace="~{fragmentos/pie::pie}"></footer>
     </body>
 </html>
-
