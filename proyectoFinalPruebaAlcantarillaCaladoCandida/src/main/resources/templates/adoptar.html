@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 	<head th:replace="~{fragmentos/head::cabeza}"></head>
 	<body class="d-flex flex-column justify-content-between min-vh-100">
-		<header th:replace="~{fragmentos/header::encabezado}"> </header>
+		<div th:if="${isAdmin}">
+			<header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
+		</div>
+		<div th:unless="${isAdmin}">
+			<header th:replace="~{fragmentos/headerCliente::encabezadoCliente}"></header>
+		</div>
+
 		<div class="mt-3 flex-grow-1">
 			<div class="row m-0">
 				<aside class="container col-12 col-lg-2 d-flex gap-2 flex-column mt-3">
@@ -22,8 +28,12 @@
 								<img class="card-img-top tamayo-carta" th:src="${animal.foto}" src="../img/pipeta.webp" alt="Card image">
 								<div class="card-body">
 									<h4 class="card-title" th:text="${animal.apodo}">Animal</h4>
-
-									<a th:href="@{/detalleAnimal?id={id}(id=${animal.id})}" class="btn btn-light">Saber más</a>
+									<div th:if="${isAdmin}">
+										<a th:href="@{/admin/detalleAnimal?id={id}(id=${animal.id})}" class="btn btn-light">Saber más</a>
+									</div>
+									<div th:unless="${isAdmin}">
+										<a th:href="@{/cliente/detalleAnimal?id={id}(id=${animal.id})}" class="btn btn-light">Saber más</a>
+									</div>
 								</div>
 							</div>
 						</div>

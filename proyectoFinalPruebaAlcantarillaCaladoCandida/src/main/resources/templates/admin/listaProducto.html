@@ -2,7 +2,7 @@
 <html lang="es">
     <head th:replace="~{fragmentos/head::cabeza}"></head>
     <body class="d-flex flex-column justify-content-between min-vh-100 ">
-        <header th:replace="~{fragmentos/header::encabezado}"></header>
+        <header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
         <div class="mt-4 flex-grow-1 container-fluid">
             <div class="row m-0">
                 <aside class="col-12 col-lg-2 d-flex flex-column gap-2">
@@ -37,6 +37,7 @@
                                     <th>Descripción</th>
                                     <th>Precio</th>
                                     <th>Categoría</th>
+                                    <th>Fecha ingreso</th>
                                     <th>&nbsp;</th>
 
                                 </tr>
@@ -48,6 +49,7 @@
                                     <td class="text-center"
                                         th:text="${#numbers.formatDecimal(producto.precio, 1, 2 )+'€'}">40.23€</td>
                                     <td class="text-center" th:text="${producto.catProducto.nombre}">Alimentación</td>
+                                    <td th:text="${producto.fechaIngreso}">20-12-2023</td>
 
                                     <td class="align-items-center fondo d-flex">
                                         <a th:href="@{/admin/detalleProducto?id={id}(id=${producto.id})}"><button
