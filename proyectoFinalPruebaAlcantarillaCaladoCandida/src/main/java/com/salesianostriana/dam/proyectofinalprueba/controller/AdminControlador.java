@@ -20,21 +20,13 @@ public class AdminControlador {
 	
 	@Autowired
 	private ClienteService clienteServ;
-	
-	@Autowired
-	private AdminServices adminServ;
-	
+		
 	@GetMapping("/listaCliente")
 	public String mostrarClientes(Model model) {
 		model.addAttribute("listaCliente", clienteServ.findAll());
 		return "/admin/listaClientes";
 	}
 
-	@GetMapping("/")
-	public String prueba() {
-		return "paginaInicial";
-	}
-	
 	@GetMapping("/agregarCliente")
 	public String agregarCliente(Model model) {
 		model.addAttribute("cliente", new Cliente());
@@ -45,12 +37,6 @@ public class AdminControlador {
 	public String submit(@ModelAttribute("cliente") Cliente cliente) {
 		clienteServ.save(cliente);
 		return "redirect:/admin/listaCliente";
-	}
-	
-	@GetMapping("/perfilAdmin")
-	public String perfilAdmin(Model model , @RequestParam Long id) {
-		model.addAttribute("admin", adminServ.findById(id));
-		return "perfil";
 	}
 
 
