@@ -2,11 +2,11 @@ INSERT INTO tipo_animal (id, nombre) VALUES (1,'Perro');
 INSERT INTO tipo_animal (id, nombre) VALUES (2,'Gato');
 ALTER SEQUENCE tipo_animal_seq RESTART WITH 100;
 
-INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, adoptado, raza) VALUES (1, 'lucas', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,1, 'dkjasgdjagsdasgdjsd', true, 'jhhgdasjhgashd' );
-INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, adoptado, raza) VALUES (2, 'mdh', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,1, 'dkjasgdjagsdasgdjsd', true, 'jhhgdasjhgashd' );
-INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, adoptado, raza) VALUES (3, 'dsadas', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,2, 'dkjasgdjagsdasgdjsd', false, 'jhhgdasjhgashd' );
-INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, adoptado, raza) VALUES (4, 'ytiouty', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,1, 'dkjasgdjagsdasgdjsd', true, 'jhhgdasjhgashd' );
-INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, adoptado, raza) VALUES (5, 'wrerr', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,2, 'dkjasgdjagsdasgdjsd', false, 'jhhgdasjhgashd' );
+INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, raza) VALUES (1, 'lucas', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,1, 'dkjasgdjagsdasgdjsd',  'jhhgdasjhgashd' );
+INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, raza) VALUES (2, 'mdh', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,1, 'dkjasgdjagsdasgdjsd', 'jhhgdasjhgashd' );
+INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, raza) VALUES (3, 'dsadas', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,2, 'dkjasgdjagsdasgdjsd',  'jhhgdasjhgashd' );
+INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, raza) VALUES (4, 'ytiouty', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,1, 'dkjasgdjagsdasgdjsd',  'jhhgdasjhgashd' );
+INSERT INTO animal (id, nombre, apodo, aspectos_veterinarios, fecha_nacimiento, genero, foto, tipo_animal_id, historia, raza) VALUES (5, 'wrerr', 'dfkagdfgj', 'asdjkjasgjdhasd', '2014-02-25', 'Macho','https://img.huffingtonpost.es/files/image_720_480/uploads/2023/06/22/un-perro-de-raza-labrador.jpeg' ,2, 'dkjasgdjagsdasgdjsd', 'jhhgdasjhgashd' );
 ALTER SEQUENCE animal_seq RESTART WITH 100;
 
 INSERT INTO categoria(id, nombre) VALUES (1,'Medicinas');
@@ -45,7 +45,8 @@ ALTER SEQUENCE usuario_seq RESTART WITH 100;
 INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta) VALUES (1, 2, 1, 203.2, '2002-02-14');
 ALTER SEQUENCE venta_seq RESTART WITH 100;
 
-INSERT INTO adopcion (animal_id, cliente_id, fecha_adopcion) VALUES (3, 2, '2014-02-14');
-INSERT INTO adopcion (animal_id, cliente_id, fecha_adopcion) VALUES (1, 2, '2023-10-23');
+INSERT INTO adopcion (animal_id, cliente_id, fecha_adopcion) VALUES ( 3, 2, '2014-02-14');
+INSERT INTO adopcion ( animal_id, cliente_id, fecha_adopcion) VALUES ( 1, 2, '2023-10-23');
+
 
 

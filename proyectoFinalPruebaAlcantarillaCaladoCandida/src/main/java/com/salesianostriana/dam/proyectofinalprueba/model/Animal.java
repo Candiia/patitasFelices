@@ -6,8 +6,10 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -45,13 +47,12 @@ public class Animal {
 	
 	@Column(columnDefinition = "VARCHAR (600)")
 	private String foto;
-	private boolean adoptado;
 	
 	@ManyToOne
 	@OnDelete (action = OnDeleteAction.CASCADE)
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_animal_tipo"))
 	private TipoAnimal tipoAnimal;	
 	
-	@OneToOne
+	@OneToOne (mappedBy = "animal", cascade = CascadeType.ALL)
 	private Adopcion adopcion;
 }

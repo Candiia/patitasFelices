@@ -6,6 +6,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
@@ -26,12 +28,12 @@ public class Adopcion {
 	private AdopcionPK adopcionPK = new AdopcionPK();
 	
 	@OneToOne 
-	@MapsId("animal_id")
+	@MapsId("animalId")
 	@JoinColumn(name = "animal_id")
 	private Animal animal;
 	
 	@ManyToOne
-	@MapsId("cliente_id")
+	@MapsId("clienteId")
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
@@ -40,12 +42,22 @@ public class Adopcion {
 	
 	public void addToCliente(Cliente cliente) {
 		this.cliente = cliente; 
-		cliente.getAdopcion().add(this);
+		cliente.getListaAdopcion().add(this);
 	}
 	
 	public void removeFromCliente(Cliente cliente) {
 		this.cliente = null;
-		cliente.getAdopcion().remove(this);
+		cliente.getListaAdopcion().remove(this);
+	}
+	
+	public void addToAnimal(Animal animal) {
+		this.animal=animal;
+		animal.setAdopcion(this);
+	}
+	
+	public void removeFromAnimal(Animal animal) {
+		this.animal = null;
+		animal.setAdopcion(null);
 	}
 }
 

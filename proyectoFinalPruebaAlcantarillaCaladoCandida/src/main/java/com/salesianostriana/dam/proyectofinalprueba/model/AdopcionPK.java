@@ -14,7 +14,7 @@ public class AdopcionPK implements Serializable {/**
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Long cliente_id;
-	private Long animal_id;
+	private Long clienteId;
+	private Long animalId;
 
 }

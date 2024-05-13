@@ -32,10 +32,22 @@
 								<div class="card-body">
 									<h4 class="card-title" th:text="${animal.apodo}">Animal</h4>
 									<div th:if="${isAdmin}">
-										<a th:href="@{/admin/detalleAnimal?id={id}(id=${animal.id})}" class="btn btn-light">Saber más</a>
+										<a th:href="@{/admin/detalleAnimal?id={id}(id=${animal.id})}"
+											class="btn btn-light" th:if="${animal.adopcion}">Información
+										</a>
+										<a th:href="@{/admin/detalleAnimal?id={id}(id=${animal.id})}"
+											class="btn btn-light" th:unless="${animal.adopcion}">Información
+										</a>
 									</div>
 									<div th:unless="${isAdmin}">
-										<a th:href="@{/cliente/detalleAnimal?id={id}(id=${animal.id})}" class="btn btn-light">Saber más</a>
+
+										<a th:href="@{/cliente/detalleAnimal?id={id}(id=${animal.id})}" th:if="${animal.adopcion}"
+											class="btn btn-light">Adoptado
+										</a>
+
+										<a th:href="@{/cliente/detalleAnimal?id={id}(id=${animal.id})}" th:unless="${animal.adopcion}"
+											class="btn btn-light">Adoptar
+										</a>
 									</div>
 								</div>
 							</div>
