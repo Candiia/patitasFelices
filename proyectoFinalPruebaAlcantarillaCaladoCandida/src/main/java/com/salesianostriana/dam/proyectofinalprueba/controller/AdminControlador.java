@@ -1,6 +1,8 @@
 package com.salesianostriana.dam.proyectofinalprueba.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.salesianostriana.dam.proyectofinalprueba.model.Administrador;
 import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
 import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
+import com.salesianostriana.dam.proyectofinalprueba.model.Usuario;
 import com.salesianostriana.dam.proyectofinalprueba.service.AdminServices;
 import com.salesianostriana.dam.proyectofinalprueba.service.ClienteService;
 
@@ -66,6 +69,13 @@ public class AdminControlador {
 		return "redirect:/admin/listaCliente";
 	} 
 	
+	
+	@GetMapping("/perfilAdmin")
+	public String perfilCliente(@AuthenticationPrincipal Administrador admin, Model model, Usuario usuario) {
+		model.addAttribute("admin", admin);
+		model.addAttribute("isAdmin", usuario.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")));
+		return "perfil";
+	}
 	
 
 
