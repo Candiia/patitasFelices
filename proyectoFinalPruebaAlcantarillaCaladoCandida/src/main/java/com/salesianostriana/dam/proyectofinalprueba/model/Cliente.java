@@ -40,5 +40,14 @@ public class Cliente extends Usuario{
 	@EqualsAndHashCode.Exclude
 	@Builder.Default
 	private List<Venta> listaVenta = new ArrayList<>();
+	
+
+	@OneToMany (mappedBy = "cliente", fetch = FetchType.EAGER)
+	@Builder.Default
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	private List<Adopcion> adopcion = new ArrayList<>();
+
+
 }
  
