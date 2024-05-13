@@ -46,7 +46,7 @@ INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta) VALUES 
 ALTER SEQUENCE venta_seq RESTART WITH 100;
 
 INSERT INTO adopcion (animal_id, cliente_id, fecha_adopcion) VALUES ( 3, 2, '2014-02-14');
-INSERT INTO adopcion ( animal_id, cliente_id, fecha_adopcion) VALUES ( 1, 2, '2023-10-23');
+INSERT INTO adopcion ( animal_id, cliente_id, fecha_adopcion) VALUES (1, 3, '2023-10-23');
 
 
 
