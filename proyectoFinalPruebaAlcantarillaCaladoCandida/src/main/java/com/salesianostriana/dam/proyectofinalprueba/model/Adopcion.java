@@ -25,7 +25,7 @@ public class Adopcion {
 	@Builder.Default
 	private AdopcionPK adopcionPK = new AdopcionPK();
 	
-	@OneToOne
+	@OneToOne 
 	@MapsId("animal_id")
 	@JoinColumn(name = "animal_id")
 	private Animal animal;
@@ -37,5 +37,15 @@ public class Adopcion {
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaAdopcion;
+	
+	public void addToCliente(Cliente cliente) {
+		this.cliente = cliente; 
+		cliente.getAdopcion().add(this);
+	}
+	
+	public void removeFromCliente(Cliente cliente) {
+		this.cliente = null;
+		cliente.getAdopcion().remove(this);
+	}
 }
 

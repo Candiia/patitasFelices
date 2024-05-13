@@ -45,3 +45,7 @@ ALTER SEQUENCE usuario_seq RESTART WITH 100;
 INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta) VALUES (1, 2, 1, 203.2, '2002-02-14');
 ALTER SEQUENCE venta_seq RESTART WITH 100;
 
+INSERT INTO adopcion (animal_id, cliente_id, fecha_adopcion) VALUES (3, 2, '2014-02-14');
+INSERT INTO adopcion (animal_id, cliente_id, fecha_adopcion) VALUES (1, 2, '2023-10-23');
+
+

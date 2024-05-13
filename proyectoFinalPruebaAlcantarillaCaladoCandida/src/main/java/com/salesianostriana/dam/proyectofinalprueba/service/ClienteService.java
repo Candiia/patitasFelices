@@ -1,9 +1,12 @@
 package com.salesianostriana.dam.proyectofinalprueba.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.proyectofinalprueba.exception.UsernameRepetidoExceptinon;
+import com.salesianostriana.dam.proyectofinalprueba.model.Adopcion;
 import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
 import com.salesianostriana.dam.proyectofinalprueba.repository.ClienteRepository;
 import com.salesianostriana.dam.proyectofinalprueba.service.base.BaseServiceImple;
@@ -26,4 +29,4 @@ public class ClienteService extends BaseServiceImple<Cliente, Long, ClienteRepos
 		.anyMatch(c -> c.getUsername().equalsIgnoreCase(cliente.getUsername()));	
 	}
 
-}
+} 

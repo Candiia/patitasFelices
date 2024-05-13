@@ -26,8 +26,7 @@
                     <div class="mb-3 d-flex justify-content-end me-3 mt-3">
                         <input class="form-control me-2 w-50" type="text" placeholder="Buscar">
                         <button class="btn me-2" type="button"><i class="bi bi-search"></i></button>
-                        <a th:href="@{/admin/agregarCategoria}" class="btn btn-light d-flex align-items-center"
-                            type="button">Añadir
+                        <a th:href="@{/admin/agregarCliente}" class="btn btn-light d-flex align-items-center" type="button">Añadir
                             <i class="bi bi-plus-circle ms-2"></i>
                         </a>
                     </div>
@@ -36,22 +35,25 @@
                         <table class="table table-bordered text-center">
                             <thead>
                                 <tr>
-                                    <th>Nombre</th>
+                                    <th>Nombre Cliente</th>
+                                    <th>Nombre animal</th>
+                                    <th>Fecha adopción</th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each=" categoria:${listaCateg}">
-                                    <td th:text="${categoria.nombre}">Alimentos</td>
-                                    <td class="align-items-center fondo d-flex">
+                                <tr th:each=" adopcion:${adopciones}">
+                                    <td th:text="${adopcion.cliente.nombre}">candiac</td>
+                                    <td th:text="${adopcion.animal.nombre}">candi</td>
+                                    <td th:text="${#temporals.format(adopcion.fechaAdopcion)}">20/02/2012</td>
 
-                                        <a th:href="@{/admin/editarCategoria/{id}(id=${categoria.id})}">
+                                    <td class="align-items-center fondo d-flex">
+                                        <a href="#">
                                             <button type="button" class="btn d-flex fondoBlanco">
                                                 <i class="bi bi-pencil-square text-black"></i>
                                             </button>
                                         </a>
-
-                                        <a th:href="@{/admin/eliminarCategoria/{id}(id=${categoria.id})}"><i
+                                        <a href="#"><i
                                                 class="bi bi-trash text-black me-2"></i>
                                         </a>
                                     </td>
