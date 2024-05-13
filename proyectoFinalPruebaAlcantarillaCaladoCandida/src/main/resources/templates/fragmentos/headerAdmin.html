@@ -29,10 +29,12 @@
                         </ul>
                     </div>
                     <div class="d-flex align-items-center">
+                        <form th:action="@{/logout}" method="POST" id="logoutForm"></form>
                         <input class="form-control me-2 w-100" type="text" placeholder="Buscar">
                         <button class="btn" type="button"><i class="bi bi-search"></i></button>
-                        <a href="/admin/perfilAdmin" class="perfil mx-3  text-light"><i
+                        <a href="/admin/perfilAdmin" class="mx-3  text-light"><i
                                 class="bi bi-person-circle"></i></a>
+                        <a  href="javascript:document.getElementById('logoutForm').submit()" class=" text-light"><i class="bi bi-power"></i></a>
                         <a href="carrito.html" class="mx-3 text-light"><i class="bi bi-cart"></i></a>
                     </div>
 

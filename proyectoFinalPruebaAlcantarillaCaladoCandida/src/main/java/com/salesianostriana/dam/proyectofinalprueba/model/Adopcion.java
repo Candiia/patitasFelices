@@ -37,14 +37,5 @@ public class Adopcion {
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaAdopcion;
-
-	public void addToCliente(Cliente c) {
-		c.getAdopcion().add(this);
-		this.cliente=c;
-	}
-	
-	public void removeFromCliente(Cliente c) {
-		c.getAdopcion().remove(this);
-		this.cliente = null;
-	}
 }
+

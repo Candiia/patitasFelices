@@ -47,5 +47,9 @@ public class Cliente extends Usuario{
 	@EqualsAndHashCode.Exclude
 	@Builder.Default
 	private List<Venta> listaVenta = new ArrayList<>();
+	
+	
+	
+
 }
  
