@@ -47,7 +47,7 @@ public class TipoAnimalControlador {
 	public String editarTipo(@PathVariable("id") Long id, Model model) {
 	
 		if(tipoService.findById(id).isPresent()) {
-			model.addAttribute("tipo",  tipoService.findById(id).get());
+			model.addAttribute("tipo",  tipoService.buscarTipoAnimalPorId(id));
 			return "/admin/formTipoAnimal"; 
 		}else {
 			return "redirect:/admin/listadoTipoAnimal";

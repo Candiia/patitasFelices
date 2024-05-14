@@ -34,11 +34,22 @@ public class Cliente extends Usuario{
 	private String telefono;
 	@Column(columnDefinition = "VARCHAR (600)")
 	private String foto;
+	
+	
+	@OneToMany (mappedBy = "cliente", fetch = FetchType.EAGER)
+	@Builder.Default
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	private List<Adopcion> listaAdopcion = new ArrayList<>();
 
 	@OneToMany (mappedBy = "cliente", fetch = FetchType.EAGER)
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	@Builder.Default
 	private List<Venta> listaVenta = new ArrayList<>();
+	
+	
+	
+
 }
  

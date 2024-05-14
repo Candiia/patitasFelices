@@ -49,7 +49,7 @@ public class CategoriaControlador {
 	public String editarProducto(@PathVariable("id") Long id, Model model) {
 	
 		if(catService.findById(id).isPresent()) {
-			model.addAttribute("categoria",  catService.findById(id).get());
+			model.addAttribute("categoria",  catService.buscarCategoriaPorId(id));
 			return "/admin/formCategoria"; 
 		}else {
 			return "redirect:/admin/detalleCategoria";

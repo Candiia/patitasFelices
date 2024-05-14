@@ -32,7 +32,7 @@ public class ClienteControlador {
 	
 	@GetMapping("/detalleAnimal")
 	public String detalleAnimal(@RequestParam Long id,  Model model) {
-		model.addAttribute("animal",  animalServ.findById(id).get());
+		model.addAttribute("animal",  animalServ.buscarAnimalPorId(id));
 		return "detalleAnimal";
 	}
 	

@@ -39,17 +39,6 @@
                     </div>
 
                     <div class="ms-5">
-                        <label class="form-check-label me-2 fw-bold" for="adoptar">Adoptado<span
-                                class="text-danger ms-1">*</span></label>
-
-                        <input class="form-check-input" type="radio" name="adoptar" th:field="*{adoptado}" value="true"
-                            id="adoptar"> Sí
-
-                        <input class="form-check-input" type="radio" name="adoptar" th:field="*{adoptado}" value="false"
-                            id="adoptar"> No
-                    </div>
-
-                    <div class="ms-5">
                         <label for="tipoAnimal" class="fw-bold">Tipo Animal<span class="text-danger ms-1">*</span></label>
                         <select id="tipoAnimal" th:field="*{tipoAnimal}" class="ms-2 " name="tipoAnimal" required>
                             <option th:each=" tipos : ${listaTipos}" th:value="${tipos.id}"

@@ -6,6 +6,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
@@ -14,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -44,10 +46,12 @@ public class Animal {
 	
 	@Column(columnDefinition = "VARCHAR (600)")
 	private String foto;
-	private boolean adoptado;
 	
 	@ManyToOne
 	@OnDelete (action = OnDeleteAction.CASCADE)
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_animal_tipo"))
 	private TipoAnimal tipoAnimal;	
+	
+	@OneToOne (mappedBy = "animal"/*, cascade = {CascadeType.PERSIST, CascadeType.MERGE}*/)
+	private Adopcion adopcion;
 }

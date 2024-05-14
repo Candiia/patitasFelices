@@ -17,6 +17,8 @@
                         <a href="/admin/detalleCategoria" class="btn w-75 mx-auto" type="button">Categorías</a>
                         <a href="/admin/detalleAdminAnimal" class="btn w-75 mx-auto" type="button">Animales</a>
                         <a href="/admin/listadoTipoAnimal" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
+                        <a href="/admin/listaAdopciones" class="btn w-75 mx-auto" type="button">Adopciones</a>
+
                     
                 </aside>
 
@@ -40,8 +42,7 @@
                                     <th>Tipo animal</th>
                                     <th>Raza</th>
                                     <th>Fecha nacimiento</th>
-                                    <th>Adoptado</th>
-                                    <th>&nbsp;</th>
+                                    <th class="w-25">&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,12 +53,7 @@
                                     <td th:text="${animal.tipoAnimal.nombre}">Perro</td>
                                     <td th:text="${animal.raza}">Podenco</td>
                                     <td th:text="${#temporals.format(animal.fechaNacimiento)}">20/02/2012</td>
-                                    <td th:if="${animal.adoptado}" class="text-center align-middle">
-                                        <i class="bi bi-check-circle text-success"></i>
-                                    </td>
-                                    <td th:unless="${animal.adoptado}" class="text-center align-middle">
-                                        <i class="bi bi-x-circle text-danger"></i>
-                                    </td>
+                                    
 
                                     <td class="align-items-center fondo d-flex">
                                         <a th:href="@{/admin/detalleAnimal?id={id}(id=${animal.id})}">
