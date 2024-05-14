@@ -50,9 +50,34 @@
                                             </button>
                                         </a>
 
-                                        <a th:href="@{/admin/eliminarCategoria/{id}(id=${categoria.id})}"><i
-                                                class="bi bi-trash text-black me-2"></i>
+                                        <a class="btn fondoBlanco" data-bs-toggle="modal"
+                                            th:attr="data-bs-target='#removeCateg'+ '-' + ${categoria.id}">
+                                            <i class=" bi bi-trash text-dark"></i>
                                         </a>
+                                        <div class="modal fade rounded-2" th:id="removeCateg + '-' + ${categoria.id}">
+                                            <div class="modal-dialog remove">
+                                                <div class="modal-content">
+
+                                                    <div class="modal-header fondoAzul border-1">
+                                                        <h4 class="modal-title mx-auto text-white">¡Alerta!
+                                                        </h4>
+                                                        <button type="button" class="btn-close mx-0"
+                                                            data-bs-dismiss="modal"></button>
+                                                    </div>
+
+                                                    <div class="modal-body bg-white">
+                                                        <p class="text-dark mb-4 fw-bolder">¿Quieres borrar este categoría?</p>
+                                                        <div class="d-grid gap-2">
+                                                            <a class="btn fondoAzul"
+                                                                th:href="@{/admin/eliminarCategoria/{id}(id=${categoria.id})}">
+                                                                <i class="bi bi-trash me-2"></i> Borrar categoría
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
