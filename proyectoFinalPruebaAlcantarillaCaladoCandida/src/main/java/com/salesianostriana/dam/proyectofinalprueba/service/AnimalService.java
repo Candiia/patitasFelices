@@ -17,7 +17,6 @@ public class AnimalService extends BaseServiceImple<Animal, Long, AnimalReposito
 	private AnimalRepository animalRepository;
 	
 	public Animal buscarAnimalPorId(Long id) throws AnimalNoEncontradoException {
-		
 		return animalRepository.findById(id)
 				.orElseThrow(() -> new AnimalNoEncontradoException("Animal no encontrado"));
 	}

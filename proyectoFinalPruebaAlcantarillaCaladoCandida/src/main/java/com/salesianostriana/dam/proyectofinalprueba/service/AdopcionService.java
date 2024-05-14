@@ -1,12 +1,10 @@
 package com.salesianostriana.dam.proyectofinalprueba.service;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.salesianostriana.dam.proyectofinalprueba.controller.AnimalControlador;
 import com.salesianostriana.dam.proyectofinalprueba.model.Adopcion;
 import com.salesianostriana.dam.proyectofinalprueba.model.AdopcionPK;
 import com.salesianostriana.dam.proyectofinalprueba.model.Animal;
@@ -42,7 +40,8 @@ public class AdopcionService extends BaseServiceImple<Adopcion, AdopcionPK, Adop
 	        adopcion.setFechaAdopcion(LocalDate.now());
 
 	        adopcion.addToCliente(cliente);
-	        adopcion.addToAnimal(animal);
+	        adopcion.addToAnimal(animal); 
+	        
 	        clienteRepository.save(cliente);
 	        animalRepository.save(animal);
 	        adoptarRepository.save(adopcion);
