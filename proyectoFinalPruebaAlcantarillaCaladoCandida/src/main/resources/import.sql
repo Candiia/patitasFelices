@@ -56,7 +56,6 @@ INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VA
 INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (2, 2, 50.3, 2, 1);
 INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (3, 3, 50.3, 2, 2);
 INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (4, 2, 10, 2, 3);
-
 ALTER SEQUENCE linea_venta_seq RESTART WITH 100;
 
 
