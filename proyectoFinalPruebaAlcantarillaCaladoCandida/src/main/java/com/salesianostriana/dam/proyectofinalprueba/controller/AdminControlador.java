@@ -3,7 +3,6 @@ package com.salesianostriana.dam.proyectofinalprueba.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,9 +22,6 @@ public class AdminControlador {
 	
 	@Autowired
 	private ClienteService clienteServ;
-	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
 		
 	@GetMapping("/listaCliente")
 	public String mostrarClientes(Model model) {
@@ -42,7 +38,7 @@ public class AdminControlador {
 	
 	@PostMapping("/agregarCliente/submit")
 	public String submit(@ModelAttribute("cliente") Cliente cliente) {
-		cliente.setPassword(passwordEncoder.encode(cliente.getPassword()));
+		clienteServ.encriptarContraseya(cliente);
 		clienteServ.save(cliente);
 		return "redirect:/admin/listaCliente";
 	}
@@ -67,10 +63,9 @@ public class AdminControlador {
 	
 	@GetMapping("/eliminarCliente/{id}")
 	public String eliminar(@PathVariable("id") Long id) {
-		clienteServ.deleteById(id); 
+		clienteServ.deleteById(id);
 		return "redirect:/admin/listaCliente";
 	} 
-	
 	
 	@GetMapping("/perfilAdmin")
 	public String perfilCliente(@AuthenticationPrincipal Administrador admin, Model model, Usuario usuario) {

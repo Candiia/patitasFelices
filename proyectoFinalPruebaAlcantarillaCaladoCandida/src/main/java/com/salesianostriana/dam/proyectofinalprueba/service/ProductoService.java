@@ -31,7 +31,7 @@ public class ProductoService extends BaseServiceImple<Producto, Long, ProductoRe
 	}
 	
 	public void borrar(Long id, Categoria c) {
-		productoRepository.findById(id).get().removeFromCategoria(c);
+		buscarProductoPorId(id).removeFromCategoria(c);
 		productoRepository.deleteById(id);
 	}
 	
