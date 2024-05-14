@@ -39,7 +39,7 @@ public class AnimalControlador {
 
 	@GetMapping("/detalleAnimal")
 	public String detalleAnimal(@RequestParam Long id,  Model model, Usuario usuario) {
-		model.addAttribute("animal",  animalServ.findById(id).get());
+		model.addAttribute("animal",  animalServ.buscarAnimalPorId(id));
 		model.addAttribute("isAdmin", usuario.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")));
 		return "detalleAnimal";
 	}
@@ -68,7 +68,7 @@ public class AnimalControlador {
 	public String editarProducto(@PathVariable("id") Long id, Model model) {
 	
 		if(animalServ.findById(id).isPresent()) {
-			model.addAttribute("animal",  animalServ.findById(id).get());
+			model.addAttribute("animal",  animalServ.buscarAnimalPorId(id));
 			model.addAttribute("listaTipos", tipoServ.findAll());
 			return  "/admin/formAnimal" ; 
 		}else {

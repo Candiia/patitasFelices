@@ -3,13 +3,14 @@ package com.salesianostriana.dam.proyectofinalprueba.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
-import com.salesianostriana.dam.proyectofinalprueba.service.CategoriaService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
+import com.salesianostriana.dam.proyectofinalprueba.service.CategoriaService;
 
 
 @Controller
@@ -48,7 +49,7 @@ public class CategoriaControlador {
 	public String editarProducto(@PathVariable("id") Long id, Model model) {
 	
 		if(catService.findById(id).isPresent()) {
-			model.addAttribute("categoria",  catService.findById(id).get());
+			model.addAttribute("categoria",  catService.buscarCategoriaPorId(id));
 			return "/admin/formCategoria"; 
 		}else {
 			return "redirect:/admin/detalleCategoria";

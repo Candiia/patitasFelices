@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragmentos/head::cabeza}"></head>
+    <body class="d-flex flex-column justify-content-between min-vh-100">
+        <header th:replace="~{fragmentos/headerCliente::encabezadoCliente}"></header>
+        <div class="container-fluid mt-4 flex-grow-1">
+            <div class="row m-0">
+
+
+                <aside class="col-12 col-lg-2 d-flex flex-column gap-2">
+                    <a href="#" class="btn w-75 mx-auto" type="button">Mis pedidos</a>                   
+                    <a href="/cliente/misAdopciones" class="btn w-75 mx-auto" type="button">Mis adopciones</a>
+                    <a href="/cliente/perfilCliente" class="btn w-75 mx-auto" type="button">Mis datos</a>
+
+                 </aside>
+                <main class="col-12 col-lg-10">
+
+                    <div class="mb-3 d-flex justify-content-end me-3 mt-3">
+                        <input class="form-control me-2 w-50" type="text" placeholder="Buscar">
+                        <button class="btn me-2" type="button"><i class="bi bi-search"></i></button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Apodo</th>
+                                    <th>Género</th>
+                                    <th>Tipo animal</th>
+                                    <th>Raza</th>
+                                    <th>Fecha nacimiento</th>
+                                    <th>Fecha adopción</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each=" adopcion:${adopCliente}">
+                                    <td th:text="${adopcion.animal.nombre}">Luna</td>
+                                    <td th:text="${adopcion.animal.apodo}">Lunita la perra feliz</td>
+                                    <td th:text="${adopcion.animal.genero}">Hembra</td>
+                                    <td th:text="${adopcion.animal.tipoAnimal.nombre}">Perro</td>
+                                    <td th:text="${adopcion.animal.raza}">Podenco</td>
+                                    <td th:text="${#temporals.format(adopcion.animal.fechaNacimiento)}">20/02/2012</td>
+                                    <td th:text="${#temporals.format(adopcion.fechaAdopcion)}">20/02/2012</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <footer th:replace="~{fragmentos/pie::pie}"></footer>
+    </body>
+</html>

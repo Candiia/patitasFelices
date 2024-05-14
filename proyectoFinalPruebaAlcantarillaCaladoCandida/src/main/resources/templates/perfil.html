@@ -3,33 +3,27 @@
     <head th:replace="~{fragmentos/head::cabeza}"></head>
     <body class=" d-flex flex-column justify-content-between min-vh-100">
         <div th:if="${isAdmin}">
-			<header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
-		</div>
-		<div th:unless="${isAdmin}">
-			<header th:replace="~{fragmentos/headerCliente::encabezadoCliente}"></header>
-		</div>
-
-        <div class="mt-4 flex-grow-1 container-fluid ">
+            <header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
+        </div>
+        <div th:unless="${isAdmin}">
+            <header th:replace="~{fragmentos/headerCliente::encabezadoCliente}"></header>
+        </div>
+        <div class="container-fluid mt-4 flex-grow-1">
                 <div class="row m-0">
-                    <aside class="col-12 col-lg-2 d-flex flex-column gap-2" th:if="${isAdmin}" >
+                    <aside class="col-12 col-lg-2 d-flex flex-column gap-2" th:if="${isAdmin}">
                         <a href="#" class="btn w-75 mx-auto" type="button">Mis ventas</a>
                         <a href="/admin/perfilAdmin" class="btn w-75 mx-auto" type="button">Mis datos</a>
-
                         <hr>
                         <a href="/admin/listaCliente" class="btn w-75 mx-auto" type="button">Clientes</a>
                         <a href="/admin/detalleAdminProducto" class="btn w-75 mx-auto" type="button">Productos</a>
                         <a href="/admin/detalleCategoria" class="btn w-75 mx-auto" type="button">Categorías</a>
                         <a href="/admin/detalleAdminAnimal" class="btn w-75 mx-auto" type="button">Animales</a>
                         <a href="/admin/listadoTipoAnimal" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
-
-                        
-                   
-                    </aside>
-
+                        <a href="/admin/listaAdopciones" class="btn w-75 mx-auto" type="button">Adopciones</a>
+                     </aside>
                     <aside th:unless="${isAdmin}" class="col-12 col-lg-2 d-flex flex-column gap-2">
-                    
                         <a href="#" class="btn w-75 mx-auto" type="button">Mis pedidos</a>
-                        <a href="#" class="btn w-75 mx-auto" type="button">Mis adopciones</a>
+                        <a href="/cliente/misAdopciones" class="btn w-75 mx-auto" type="button">Mis adopciones</a>
                         <a href="/cliente/perfilCliente" class="btn w-75 mx-auto" type="button">Mis datos</a>
                     </aside>
                     <main class="col-12 col-lg-10 mt-2 mx-auto">
@@ -54,9 +48,9 @@
                                 <p><span class="texto-color">DNI: </span> <span th:text="${cliente.dni}"></span></p>
                             </div>
                     
-                    </div>
+                         </div>
                     </main>
-                </div>
+              </div>
         </div>
         <footer th:replace="~{fragmentos/pie::pie}"></footer>
     </body>
