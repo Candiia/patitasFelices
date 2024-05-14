@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
+import com.salesianostriana.dam.proyectofinalprueba.model.Usuario;
 import com.salesianostriana.dam.proyectofinalprueba.service.CategoriaService;
 import com.salesianostriana.dam.proyectofinalprueba.service.ProductoService;
 
@@ -27,7 +27,7 @@ public class ProductoControlador {
 	private CategoriaService catServ;;
 	
 	@GetMapping("/mostrarProductos")
-	public String todosProductos(Model model) {
+	public String todosProductos(Model model, Usuario usuario) {
 		model.addAttribute("listaProductos", productServ.findAll());
 		model.addAttribute("listaCateg", catServ.findAll());
 		return "tienda";
@@ -35,7 +35,7 @@ public class ProductoControlador {
 	
 	@GetMapping("/detalleProducto")
 	public String detalleProducto(@RequestParam Long id, Model model) {
-		model.addAttribute("producto", productServ.findById(id).get());
+		model.addAttribute("producto", productServ.buscarProductoPorId(id));
 		return "detalleProducto";	
 	}
 	
@@ -62,7 +62,7 @@ public class ProductoControlador {
 	@GetMapping("/editarProducto/{id}")
 	public String editarProducto(@PathVariable("id") Long id, Model model) {
 		if(productServ.findById(id).isPresent()) {
-			model.addAttribute("producto",  productServ.findById(id).get());
+			model.addAttribute("producto",  productServ.buscarProductoPorId(id));
 			model.addAttribute("listaCat", catServ.findAll()); 
 			return  "/admin/formProducto" ; 
 		}else {
@@ -78,11 +78,8 @@ public class ProductoControlador {
 	 
 	@GetMapping("/eliminarProducto/{id}")
 	public String eliminar(@PathVariable("id") Long id) {
-		productServ.borrar(id, productServ.findById(id).get().getCatProducto());
+		productServ.borrar(id, productServ.buscarProductoPorId(id).getCatProducto());
 		return "redirect:/admin/detalleAdminProducto";
 	}
-
-	
-	
 	
 }

@@ -3,6 +3,7 @@ package com.salesianostriana.dam.proyectofinalprueba.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,13 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Administrador;
-import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
 import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
 import com.salesianostriana.dam.proyectofinalprueba.model.Usuario;
-import com.salesianostriana.dam.proyectofinalprueba.service.AdminServices;
 import com.salesianostriana.dam.proyectofinalprueba.service.ClienteService;
 
 @Controller
@@ -25,6 +23,9 @@ public class AdminControlador {
 	
 	@Autowired
 	private ClienteService clienteServ;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 		
 	@GetMapping("/listaCliente")
 	public String mostrarClientes(Model model) {
@@ -41,6 +42,7 @@ public class AdminControlador {
 	
 	@PostMapping("/agregarCliente/submit")
 	public String submit(@ModelAttribute("cliente") Cliente cliente) {
+		cliente.setPassword(passwordEncoder.encode(cliente.getPassword()));
 		clienteServ.save(cliente);
 		return "redirect:/admin/listaCliente";
 	}
