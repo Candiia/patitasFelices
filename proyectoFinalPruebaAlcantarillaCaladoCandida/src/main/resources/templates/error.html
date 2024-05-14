@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragmentos/head::cabeza}"></head>
+    <body class="d-flex flex-column justify-content-between min-vh-100">
+
+        <header id="cabecera" class="text-light">
+            <div class="container-fluid p-2 text-center">
+                <h2 class="texto">
+                    <img class="me-3" src="../img/logo.png" width="40px" alt="huella animal">
+                    Patitas felices
+                </h2>
+            </div>
+        </header>
+
+        <main class="container-fluid" id="cuerpo">
+            <div class="w-25 mx-auto border rounded-2">
+
+            </div>
+        </main>
+
+        <footer th:replace="~{fragmentos/pie::pie}"></footer>
+    </body>
+</html>
