@@ -6,5 +6,4 @@ import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 	
-
 }

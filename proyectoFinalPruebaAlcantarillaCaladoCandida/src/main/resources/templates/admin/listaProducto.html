@@ -33,10 +33,10 @@
                             <thead>
                                 <tr class="text-center">
                                     <th>Nombre</th>
-                                    <th>Descripción</th>
+                                    <th class="w-50">Descripción</th>
                                     <th>Precio</th>
                                     <th>Categoría</th>
-                                    <th>Fecha ingreso</th>
+                                    <th class="w-25">Fecha ingreso</th>
                                     <th>&nbsp;</th>
 
                                 </tr>
@@ -44,11 +44,11 @@
                             <tbody>
                                 <tr th:each=" producto:${listaProductos}">
                                     <td th:text="${producto.nombre}">johnDoe</td>
-                                    <td th:text="${producto.descripcion}">kjsdfhjsdhfjdgsfjg</td>
+                                    <td class="w-50" th:text="${producto.descripcion}">kjsdfhjsdhfjdgsfjg</td>
                                     <td class="text-center"
                                         th:text="${#numbers.formatDecimal(producto.precio, 1, 2 )+'€'}">40.23€</td>
                                     <td class="text-center" th:text="${producto.catProducto.nombre}">Alimentación</td>
-                                    <td th:text="${producto.fechaIngreso}">20-12-2023</td>
+                                    <td class="w-25 text-center" th:text="${producto.fechaIngreso}">20-12-2023</td>
 
                                     <td class="align-items-center fondo d-flex">
                                         <a th:href="@{/admin/detalleProducto?id={id}(id=${producto.id})}"><button

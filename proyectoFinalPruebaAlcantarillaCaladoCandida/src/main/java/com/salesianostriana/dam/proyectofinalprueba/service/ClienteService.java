@@ -8,10 +8,6 @@ import com.salesianostriana.dam.proyectofinalprueba.service.base.BaseServiceImpl
 
 @Service
 public class ClienteService extends BaseServiceImple<Cliente, Long, ClienteRepository>{
-	
-	
-	
-	
-	
+
 
 }
