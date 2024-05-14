@@ -52,6 +52,6 @@ public class Animal {
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_animal_tipo"))
 	private TipoAnimal tipoAnimal;	
 	
-	@OneToOne (mappedBy = "animal", cascade = CascadeType.ALL)
+	@OneToOne (mappedBy = "animal"/*, cascade = {CascadeType.PERSIST, CascadeType.MERGE}*/)
 	private Adopcion adopcion;
 }

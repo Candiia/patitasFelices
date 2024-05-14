@@ -42,11 +42,11 @@
 									<div th:unless="${isAdmin}">
 
 										<a th:href="@{/cliente/detalleAnimal?id={id}(id=${animal.id})}" th:if="${animal.adopcion}"
-											class="btn btn-light">Adoptado
+											class="btn btn-light" >Adoptado <i class="bi bi-heart-fill"></i>
 										</a>
 
 										<a th:href="@{/cliente/detalleAnimal?id={id}(id=${animal.id})}" th:unless="${animal.adopcion}"
-											class="btn btn-light">Adoptar
+											class="btn btn-light">Adoptar <i class="bi bi-heart"></i>
 										</a>
 									</div>
 								</div>

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -25,7 +26,7 @@ public class Adopcion {
 	@Builder.Default
 	private AdopcionPK adopcionPK = new AdopcionPK();
 	
-	@OneToOne 
+	@OneToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@MapsId("animalId")
 	@JoinColumn(name = "animal_id")
 	private Animal animal;
