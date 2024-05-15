@@ -19,4 +19,7 @@ public class CategoriaService extends BaseServiceImple<Categoria, Long, Categori
 				.orElseThrow(() -> new CategoriaNoEncontradoException("Categoría no encontrado"));
 	}
 
+	public int numCategorias(Categoria categoria) {
+		return categoriaRepository.findNumCategoriaByProducto(categoria);
+	}
 }

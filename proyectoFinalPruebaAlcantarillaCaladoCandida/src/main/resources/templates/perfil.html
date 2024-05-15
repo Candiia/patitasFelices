@@ -2,34 +2,55 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{fragmentos/head::cabeza}"></head>
     <body class=" d-flex flex-column justify-content-between min-vh-100">
-        <header th:replace="~{fragmentos/headerCliente::encabezadoCliente}"></header>
-        <div class="flex-grow-1">
-            <div class="container">
-                <div class="row">
-                    <aside class="col-12 col-lg-3 mt-3">
-                       
-                            <a href="#" class="list-group-item list-group-item-action">Mis pedidos</a>
-                            <a href="#" class="list-group-item list-group-item-action">Mis adopciones</a>
-                            <a href="#" class="list-group-item list-group-item-action">Mis datos</a>
-                   
-                        
+        <div th:if="${isAdmin}">
+            <header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
+        </div>
+        <div th:unless="${isAdmin}">
+            <header th:replace="~{fragmentos/headerCliente::encabezadoCliente}"></header>
+        </div>
+        <div class="container-fluid mt-4 flex-grow-1">
+                <div class="row m-0">
+                    <aside class="col-12 col-lg-2 d-flex flex-column gap-2" th:if="${isAdmin}">
+                        <a href="#" class="btn w-75 mx-auto" type="button">Mis ventas</a>
+                        <a href="/admin/perfilAdmin" class="btn w-75 mx-auto" type="button">Mis datos</a>
+                        <hr>
+                        <a href="/admin/listaCliente/" class="btn w-75 mx-auto" type="button">Clientes</a>
+                        <a href="/admin/detalleAdminProducto/" class="btn w-75 mx-auto" type="button">Productos</a>
+                        <a href="/admin/detalleCategoria/" class="btn w-75 mx-auto" type="button">Categorías</a>
+                        <a href="/admin/detalleAdminAnimal/" class="btn w-75 mx-auto" type="button">Animales</a>
+                        <a href="/admin/listadoTipoAnimal/" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
+                        <a href="/admin/listaAdopciones/" class="btn w-75 mx-auto" type="button">Adopciones</a>
+                     </aside>
+                    <aside th:unless="${isAdmin}" class="col-12 col-lg-2 d-flex flex-column gap-2">
+                        <a href="#" class="btn w-75 mx-auto" type="button">Mis pedidos</a>
+                        <a href="/cliente/misAdopciones" class="btn w-75 mx-auto" type="button">Mis adopciones</a>
+                        <a href="/cliente/perfilCliente" class="btn w-75 mx-auto" type="button">Mis datos</a>
                     </aside>
-                    <main class="col-12 col-lg-9 mt-3">
-                        <div class="d-flex align-items-center gap-3">
-                                <img class="rounded-circle border" alt="usario" width="100" th:src="${cliente.foto}">
-                                <div>
-                                    <p th:text="${cliente.username}"><span class="texto-color">Nombre usuario:</span> 47266163J</p>
-                                    <p th:text="${cliente.nombre}"><span class="texto-color">Nombre:</span> Candi</p>
-                                    <p th:text="${cliente.apellido}"><span class="texto-color">Apellido:</span> Alcantarilla</p>
-                                    <p th:text="${cliente.email}"><span class="texto-color">Email:</span> candicalado@gmail.com</p>
-                                    <p th:text="${cliente.telefono}"><span class="texto-color">Teléfono:</span> 603662811</p>
-                                    <p th:text="${cliente.dni}"><span class="texto-color">DNI:</span> 47266163J</p>
+                    <main class="col-12 col-lg-10 mt-2 mx-auto">
+                        <div class="d-flex align-items-center gap-3" th:if="${isAdmin}">
+                                <img class="rounded-circle border w-25" alt="usario" width="100" th:src="${admin.foto}">
+                                <div class="ms-3">
+                                    <p><span class="texto-color">Nombre usuario: </span><span th:text="${admin.username}"></span></p>
+                                    <p><span class="texto-color">Nombre: </span><span th:text="${admin.nombre}"></span></p>
+                                    <p><span class="texto-color">Apellido: </span><span th:text="${admin.apellido}"></span></p>
                                 </div>
                         
                         </div>
+
+                        <div class="d-flex align-items-center gap-3" th:unless="${isAdmin}">
+                            <img class="rounded-circle border w-25" alt="usario" width="100" th:src="${cliente.foto}">
+                            <div>
+                                <p><span class="texto-color">Nombre usuario: </span> <span th:text="${cliente.username}"></span></p>
+                                <p><span class="texto-color">Nombre: </span> <span th:text="${cliente.nombre}"></span></p>
+                                <p><span class="texto-color">Apellido: </span><span  th:text="${cliente.apellido}"></span></p>
+                                <p><span class="texto-color">Email: </span><span th:text="${cliente.email}"></span></p>
+                                <p><span class="texto-color">Teléfono: </span> <span th:text="${cliente.telefono}"></span></p>
+                                <p><span class="texto-color">DNI: </span> <span th:text="${cliente.dni}"></span></p>
+                            </div>
+                    
+                         </div>
                     </main>
-                </div>
-            </div>
+              </div>
         </div>
         <footer th:replace="~{fragmentos/pie::pie}"></footer>
     </body>

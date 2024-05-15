@@ -20,7 +20,7 @@ public class CategoriaControlador {
 	@Autowired
 	private CategoriaService catService;
 	
-	@GetMapping("/detalleCategoria")
+	@GetMapping("/detalleCategoria/")
 	public String mostrarCategorias(Model model) {
 		model.addAttribute("listaCateg", catService.findAll());
 		return "/admin/listaCategoria";
@@ -36,13 +36,21 @@ public class CategoriaControlador {
 	@PostMapping("/agregarCategoria/submit")
 	public String submit(@ModelAttribute("categoria") Categoria categoria) {
 		catService.save(categoria);
-		return "redirect:/admin/detalleCategoria";
+		return "redirect:/admin/detalleCategoria/";
 	}
 	
 	@GetMapping("/eliminarCategoria/{id}")
 	public String eliminar(@PathVariable("id") Long id) {
-		catService.deleteById(id); 
-		return "redirect:/admin/detalleCategoria";
+		Categoria categoria = catService.buscarCategoriaPorId(id);
+		
+		if(categoria != null) {
+			if(catService.numCategorias(categoria) == 0) {
+				catService.deleteById(id); 
+			}else {
+				return "redirect:/admin/detalleCategoria/?error=true";
+			}
+		}
+		return "redirect:/admin/detalleCategoria/";
 	} 
 	
 	@GetMapping("/editarCategoria/{id}")
@@ -52,14 +60,14 @@ public class CategoriaControlador {
 			model.addAttribute("categoria",  catService.buscarCategoriaPorId(id));
 			return "/admin/formCategoria"; 
 		}else {
-			return "redirect:/admin/detalleCategoria";
+			return "redirect:/admin/detalleCategoria/";
 		}
 	}
 	
 	@PostMapping("/editarCategoria/submit")
 	public String procesarEditar(@ModelAttribute("categoria") Categoria categoria) {
-		catService.save(categoria);
-		return "redirect:/admin/detalleCategoria"; 
+		catService.edit(categoria);
+		return "redirect:/admin/detalleCategoria/"; 
 	}
 	
 }

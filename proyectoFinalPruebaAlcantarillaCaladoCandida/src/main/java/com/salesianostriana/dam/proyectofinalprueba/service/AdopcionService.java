@@ -5,11 +5,15 @@ import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.salesianostriana.dam.proyectofinalprueba.exception.ClienteNoEncontradoException;
 import com.salesianostriana.dam.proyectofinalprueba.model.Adopcion;
 import com.salesianostriana.dam.proyectofinalprueba.model.AdopcionPK;
 import com.salesianostriana.dam.proyectofinalprueba.model.Animal;
 import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
+import com.salesianostriana.dam.proyectofinalprueba.model.TipoAnimal;
 import com.salesianostriana.dam.proyectofinalprueba.repository.AdoptarRepository;
+import com.salesianostriana.dam.proyectofinalprueba.repository.AnimalRepository;
+import com.salesianostriana.dam.proyectofinalprueba.repository.ClienteRepository;
 import com.salesianostriana.dam.proyectofinalprueba.service.base.BaseServiceImple;
 
 import jakarta.transaction.Transactional;
@@ -21,6 +25,7 @@ public class AdopcionService extends BaseServiceImple<Adopcion, AdopcionPK, Adop
 	private AdoptarRepository adoptarRepository;
 	@Autowired
 	private AnimalService  animalService;
+	
 	
 	@Transactional
 	public void adoptarAnimal(Cliente cliente, Long id) {
@@ -40,4 +45,8 @@ public class AdopcionService extends BaseServiceImple<Adopcion, AdopcionPK, Adop
 	        
 	        adoptarRepository.save(adopcion);
 	}
+	
+
+
+
 }

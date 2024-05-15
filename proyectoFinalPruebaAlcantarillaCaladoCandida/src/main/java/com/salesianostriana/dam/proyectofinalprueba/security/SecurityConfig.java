@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -47,7 +48,6 @@ public class SecurityConfig {
     	http.authorizeHttpRequests(
 				(authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**", "/fonts/**", "/img/**").permitAll()
 						.requestMatchers("/admin/**").hasRole("ADMIN")
-						.requestMatchers("/cliente/**").hasRole("CLIENTE")
 						.anyRequest().authenticated())
 			.formLogin((loginz) -> loginz
 					.loginPage("/login").defaultSuccessUrl("/admin/mostrarProductos").permitAll())

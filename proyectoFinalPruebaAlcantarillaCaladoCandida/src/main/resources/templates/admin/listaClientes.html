@@ -7,17 +7,16 @@
             <div class="row m-0">
                 <aside class="col-12 col-lg-2 d-flex flex-column gap-2">
 
-                    <a href="#" class="btn w-75 mx-auto" type="button">Mis pedidos</a>
                     <a href="#" class="btn w-75 mx-auto" type="button">Mis ventas</a>
-                    <a href="#" class="btn w-75 mx-auto" type="button">Mis datos</a>
+                    <a href="/admin/perfilAdmin" class="btn w-75 mx-auto" type="button">Mis datos</a>
 
                     <hr>
-                    <a href="/admin/listaCliente" class="btn w-75 mx-auto" type="button">Clientes</a>
-                    <a href="/admin/detalleAdminProducto" class="btn w-75 mx-auto" type="button">Productos</a>
-                    <a href="/admin/detalleCategoria" class="btn w-75 mx-auto" type="button">Categorías</a>
-                    <a href="/admin/detalleAdminAnimal" class="btn w-75 mx-auto" type="button">Animales</a>
-                    <a href="/admin/listadoTipoAnimal" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
-                    <a href="/admin/listaAdopciones" class="btn w-75 mx-auto" type="button">Adopciones</a>
+                    <a href="/admin/listaCliente/" class="btn w-75 mx-auto" type="button">Clientes</a>
+                    <a href="/admin/detalleAdminProducto/" class="btn w-75 mx-auto" type="button">Productos</a>
+                    <a href="/admin/detalleCategoria/" class="btn w-75 mx-auto" type="button">Categorías</a>
+                    <a href="/admin/detalleAdminAnimal/" class="btn w-75 mx-auto" type="button">Animales</a>
+                    <a href="/admin/listadoTipoAnimal/" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
+                    <a href="/admin/listaAdopciones/" class="btn w-75 mx-auto" type="button">Adopciones</a>
 
                 </aside>
 
@@ -29,6 +28,10 @@
                         <a th:href="@{/admin/agregarCliente}" class="btn btn-light d-flex align-items-center" type="button">Añadir
                             <i class="bi bi-plus-circle ms-2"></i>
                         </a>
+                    </div>
+
+                    <div th:if="${param.error}" class="alert alert-danger">
+                        No puede eliminar un cliente que tiene asociada algunas compras o animales.
                     </div>
 
                     <div class="table-responsive">
@@ -61,9 +64,36 @@
                                                 <i class="bi bi-pencil-square text-black"></i>
                                             </button>
                                         </a>
-                                        <a th:href="@{/admin/eliminarCliente/{id}(id=${cliente.id})}"><i
-                                                class="bi bi-trash text-black me-2"></i>
+
+                                        <a class="btn fondoBlanco" data-bs-toggle="modal"
+                                            th:attr="data-bs-target='#removeCliente'+ '-' + ${cliente.id}">
+                                            <i class=" bi bi-trash text-dark"></i>
                                         </a>
+                                        <div class="modal fade" th:id="removeCliente + '-' + ${cliente.id}">
+                                            <div class="modal-dialog remove">
+                                                <div class="modal-content">
+
+                                                    <div class="modal-header fondoAzul border-1">
+                                                        <h4 class="modal-title mx-auto text-white">¡Alerta!
+                                                        </h4>
+                                                        <button type="button" class="btn-close mx-0"
+                                                            data-bs-dismiss="modal"></button>
+                                                    </div>
+
+                                                    <div class="modal-body bg-white">
+                                                        <p class="text-dark mb-4 fw-bolder">¿Quieres borrar este cliente?</p>
+                                                        <div class="d-grid gap-2">
+                                                            <a class="btn fondoAzul"
+                                                                th:href="@{/admin/eliminarCliente/{id}(id=${cliente.id})}">
+                                                                <i class="bi bi-trash me-2"></i> Borrar cliente
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </td>
                                 </tr>
                             </tbody>

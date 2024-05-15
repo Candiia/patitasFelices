@@ -19,7 +19,7 @@ public class TipoAnimalControlador {
 	@Autowired
 	private TipoAnimalService tipoService;
 	
-	@GetMapping("/listadoTipoAnimal")
+	@GetMapping("/listadoTipoAnimal/")
 	public String mostrarTiposAnimales(Model model) {
 		model.addAttribute("listaTipo", tipoService.findAll());
 		return "/admin/listaTipoAnimal";
@@ -34,13 +34,20 @@ public class TipoAnimalControlador {
 	@PostMapping("/agregarTipoAnimal/submit")
 	public String submit(@ModelAttribute("tipo") TipoAnimal tipo) {
 		tipoService.save(tipo);
-		return "redirect:/admin/listadoTipoAnimal";
+		return "redirect:/admin/listadoTipoAnimal/";
 	}
 
 	@GetMapping("/eliminarTipoAnimal/{id}")
 	public String eliminar(@PathVariable("id") Long id) {
-		tipoService.deleteById(id);  
-		return "redirect:/admin/listadoTipoAnimal";
+		TipoAnimal tipo = tipoService.buscarTipoAnimalPorId(id);
+		if(tipo != null) {
+			if(tipoService.numAnimal(tipo) == 0) {
+				tipoService.deleteById(id);  
+			}else {
+				return "redirect:/admin/listadoTipoAnimal/?error=true";
+			}
+		}
+		return "redirect:/admin/listadoTipoAnimal/";
 	}
 	
 	@GetMapping("/editarTipo/{id}")
@@ -50,13 +57,13 @@ public class TipoAnimalControlador {
 			model.addAttribute("tipo",  tipoService.buscarTipoAnimalPorId(id));
 			return "/admin/formTipoAnimal"; 
 		}else {
-			return "redirect:/admin/listadoTipoAnimal";
+			return "redirect:/admin/listadoTipoAnimal/";
 		}
 	}
 	
 	@PostMapping("/editarTipo/submit")
 	public String procesarEditar(@ModelAttribute("tipo") TipoAnimal tipo) {
-		tipoService.save(tipo);
+		tipoService.edit(tipo);
 		return "redirect:/admin/listadoTipoAnimal"; 
 	}
 }

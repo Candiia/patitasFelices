@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Animal;
+import com.salesianostriana.dam.proyectofinalprueba.model.TipoAnimal;
 import com.salesianostriana.dam.proyectofinalprueba.model.Usuario;
 import com.salesianostriana.dam.proyectofinalprueba.service.AnimalService;
 import com.salesianostriana.dam.proyectofinalprueba.service.TipoAnimalService;
@@ -44,7 +45,7 @@ public class AnimalControlador {
 		return "detalleAnimal";
 	}
 	
-	@GetMapping("/detalleAdminAnimal")
+	@GetMapping("/detalleAdminAnimal/")
 	public String detalleAniaml(Model model) {
 		model.addAttribute("listaAnimal", animalServ.findAll());
 		return "/admin/listaAnimal";
@@ -61,7 +62,7 @@ public class AnimalControlador {
 	@PostMapping("/agregarAnimal/submit")
 	public String submit(@ModelAttribute("animal") Animal animal) {
 		animalServ.save(animal);
-		return "redirect:/admin/detalleAdminAnimal";
+		return "redirect:/admin/detalleAdminAnimal/";
 	}
 	
 	@GetMapping("/editarAnimal/{id}")
@@ -72,19 +73,27 @@ public class AnimalControlador {
 			model.addAttribute("listaTipos", tipoServ.findAll());
 			return  "/admin/formAnimal" ; 
 		}else {
-			return "redirect:/admin/detalleAdminAnimal";
+			return "redirect:/admin/detalleAdminAnimal/";
 		}
 	}
 	
 	@PostMapping("/editarAnimal/submit")
 	public String procesarEditar(@ModelAttribute("animal") Animal animal) {
-		animalServ.save(animal);
-		return "redirect:/admin/detalleAdminAnimal"; 
+		animalServ.edit(animal);
+		return "redirect:/admin/detalleAdminAnimal/"; 
 	}
 
 	@GetMapping("/eliminarAnimal/{id}")
 	public String eliminar(@PathVariable("id") Long id) {
-		animalServ.deleteById(id);
-		return "redirect:/admin/detalleAdminAnimal";
+		Animal animal = animalServ.buscarAnimalPorId(id);
+		if(animal != null) {
+			if(animalServ.numAdopcion(animal) == 0) {
+				animalServ.deleteById(id);
+			}else {
+				return "redirect:/admin/detalleAdminAnimal/?error=true";
+			}
+		}
+	
+		return "redirect:/admin/detalleAdminAnimal/";
 	}
 }

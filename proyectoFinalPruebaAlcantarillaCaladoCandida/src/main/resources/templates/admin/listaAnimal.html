@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org"> 
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{fragmentos/head::cabeza}"></head>
     <body class="d-flex flex-column justify-content-between min-vh-100">
         <header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
         <div class="container-fluid mt-4 flex-grow-1">
             <div class="row m-0">
-               
+
                 <aside class="col-12 col-lg-2 d-flex flex-column gap-2">
-                        <a href="#" class="btn w-75 mx-auto" type="button">Mis ventas</a>
-                        <a href="#" class="btn w-75 mx-auto" type="button">Mis datos</a>
-                       
-                        <hr>
+                    <a href="#" class="btn w-75 mx-auto" type="button">Mis ventas</a>
+                    <a href="/admin/perfilAdmin" class="btn w-75 mx-auto" type="button">Mis datos</a>
 
-                        <a href="/admin/listaCliente" class="btn w-75 mx-auto" type="button">Clientes</a>
-                        <a href="/admin/detalleAdminProducto" class="btn w-75 mx-auto" type="button">Productos</a>
-                        <a href="/admin/detalleCategoria" class="btn w-75 mx-auto" type="button">Categorías</a>
-                        <a href="/admin/detalleAdminAnimal" class="btn w-75 mx-auto" type="button">Animales</a>
-                        <a href="/admin/listadoTipoAnimal" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
-                        <a href="/admin/listaAdopciones" class="btn w-75 mx-auto" type="button">Adopciones</a>
+                    <hr>
 
-                    
+                    <a href="/admin/listaCliente/" class="btn w-75 mx-auto" type="button">Clientes</a>
+                    <a href="/admin/detalleAdminProducto/" class="btn w-75 mx-auto" type="button">Productos</a>
+                    <a href="/admin/detalleCategoria/" class="btn w-75 mx-auto" type="button">Categorías</a>
+                    <a href="/admin/detalleAdminAnimal/" class="btn w-75 mx-auto" type="button">Animales</a>
+                    <a href="/admin/listadoTipoAnimal/" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
+                    <a href="/admin/listaAdopciones/" class="btn w-75 mx-auto" type="button">Adopciones</a>
+
                 </aside>
 
                 <main class="col-12 col-lg-10">
@@ -31,6 +30,10 @@
                             <i class="bi bi-plus-circle ms-2"></i>
                         </a>
                     </div>
+					
+					<div th:if="${param.error}" class="alert alert-danger">
+					     No puede eliminar un animal que tiene asociada alguna adopción.
+					 </div>
 
                     <div class="table-responsive">
                         <table class="table table-bordered text-center">
@@ -53,7 +56,6 @@
                                     <td th:text="${animal.tipoAnimal.nombre}">Perro</td>
                                     <td th:text="${animal.raza}">Podenco</td>
                                     <td th:text="${#temporals.format(animal.fechaNacimiento)}">20/02/2012</td>
-                                    
 
                                     <td class="align-items-center fondo d-flex">
                                         <a th:href="@{/admin/detalleAnimal?id={id}(id=${animal.id})}">
@@ -66,17 +68,43 @@
                                                 <i class="bi bi-pencil-square text-black"></i>
                                             </button>
                                         </a>
-                                        <a th:href="@{/admin/eliminarAnimal/{id}(id=${animal.id})}"><i
-                                                class="bi bi-trash text-black me-2"></i>
+
+                                        <a class="btn fondoBlanco" data-bs-toggle="modal"
+                                            th:attr="data-bs-target='#removeAnimal'+ '-' + ${animal.id}">
+                                            <i class=" bi bi-trash text-dark"></i>
                                         </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </main>
+                                        <div class="modal fade rounded-2" th:id="removeAnimal + '-' + ${animal.id}">
+                                            <div class="modal-dialog remove">
+                                                <div class="modal-content">
+
+                                                    <div class="modal-header fondoAzul border-1">
+                                                        <h4 class="modal-title mx-auto text-white">¡Alerta!
+                                                        </h4>
+                                                        <button type="button" class="btn-close mx-0"
+                                                            data-bs-dismiss="modal"></button>
+                                                    </div>
+
+                                                    <div class="modal-body bg-white">
+                                                        <p class="text-dark mb-4 fw-bolder">¿Quieres borrar este animal?</p>
+                                                        <div class="d-grid gap-2">
+                                                            <a class="btn fondoAzul"
+                                                                th:href="@{/admin/eliminarAnimal/{id}(id=${animal.id})}">
+                                                                <i class="bi bi-trash me-2"></i> Borrar animal
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </main>
+                </div>
             </div>
-        </div>
-        <footer th:replace="~{fragmentos/pie::pie}"></footer>
-    </body>
-</html>
+            <footer th:replace="~{fragmentos/pie::pie}"></footer>
+        </body>
+    </html>
