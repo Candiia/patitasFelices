@@ -40,7 +40,6 @@ public class Producto {
 	private LocalDate fechaIngreso;
 	
 	@ManyToOne
-	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_producto_categoria"))
 	private Categoria catProducto;
 	

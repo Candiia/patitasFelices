@@ -42,18 +42,18 @@ INSERT INTO cliente (id, nombre, apellido, fecha_nacimiento, dni, email, telefon
 INSERT INTO cliente (id, nombre, apellido, fecha_nacimiento, dni, email, telefono, foto) VALUES (3, 'Fran', 'Gamero', '2002-02-11', '47266163J', 'candicalado@gmail.com', '603662811', 'https://robohash.org/Fran');
 ALTER SEQUENCE usuario_seq RESTART WITH 100;
 
-INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta) VALUES (1, 2, 1, 203.2, current_timestamp);
-INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta) VALUES (2, 2, 1, 203.2, current_timestamp);
+INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta) VALUES (1, 3, 1, 203.2, current_timestamp);
+INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta) VALUES (2, 3, 1, 203.2, current_timestamp);
 INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta) VALUES (3, 3, 1, 52354.23, current_timestamp);
 
 
 ALTER SEQUENCE venta_seq RESTART WITH 100;
 
 INSERT INTO adopcion (animal_id, cliente_id, fecha_adopcion) VALUES (3, 2, '2014-02-14');
-INSERT INTO adopcion (animal_id, cliente_id, fecha_adopcion) VALUES (1, 3, '2023-10-23');
+INSERT INTO adopcion (animal_id, cliente_id, fecha_adopcion) VALUES (1, 2, '2023-10-23');
 
-INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (1, 3, 50.3, 2, 2);
-INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (2, 2, 50.3, 2, 1);
+INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (1, 3, 50.3, 3, 2);
+INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (2, 2, 50.3, 5, 1);
 INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (3, 3, 50.3, 2, 2);
 INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (4, 2, 10, 2, 3);
 ALTER SEQUENCE linea_venta_seq RESTART WITH 100;

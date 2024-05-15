@@ -7,6 +7,7 @@ import com.salesianostriana.dam.proyectofinalprueba.exception.ProductoNoEncontra
 import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
 import com.salesianostriana.dam.proyectofinalprueba.repository.ProductoRepository;
+import com.salesianostriana.dam.proyectofinalprueba.repository.VentaRepository;
 import com.salesianostriana.dam.proyectofinalprueba.service.base.BaseServiceImple;
 
 @Service
@@ -14,7 +15,8 @@ public class ProductoService extends BaseServiceImple<Producto, Long, ProductoRe
 	
 	@Autowired
 	private ProductoRepository productoRepository;
-	
+	@Autowired
+	private VentaRepository ventaRepository;
 	
 	public Producto guardar(Categoria categoria, Producto producto) {
 		producto.addToCategoria(categoria);
@@ -38,6 +40,9 @@ public class ProductoService extends BaseServiceImple<Producto, Long, ProductoRe
 				.orElseThrow(() -> new ProductoNoEncontradoException("Producto no encontrado"));
 	}
 	
+	public int numVentaProducto(Producto producto) {
+		return ventaRepository.findNumVentaByProducto(producto);
+	}
 }
 
 

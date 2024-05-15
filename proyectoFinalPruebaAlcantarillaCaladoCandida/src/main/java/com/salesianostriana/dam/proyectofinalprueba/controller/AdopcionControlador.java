@@ -16,7 +16,7 @@ public class AdopcionControlador {
 	@Autowired
 	private AdopcionService adopcionService;		
 	
-	@GetMapping("/admin/listaAdopciones")
+	@GetMapping("/admin/listaAdopciones/")
 	public String mostrarAdopciones(Model model) {
 		model.addAttribute("adopciones", adopcionService.findAll());
 		return "admin/listaAdopciones";

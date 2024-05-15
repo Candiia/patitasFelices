@@ -39,7 +39,7 @@ public class ProductoControlador {
 		return "detalleProducto";	
 	}
 	
-	@GetMapping("/detalleAdminProducto")
+	@GetMapping("/detalleAdminProducto/")
 	public String detalleAdmin(Model model) {
 		model.addAttribute("listaProductos", productServ.findAll());
 		return "/admin/listaProducto";
@@ -56,7 +56,7 @@ public class ProductoControlador {
 	@PostMapping("/agregarProducto/submit")
 	public String submit(@ModelAttribute("producto") Producto producto) {
 		productServ.guardar(producto.getCatProducto(), producto);
-		return "redirect:/admin/detalleAdminProducto";
+		return "redirect:/admin/detalleAdminProducto/";
 	}
 	
 	@GetMapping("/editarProducto/{id}")
@@ -66,20 +66,27 @@ public class ProductoControlador {
 			model.addAttribute("listaCat", catServ.findAll()); 
 			return  "/admin/formProducto" ; 
 		}else {
-			return "redirect:/admin/detalleAdminProducto";
+			return "redirect:/admin/detalleAdminProducto/";
 		}
 	}
 	
 	@PostMapping("/editarProducto/submit")
 	public String procesarEditar(@ModelAttribute("producto") Producto producto) {
 		productServ.editar(producto.getCatProducto(), producto);
-		return "redirect:/admin/detalleAdminProducto"; 
+		return "redirect:/admin/detalleAdminProducto/"; 
 	}
 	 
 	@GetMapping("/eliminarProducto/{id}")
 	public String eliminar(@PathVariable("id") Long id) {
-		productServ.borrar(id, productServ.buscarProductoPorId(id).getCatProducto());
-		return "redirect:/admin/detalleAdminProducto";
+		Producto producto = productServ.buscarProductoPorId(id);
+		if(producto != null) {
+			if(productServ.numVentaProducto(producto) == 0) {
+				productServ.borrar(id, productServ.buscarProductoPorId(id).getCatProducto());
+			}else {
+				return "redirect:/admin/detalleAdminProducto/?error=true";
+			}
+		}
+		return "redirect:/admin/detalleAdminProducto/";
 	}
 	
 }

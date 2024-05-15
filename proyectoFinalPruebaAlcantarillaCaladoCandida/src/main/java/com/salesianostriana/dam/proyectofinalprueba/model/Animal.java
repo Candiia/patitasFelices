@@ -47,7 +47,6 @@ public class Animal {
 	private String foto;
 	
 	@ManyToOne
-	@OnDelete (action = OnDeleteAction.CASCADE)
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_animal_tipo"))
 	private TipoAnimal tipoAnimal;	
 	

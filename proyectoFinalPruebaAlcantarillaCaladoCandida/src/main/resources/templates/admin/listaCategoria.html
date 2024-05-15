@@ -11,12 +11,12 @@
                     <a href="/admin/perfilAdmin" class="btn w-75 mx-auto" type="button">Mis datos</a>
 
                     <hr>
-                    <a href="/admin/listaCliente" class="btn w-75 mx-auto" type="button">Clientes</a>
-                    <a href="/admin/detalleAdminProducto" class="btn w-75 mx-auto" type="button">Productos</a>
-                    <a href="/admin/detalleCategoria" class="btn w-75 mx-auto" type="button">Categorías</a>
-                    <a href="/admin/detalleAdminAnimal" class="btn w-75 mx-auto" type="button">Animales</a>
-                    <a href="/admin/listadoTipoAnimal" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
-                    <a href="/admin/listaAdopciones" class="btn w-75 mx-auto" type="button">Adopciones</a>
+                    <a href="/admin/listaCliente/" class="btn w-75 mx-auto" type="button">Clientes</a>
+                    <a href="/admin/detalleAdminProducto/" class="btn w-75 mx-auto" type="button">Productos</a>
+                    <a href="/admin/detalleCategoria/" class="btn w-75 mx-auto" type="button">Categorías</a>
+                    <a href="/admin/detalleAdminAnimal/" class="btn w-75 mx-auto" type="button">Animales</a>
+                    <a href="/admin/listadoTipoAnimal/" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
+                    <a href="/admin/listaAdopciones/" class="btn w-75 mx-auto" type="button">Adopciones</a>
 
                 </aside>
 
@@ -30,6 +30,10 @@
                             <i class="bi bi-plus-circle ms-2"></i>
                         </a>
                     </div>
+					
+					<div th:if="${param.error}" class="alert alert-danger">
+					      No puede eliminar una categoría que tiene asociada algún producto.
+					</div>
 
                     <div class="table-responsive">
                         <table class="table table-bordered text-center">
