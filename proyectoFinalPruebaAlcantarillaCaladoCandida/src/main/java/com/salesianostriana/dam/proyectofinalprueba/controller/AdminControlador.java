@@ -15,6 +15,7 @@ import com.salesianostriana.dam.proyectofinalprueba.model.Administrador;
 import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
 import com.salesianostriana.dam.proyectofinalprueba.model.Usuario;
 import com.salesianostriana.dam.proyectofinalprueba.service.ClienteService;
+import com.salesianostriana.dam.proyectofinalprueba.service.VentaService;
 
 @Controller
 @RequestMapping("/admin")
@@ -22,6 +23,8 @@ public class AdminControlador {
 	
 	@Autowired
 	private ClienteService clienteServ;
+	@Autowired
+	private VentaService  ventaService;
 		
 	@GetMapping("/listaCliente/")
 	public String mostrarClientes(Model model) {
@@ -82,6 +85,11 @@ public class AdminControlador {
 		return "perfil";
 	}
 	
+	@GetMapping("/ventasRealizadas")
+	public String ventasRealizas(Model model) {
+		model.addAttribute("ventas", ventaService.findAll());
+		return "/admin/ventasRealizadas";
+	}
 
 
 }
