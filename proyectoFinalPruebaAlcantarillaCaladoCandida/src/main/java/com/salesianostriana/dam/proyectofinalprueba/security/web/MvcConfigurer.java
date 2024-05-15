@@ -10,5 +10,6 @@ public class MvcConfigurer implements WebMvcConfigurer {
 
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/login");
+		registry.addViewController("/paginaInical");
 	}
 }

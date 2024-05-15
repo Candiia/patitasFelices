@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
     <head th:replace="~{fragmentos/head::cabeza}"></head>
-<body class=" d-flex flex-column justify-content-between min-vh-100">
-    <header th:replace="~{fragmentos/header::encabezado}"></header>
-    <main class="container">
-        <h1>Sobre nosotros:</h1>
-    </main>
-    <footer th:replace="~{fragmentos/pie::pie}"></footer>
-</body>
+    <body class=" d-flex flex-column justify-content-between min-vh-100">
+        <div th:if="${isAdmin}">
+            <header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
+        </div>
+        <div th:unless="${isAdmin}">
+            <header th:replace="~{fragmentos/headerCliente::encabezadoCliente}"></header>
+        </div>
+        <main class="container">
+            <h1>Sobre nosotros:</h1>
+        </main>
+        <footer th:replace="~{fragmentos/pie::pie}"></footer>
+    </body>
 </html>
