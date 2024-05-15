@@ -8,6 +8,4 @@ import com.salesianostriana.dam.proyectofinalprueba.service.base.BaseServiceImpl
 
 @Service
 public class VentaService  extends BaseServiceImple<Venta, Long, VentaRepository>{
-
-
 }

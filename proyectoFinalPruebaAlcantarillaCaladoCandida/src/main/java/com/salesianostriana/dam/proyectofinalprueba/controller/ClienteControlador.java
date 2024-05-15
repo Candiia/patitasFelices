@@ -13,6 +13,7 @@ import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
 import com.salesianostriana.dam.proyectofinalprueba.service.AnimalService;
 import com.salesianostriana.dam.proyectofinalprueba.service.ClienteService;
 import com.salesianostriana.dam.proyectofinalprueba.service.TipoAnimalService;
+import com.salesianostriana.dam.proyectofinalprueba.service.VentaService;
 
 @Controller
 public class ClienteControlador {
@@ -23,6 +24,9 @@ public class ClienteControlador {
 	private ClienteService clienteService;
 	@Autowired 
 	private TipoAnimalService tipoServ;
+	@Autowired
+	private VentaService ventaService;
+	
 	
 	
 	@GetMapping("/cliente/mostrarAnimales")
@@ -56,4 +60,11 @@ public class ClienteControlador {
 		clienteService.save(cliente); 
 		return "redirect:/admin/listaCliente/";
 	}
+	
+	@GetMapping("/cliente/misCompras")
+	public String compras(@AuthenticationPrincipal Cliente cliente, Model model) {
+		model.addAttribute("misCompras", cliente.getListaVenta());
+		return "misCompras";
+	}
+	
 }
