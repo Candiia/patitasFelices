@@ -7,7 +7,7 @@
             <div class="row m-0">
                 <aside class="col-12 col-lg-2 d-flex flex-column gap-2">
 
-                    <a href="#" class="btn w-75 mx-auto" type="button">Mis ventas</a>
+                    <a href="/admin/ventasRealizadas" class="btn w-75 mx-auto" type="button">Mis ventas</a>
                     <a href="/admin/perfilAdmin" class="btn w-75 mx-auto" type="button">Mis datos</a>
 
                     <hr>
@@ -30,10 +30,10 @@
                             <i class="bi bi-plus-circle ms-2"></i>
                         </a>
                     </div>
-					
-					<div th:if="${param.error}" class="alert alert-danger">
-					      No puede eliminar una categoría que tiene asociada algún producto.
-					</div>
+
+                    <div th:if="${param.error}" class="alert alert-danger">
+                        No puede eliminar una categoría que tiene asociada algún producto.
+                    </div>
 
                     <div class="table-responsive">
                         <table class="table table-bordered text-center">
