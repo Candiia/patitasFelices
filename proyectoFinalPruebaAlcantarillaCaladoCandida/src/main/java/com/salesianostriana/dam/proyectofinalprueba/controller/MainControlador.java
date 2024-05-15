@@ -13,7 +13,7 @@ import com.salesianostriana.dam.proyectofinalprueba.model.Usuario;
 public class MainControlador {
 	
 	@GetMapping("/paginaInicial")
-	public String paginaInicial(Model model,@AuthenticationPrincipal Usuario usuario	) {
+	public String paginaInicial(Model model,@AuthenticationPrincipal Usuario usuario) {
 		model.addAttribute("isAdmin", usuario.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")));
 		return "paginaInicial";
 	}
