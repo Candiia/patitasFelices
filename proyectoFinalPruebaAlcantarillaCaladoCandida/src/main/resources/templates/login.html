@@ -17,17 +17,14 @@
                     <div class="mb-3 mx-2 mt-2">
                         <label for="username" class="form-label">Nombre de usuario</label>
                         <input type="text" name="username" class="form-control" id="username" aria-describedby="nombreUsuario">
-
                     </div>
                     <div class="mb-3 mx-2">
                         <label for="password" class="form-label">Contraseña</label>
                         <input type="password" name="password" class="form-control" id="password">
                     </div>
                     <button type="submit" class="btn mx-2 mb-2">Entrar</button>
-
-                    <p class="mx-2">Si no estas registrado <a href="registro.html">pincha aquí</a></p>
+                    <p class="mx-2">Si no estas registrado <a th:href="@{/registroCliente}">pincha aquí</a></p>
                 </form>
-
             </div>
         </main>
 
