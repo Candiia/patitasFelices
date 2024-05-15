@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.proyectofinalprueba.exception.TipoNoEncontradoException;
 import com.salesianostriana.dam.proyectofinalprueba.model.TipoAnimal;
-import com.salesianostriana.dam.proyectofinalprueba.repository.AnimalRepository;
 import com.salesianostriana.dam.proyectofinalprueba.repository.TipoAnimalRepository;
 import com.salesianostriana.dam.proyectofinalprueba.service.base.BaseServiceImple;
 
