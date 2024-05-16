@@ -44,11 +44,15 @@
                                     <td th:text="${#temporals.format(adopcion.fechaAdopcion)}">20/02/2012</td>
 
                                     <td class="align-items-center fondo d-flex">
+                                        <a class="btn fondoBlanco" th:href="@{/admin/eliminar/{adopcionPK}(adopcionPK=${adopcion.adopcionPK})}">
+                                            <i class="bi bi-trash me-2"></i> Borrar adopción
+                                        </a>
+                                  
                                         <a class="btn fondoBlanco" data-bs-toggle="modal"
-                                            th:attr="data-bs-target='#removeAdopcion'">
+                                            th:attr="data-bs-target='#removeAdopcion' + '-' + ${adopcion.adopcionPK}">
                                             <i class=" bi bi-trash text-dark"></i>
                                         </a>
-                                        <div class="modal fade rounded-2" th:id="removeAdopcion">
+                                        <div class="modal fade rounded-2" th:id="removeAdopcion  + '-' + ${adopcion.adopcionPK}">
                                             <div class="modal-dialog remove">
                                                 <div class="modal-content">
 

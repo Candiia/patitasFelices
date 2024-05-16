@@ -31,13 +31,11 @@ public class Adopcion {
 	@OneToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@MapsId("animalId")
 	@JoinColumn(name = "animal_id")
-	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Animal animal;
 	
 	@ManyToOne
 	@MapsId("clienteId")
 	@JoinColumn(name = "cliente_id")
-	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Cliente cliente;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

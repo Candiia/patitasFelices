@@ -43,20 +43,20 @@ public class AdopcionService extends BaseServiceImple<Adopcion, AdopcionPK, Adop
 	        adoptarRepository.save(adopcion);
 	}
 	
-	public Adopcion buscarAdopcionPorId(AdopcionPK adopcionPK, Long idAnimal , Long idCliente) throws AdopcionNoEncontradoException {
-       
-		adopcionPK.setClienteId(adopcionPK.getAnimalId());
-        adopcionPK.setAnimalId(adopcionPK.getClienteId());
+	public Adopcion buscarAdopcionPorId(AdopcionPK adopcionPK) throws AdopcionNoEncontradoException {
+	
 		return adoptarRepository.findById(adopcionPK)
 				.orElseThrow(() -> new AdopcionNoEncontradoException("Adopción no encontrada"));
 	} 
 	
-	public void borrarAdopcion(AdopcionPK adopcionPK, Cliente cliente, Animal aniaml) {
-	
-        buscarAdopcionPorId(adopcionPK, adopcionPK.getAnimalId(), adopcionPK.getClienteId()).removeFromCliente(cliente);
-        buscarAdopcionPorId(adopcionPK, adopcionPK.getAnimalId(), adopcionPK.getClienteId()).removeFromAnimal(aniaml);
+	public void borrarAdopcion(Cliente cliente, Animal animal) {
+		AdopcionPK adopcion = new AdopcionPK();
+		adopcion.getAnimalId();
+		adopcion.getClienteId();
+        buscarAdopcionPorId(adopcion).removeFromCliente(cliente);
+        buscarAdopcionPorId(adopcion).removeFromAnimal(animal);
 
       
-        adoptarRepository.deleteById(adopcionPK);
+        adoptarRepository.deleteById(adopcion);
 	}
 }
