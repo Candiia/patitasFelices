@@ -29,4 +29,8 @@ public class LineaVenta {
 	@Id
 	@ManyToOne
 	private Venta venta;
+	
+	public double getPrecioLineaVenta() {
+		return producto.getPrecio() * cantidad;
+	}
 }

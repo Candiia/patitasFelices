@@ -39,7 +39,8 @@ public class Venta {
 	
 	private double importeTotal;
 	private LocalDate fechaVenta;
-	
+	private boolean finalizada;
+
 	@OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
