@@ -23,8 +23,7 @@
                         <table class="table table-bordered text-center">
                             <thead>
                                 <tr>
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
+                                    <th>Detalle compra</th>
                                     <th>Importe total</th>
                                     <th>Fecha de venta</th>
 
@@ -32,6 +31,8 @@
                             </thead>
                             <tbody>
                                 <tr th:each=" compras:${misCompras}">
+                                    <td><a th:href="@{/cliente/detalleVenta/{id}(id=${compras.id})}"><i
+                                                class="bi bi-search"></i></a></td>
                                     <td th:text="${compras.importeTotal}">Hembra</td>
                                     <td th:text="${#temporals.format(compras.fechaVenta)}">20/02/2012</td>
 

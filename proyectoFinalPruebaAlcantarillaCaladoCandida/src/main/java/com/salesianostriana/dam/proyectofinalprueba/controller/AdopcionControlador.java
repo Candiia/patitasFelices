@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
 import com.salesianostriana.dam.proyectofinalprueba.service.AdopcionService;
@@ -33,6 +34,8 @@ public class AdopcionControlador {
 		adopcionService.adoptarAnimal(cliente, id);
 		return "redirect:/cliente/misAdopciones";
 	}
+	
+
 	
 	
 	
