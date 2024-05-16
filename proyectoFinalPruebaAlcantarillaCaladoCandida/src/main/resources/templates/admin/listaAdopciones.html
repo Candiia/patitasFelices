@@ -44,38 +44,10 @@
                                     <td th:text="${#temporals.format(adopcion.fechaAdopcion)}">20/02/2012</td>
 
                                     <td class="align-items-center fondo d-flex">
-                                        <a class="btn fondoBlanco" th:href="@{/admin/eliminar/{adopcionPK}(adopcionPK=${adopcion.adopcionPK})}">
+                                        <a class="btn fondoBlanco"
+                                            th:href="@{/admin/eliminar/{adopcionPK}(adopcionPK=${adopcion.adopcionPK})}">
                                             <i class="bi bi-trash me-2"></i> Borrar adopción
                                         </a>
-                                  
-                                        <a class="btn fondoBlanco" data-bs-toggle="modal"
-                                            th:attr="data-bs-target='#removeAdopcion' + '-' + ${adopcion.adopcionPK}">
-                                            <i class=" bi bi-trash text-dark"></i>
-                                        </a>
-                                        <div class="modal fade rounded-2" th:id="removeAdopcion  + '-' + ${adopcion.adopcionPK}">
-                                            <div class="modal-dialog remove">
-                                                <div class="modal-content">
-
-                                                    <div class="modal-header fondoAzul border-1">
-                                                        <h4 class="modal-title mx-auto text-white">¡Alerta!
-                                                        </h4>
-                                                        <button type="button" class="btn-close mx-0"
-                                                            data-bs-dismiss="modal"></button>
-                                                    </div>
-
-                                                    <div class="modal-body bg-white">
-                                                        <p class="text-dark mb-4 fw-bolder">¿Quieres borrar está adopción?</p>
-                                                        <div class="d-grid gap-2">
-                                                            <a class="btn fondoAzul"
-                                                                th:href="@{/admin/eliminar/{adopcionPK}(adopcionPK=${adopcion.adopcionPK})}">
-                                                                <i class="bi bi-trash me-2"></i> Borrar adopción
-                                                            </a>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

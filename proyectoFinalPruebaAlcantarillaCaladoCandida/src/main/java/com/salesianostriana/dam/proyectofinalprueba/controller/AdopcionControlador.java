@@ -37,8 +37,8 @@ public class AdopcionControlador {
 	}
 	
 	@GetMapping("/admin/eliminar/{adopcionPK}")
-	public String eliminarAdopcion(Cliente cliente, @PathVariable("adopcionPK") String adopcionPK,Animal animal) {
-		adopcionService.borrarAdopcion( cliente, animal);
+	public String eliminarAdopcion(Cliente cliente, @PathVariable("adopcionPK") String adopcionPK, Animal animal) {
+		adopcionService.borrarAdopcion(cliente.getId(), animal.getId());
 		return "redirect:/admin/listaAdopciones/";
 	}
 }
