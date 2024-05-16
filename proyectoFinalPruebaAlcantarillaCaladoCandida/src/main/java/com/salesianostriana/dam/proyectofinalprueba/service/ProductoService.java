@@ -46,9 +46,9 @@ public class ProductoService extends BaseServiceImple<Producto, Long, ProductoRe
 		return ventaRepository.findNumVentaByProducto(producto);
 	}
 	
-	public List<Producto> buscar(String cadena){
+	/*public List<Producto> buscar(String cadena){
 		return this.repository.findByNombreContainsIgnoreCaseOrDescripcionContains(cadena);
-	}
+	}*/
 }
 
 

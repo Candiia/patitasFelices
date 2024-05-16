@@ -18,7 +18,7 @@ public interface VentaRepository extends JpaRepository<Venta, Long>{
 	int findNumVentaByProducto(Producto producto);
 
 
-	Optional<Venta> existVentaNoFinalizada(Cliente cliente);
+	//Optional<Venta> existVentaNoFinalizada(Cliente cliente);
 
-	boolean findByFinalAndCliente(boolean finalizada, Cliente cliente);
+	boolean findByFinalizadaAndCliente(boolean finalizada, Cliente cliente);
 }
