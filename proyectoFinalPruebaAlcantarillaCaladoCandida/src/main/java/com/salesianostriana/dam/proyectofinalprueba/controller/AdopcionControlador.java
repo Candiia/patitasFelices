@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.salesianostriana.dam.proyectofinalprueba.model.AdopcionPK;
+import com.salesianostriana.dam.proyectofinalprueba.model.Animal;
 import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
 import com.salesianostriana.dam.proyectofinalprueba.service.AdopcionService;
 
@@ -34,7 +36,9 @@ public class AdopcionControlador {
 		return "redirect:/cliente/misAdopciones";
 	}
 	
-	
-	
-
+	@GetMapping("/admin/eliminar/{adopcionPK}")
+	public String eliminarAdopcion(Cliente cliente, @PathVariable("adopcionPK") String adopcionPK, AdopcionPK adopcion,Animal animal) {
+		adopcionService.borrarAdopcion(adopcion, cliente, animal);
+		return "redirect:/admin/listaAdopciones/";
+	}
 }

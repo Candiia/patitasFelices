@@ -2,6 +2,8 @@ package com.salesianostriana.dam.proyectofinalprueba.model;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
@@ -29,11 +31,13 @@ public class Adopcion {
 	@OneToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@MapsId("animalId")
 	@JoinColumn(name = "animal_id")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Animal animal;
 	
 	@ManyToOne
 	@MapsId("clienteId")
 	@JoinColumn(name = "cliente_id")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Cliente cliente;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -58,5 +62,6 @@ public class Adopcion {
 		this.animal = null;
 		animal.setAdopcion(null);
 	}
+
 }
 
