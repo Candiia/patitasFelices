@@ -5,7 +5,7 @@
         <header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
         <div class="mx-auto w-50">
             <form th:action="${cliente.id != 0} ? @{/admin/agregarCliente/submit} :  @{/admin/editarCliente/submit} "
-                method="POST" th:object="${cliente}" class="rounded-1 border mt-2 mb-2">
+                method="POST" th:object="${cliente}" class="rounded-1 border mt-2 mb-2" id="formCliente">
                 <input th:if="${cliente.id != 0}" type="hidden" name="id" th:field="*{id}">
                 <div class="mb-3 mx-2 mt-2">
                     <label for="exampleInputNombreUsu" class="form-label fw-bold">Nombre de usuario <span
