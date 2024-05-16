@@ -43,7 +43,7 @@ public class AdopcionService extends BaseServiceImple<Adopcion, AdopcionPK, Adop
 	        adoptarRepository.save(adopcion);
 	}
 	
-	public Adopcion buscarAdopcionPorId(Long animalId, Long clienteId) throws AdopcionNoEncontradoException {
+	public Adopcion buscarAdopcionPorId(Long animalId, Long clienteId){
 		AdopcionPK adopcionPk= new AdopcionPK();
 		adopcionPk.setClienteId(clienteId);
 	    adopcionPk.setAnimalId(animalId);

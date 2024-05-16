@@ -9,15 +9,13 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Embeddable
 public class AdopcionPK implements Serializable {/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@EqualsAndHashCode.Include
 	private Long clienteId;
-	@EqualsAndHashCode.Include
+	
 	private Long animalId;
 
 }
