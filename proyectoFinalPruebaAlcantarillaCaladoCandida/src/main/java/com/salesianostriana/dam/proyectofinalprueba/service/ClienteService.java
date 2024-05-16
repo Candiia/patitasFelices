@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.salesianostriana.dam.proyectofinalprueba.exception.ClienteNoEncontradoException;
 import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
+import com.salesianostriana.dam.proyectofinalprueba.model.exception.ClienteNoEncontradoException;
 import com.salesianostriana.dam.proyectofinalprueba.repository.AdoptarRepository;
 import com.salesianostriana.dam.proyectofinalprueba.repository.ClienteRepository;
 import com.salesianostriana.dam.proyectofinalprueba.repository.VentaRepository;
