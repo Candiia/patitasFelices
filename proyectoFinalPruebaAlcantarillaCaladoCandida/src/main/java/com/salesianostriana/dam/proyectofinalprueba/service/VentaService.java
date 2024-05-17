@@ -13,6 +13,7 @@ import com.salesianostriana.dam.proyectofinalprueba.service.base.BaseServiceImpl
 @Service
 public class VentaService  extends BaseServiceImple<Venta, Long, VentaRepository>{
 
+<<<<<<< HEAD
 	/*public boolean existeVentaNoFinaliza(Cliente cliente) {
 		return this.repository.findByFinalAndCliente(false, cliente);  
 	}
@@ -20,6 +21,15 @@ public class VentaService  extends BaseServiceImple<Venta, Long, VentaRepository
 	public Optional<Venta> getVentaNoFinaliza(Cliente cliente) {
 		return this.repository.existVentaNoFinalizada(cliente);  
 	}*/
+=======
+	public boolean existeVentaNoFinaliza(Cliente cliente) {
+		return this.repository.findByFinalizadaAndCliente(false, cliente);  
+	}
+	
+	public Optional<Venta> getVentaNoFinaliza(Cliente cliente) {
+		return this.getVentaNoFinaliza(cliente); 
+	}
+>>>>>>> 781b0e30705c155c16f77bc5672153fd83535e42
 
 	public boolean hayProductosEnCarrito(Cliente cliente, Producto producto) {
 		return false;

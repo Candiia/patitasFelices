@@ -16835,7 +16835,11 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/D
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 55 more
+<<<<<<< HEAD
 2024-05-16 18:51:49.374179+02:00 database: flush
+=======
+2024-05-16 17:35:38.788565+02:00 database: flush
+>>>>>>> 781b0e30705c155c16f77bc5672153fd83535e42
 org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]"
 General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]" [50000-224]
 	at org.h2.message.DbException.get(DbException.java:212)
@@ -16948,6 +16952,7 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/D
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 92 more
+<<<<<<< HEAD
 2024-05-16 19:39:32.380537+02:00 database: flush
 org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]"
 General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]" [50000-224]
@@ -18498,6 +18503,9 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/D
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 92 more
 2024-05-16 20:21:21.823995+02:00 database: flush
+=======
+2024-05-16 17:35:40.123200+02:00 database: flush
+>>>>>>> 781b0e30705c155c16f77bc5672153fd83535e42
 org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]"
 General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Candi/Desktop/1º DAM/proyectoFinalPrueba/proyectoFinalPruebaAlcantarillaCaladoCandida/db/basededatos.mv.db [2.2.224/7]" [50000-224]
 	at org.h2.message.DbException.get(DbException.java:212)

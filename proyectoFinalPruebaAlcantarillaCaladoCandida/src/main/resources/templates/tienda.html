@@ -22,8 +22,9 @@
                     <div class="row">
                         <div class="col-12 col-lg-4 p-3" th:each="producto:${listaProductos}">
                             <div class="card imagen-cartas" data-aos="zoom-in">
-                                <img class="card-img-top tamayo-carta" th:src="${producto.foto}" src="../img/pipeta.webp"
-                                    alt="Card image">
+                                <img class="card-img-top tamayo-carta"
+                                    th:src="${#strings.isEmpty(producto.foto)} ? 'http://placehold.it/400x350' : ${producto.foto}"
+                                    src="../img/pipeta.webp" alt="Card image">
                                 <div class="card-body">
                                     <h4 class="card-title" th:text="${producto.nombre}">producto</h4>
                                     <p class="card-text" th:text="${#numbers.formatDecimal(producto.precio, 1, 2)+' €'}">30.20</p>
@@ -43,5 +44,6 @@
         <script>
           AOS.init();
         </script>
+
     </body>
 </html>
