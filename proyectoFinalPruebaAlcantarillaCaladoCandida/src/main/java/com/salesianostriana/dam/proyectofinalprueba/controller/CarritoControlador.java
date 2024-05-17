@@ -29,10 +29,10 @@ public class CarritoControlador {
 	public String showCarrito(@AuthenticationPrincipal Administrador admin, Model model) {
 		if(carritoService.hayCarrito(admin)) {
 			model.addAttribute("productos", carritoService.getProductoEnCarrito(admin));
-			return "carrito";
+			return "/carrito";
 		}
 		
-		return"carrito";
+		return"/carrito";
 	}
 
 	@GetMapping("/productoACarrito/{id}")
@@ -40,7 +40,7 @@ public class CarritoControlador {
 		Optional<Producto> producto = productoService.findById(id);
 		if(producto.isPresent()) {
 			carritoService.addProducto(producto.get(), 1, admin);
-			return "redirect:/carrito";
+			return "redirect:/admin/carrito";
 		}
 		return"redirect:/admin/mostrarProductos";
 	}
@@ -57,7 +57,18 @@ public class CarritoControlador {
 		if(producto.isPresent()) {
 			carritoService.modificar(producto.get(), cantidad, admin);
 		}
-		return "redirect:/carrito";
+		return "redirect:/admin/carrito";
 	}
+	
+	
+	@GetMapping("/carrito/eliminar/{id}")  
+	public String eliminarProducto(Administrador admin, @PathVariable("id") Long id) {
+        Optional <Producto> producto = productoService.findById(id);
+        if(producto.isPresent()) {
+           carritoService.borrarProducto(producto.get(), admin);
+           return "redirect:/admin/carrito";
+        }
+        return "redirect:/admin/carrito";
+    }
 
 }

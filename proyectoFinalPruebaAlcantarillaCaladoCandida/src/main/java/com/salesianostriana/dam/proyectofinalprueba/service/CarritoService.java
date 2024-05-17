@@ -41,7 +41,7 @@ public class CarritoService {
 	}
 	
 	
-	public void borrar( Producto producto, Administrador admin){
+	public void borrarProducto( Producto producto, Administrador admin){
 		Venta carrito = getCarrito(admin);
 		Optional<LineaVenta> eliminar = buscarPorProducto(producto, admin);
 		
@@ -75,7 +75,7 @@ public class CarritoService {
 		Venta carrito = getCarrito(admin);
 
 		if(cantidad <= 0) {
-			borrar(producto, admin);
+			borrarProducto(producto, admin);
 		}else {
 			Optional<LineaVenta> lv = buscarPorProducto(producto, admin);
 			if(lv.isPresent()) {

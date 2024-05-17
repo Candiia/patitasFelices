@@ -34,7 +34,6 @@ public class Venta {
 	private Cliente cliente;
 	
 	@ManyToOne
-	@JoinColumn(foreignKey = @ForeignKey(name="fk_venta_admin"))
 	private Administrador admin;
 	
 	private double importeTotal;
@@ -54,8 +53,7 @@ public class Venta {
 	}
 	
 	public void removeLineaVenta(LineaVenta lineaVenta) {
-		lineaVenta.setVenta(null);
-		this.getLineasVentas().remove(lineaVenta);
+		this.lineasVentas.remove(lineaVenta);
 	}
 
 }
