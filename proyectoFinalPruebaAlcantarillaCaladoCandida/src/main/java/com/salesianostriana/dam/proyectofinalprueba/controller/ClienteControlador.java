@@ -1,18 +1,23 @@
 package com.salesianostriana.dam.proyectofinalprueba.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
+import com.salesianostriana.dam.proyectofinalprueba.model.LineaVenta;
 import com.salesianostriana.dam.proyectofinalprueba.service.AnimalService;
 import com.salesianostriana.dam.proyectofinalprueba.service.ClienteService;
 import com.salesianostriana.dam.proyectofinalprueba.service.TipoAnimalService;
+import com.salesianostriana.dam.proyectofinalprueba.service.VentaService;
 
 @Controller
 public class ClienteControlador {
@@ -23,6 +28,9 @@ public class ClienteControlador {
 	private ClienteService clienteService;
 	@Autowired 
 	private TipoAnimalService tipoServ;
+	@Autowired
+	private VentaService ventaService;
+	
 	
 	
 	@GetMapping("/cliente/mostrarAnimales")
@@ -55,5 +63,20 @@ public class ClienteControlador {
 	public String submit(@ModelAttribute("cliente") Cliente cliente) {
 		clienteService.save(cliente); 
 		return "redirect:/admin/listaCliente/";
+	}
+	
+	@GetMapping("/cliente/misCompras")
+	public String compras(@AuthenticationPrincipal Cliente cliente, Model model) {
+		model.addAttribute("misCompras", cliente.getListaVenta());
+		return "misCompras";
+	}
+	@GetMapping("/cliente/detalleVenta/{id}")
+	public String detalleVenta(@PathVariable("id") Long id, Model model) {
+		if(ventaService.findById(id).isPresent()) {
+			List<LineaVenta> LineaVentaEncontrada = ventaService.findById(id).get().getLineasVentas();
+			model.addAttribute("ventas", LineaVentaEncontrada);	
+			return "detalleVenta";
+		}
+		return "redirect:/cliente/misCompras";
 	}
 }

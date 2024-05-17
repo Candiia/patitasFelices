@@ -19,7 +19,7 @@ public class CarritoService {
 	@Autowired
 	private VentaService ventaService;
 	
-	public void addProducto(Cliente cliente, Producto producto, int cantidad) {
+	/*public void addProducto(Cliente cliente, Producto producto, int cantidad) {
 		Venta carrito = getCarrito(cliente);
 		
 		if(!ventaService.hayProductosEnCarrito(cliente, producto)) {
@@ -115,6 +115,6 @@ public class CarritoService {
 				.getLineasVentas()
 				.stream()
 				.collect(Collectors.toMap(lv -> lv.getProducto(),lv -> lv.getCantidad()));
-	}
+	}*/
 	
 }

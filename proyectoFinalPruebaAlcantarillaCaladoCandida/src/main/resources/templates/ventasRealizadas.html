@@ -23,25 +23,18 @@
                         <table class="table table-bordered text-center">
                             <thead>
                                 <tr>
-                                    <th>Nombre</th>
-                                    <th>Apodo</th>
-                                    <th>Género</th>
-                                    <th>Tipo animal</th>
-                                    <th>Raza</th>
-                                    <th>Fecha nacimiento</th>
-                                    <th>Fecha adopción</th>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Importe total</th>
+                                    <th>Fecha de venta</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each=" adopcion:${adopCliente}">
-                                    <td th:text="${adopcion.animal.nombre}">Luna</td>
-                                    <td th:text="${adopcion.animal.apodo}">Lunita la perra feliz</td>
-                                    <td th:text="${adopcion.animal.genero}">Hembra</td>
-                                    <td th:text="${adopcion.animal.tipoAnimal.nombre}">Perro</td>
-                                    <td th:text="${adopcion.animal.raza}">Podenco</td>
-                                    <td th:text="${#temporals.format(adopcion.animal.fechaNacimiento)}">20/02/2012</td>
-                                    <td th:text="${#temporals.format(adopcion.fechaAdopcion)}">20/02/2012</td>
+                                <tr th:each=" compras:${misCompras}">
+                                    <td th:text="${compras.lineasVentas.cantidad}">Lunita la perra feliz</td>
+                                    <td th:text="${compras.importeTotal}">Hembra</td>
+                                    <td th:text="${#temporals.format(compras.fechaVenta)}">20/02/2012</td>
 
                                 </tr>
                             </tbody>

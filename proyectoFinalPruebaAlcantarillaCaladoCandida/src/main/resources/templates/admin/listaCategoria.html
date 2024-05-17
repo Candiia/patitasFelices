@@ -32,11 +32,11 @@
                     </div>
 
                     <div th:if="${param.error}" class="alert alert-danger">
-                        No puede eliminar una categoría que tiene asociada algún producto.
+                        No puede eliminar una categoría que tiene asociado algún producto.
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-bordered text-center">
+                        <table class="table table-bordered text-center w-50 mx-auto">
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
@@ -63,14 +63,14 @@
                                                 <div class="modal-content">
 
                                                     <div class="modal-header fondoAzul border-1">
-                                                        <h4 class="modal-title mx-auto text-white">¡Alerta!
+                                                        <h4 class="modal-title mx-auto text-white">¡Aviso!
                                                         </h4>
                                                         <button type="button" class="btn-close mx-0"
                                                             data-bs-dismiss="modal"></button>
                                                     </div>
 
                                                     <div class="modal-body bg-white">
-                                                        <p class="text-dark mb-4 fw-bolder">¿Quieres borrar este categoría?</p>
+                                                        <p class="text-dark mb-4 fw-bolder">¿Quieres borrar esta categoría?</p>
                                                         <div class="d-grid gap-2">
                                                             <a class="btn fondoAzul"
                                                                 th:href="@{/admin/eliminarCategoria/{id}(id=${categoria.id})}">

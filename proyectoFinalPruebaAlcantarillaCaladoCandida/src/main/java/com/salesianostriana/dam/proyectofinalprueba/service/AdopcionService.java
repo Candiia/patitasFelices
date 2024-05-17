@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.salesianostriana.dam.proyectofinalprueba.exception.AdopcionNoEncontradoException;
 import com.salesianostriana.dam.proyectofinalprueba.model.Adopcion;
 import com.salesianostriana.dam.proyectofinalprueba.model.AdopcionPK;
 import com.salesianostriana.dam.proyectofinalprueba.model.Animal;
@@ -22,11 +23,9 @@ public class AdopcionService extends BaseServiceImple<Adopcion, AdopcionPK, Adop
 	@Autowired
 	private AnimalService  animalService;
 	
-	
 	@Transactional
 	public void adoptarAnimal(Cliente cliente, Long id) {
 	
-		
 		Animal animal = animalService.buscarAnimalPorId(id);
 		
 		 	AdopcionPK adopcionPK = new AdopcionPK();
@@ -42,7 +41,27 @@ public class AdopcionService extends BaseServiceImple<Adopcion, AdopcionPK, Adop
 	        adoptarRepository.save(adopcion);
 	}
 	
+	public Adopcion buscarAdopcionPorId(Long animalId, Long clienteId){
+		AdopcionPK adopcionPk= new AdopcionPK();
+		adopcionPk.setClienteId(clienteId);
+	    adopcionPk.setAnimalId(animalId);
+	    
+		return adoptarRepository.findById(adopcionPk)
+				.orElseThrow(() -> new AdopcionNoEncontradoException("Adopción no encontrada"));
+	} 
+	
+	public void borrarAdopcion(Long clienteId, Long animalId) {
+	    	
+	        Adopcion adopcion = buscarAdopcionPorId(animalId, clienteId);
+	        
+	        adopcion.removeFromAnimal(adopcion.getAnimal());
+	        adopcion.removeFromCliente(adopcion.getCliente());
+	        
+	        adoptarRepository.deleteById(adopcion.getAdopcionPK());
+	    
+	}
 
-
-
+	
+       
+	
 }

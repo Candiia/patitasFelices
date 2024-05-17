@@ -29,7 +29,7 @@ public class Adopcion {
 	@OneToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@MapsId("animalId")
 	@JoinColumn(name = "animal_id")
-	private Animal animal;
+	private Animal animal; 
 	
 	@ManyToOne
 	@MapsId("clienteId")
@@ -58,5 +58,6 @@ public class Adopcion {
 		this.animal = null;
 		animal.setAdopcion(null);
 	}
+
 }
 

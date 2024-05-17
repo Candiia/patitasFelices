@@ -8,6 +8,6 @@ import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
 
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
 	
-	public List<Producto>findByNombreContainsIgnoreCaseOrDescripcionContains(String nombre);
+	//public List<Producto>findByNombreContainsIgnoreCaseOrDescripcionContains(String nombre);
 
 }

@@ -1,7 +1,5 @@
 package com.salesianostriana.dam.proyectofinalprueba.repository;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -16,9 +14,7 @@ public interface VentaRepository extends JpaRepository<Venta, Long>{
 
 	@Query("SELECT COUNT(v) FROM Venta v LEFT JOIN v.lineasVentas lv WHERE lv.producto = ?1")
 	int findNumVentaByProducto(Producto producto);
-
-
-	Optional<Venta> existVentaNoFinalizada(Cliente cliente);
-
-	boolean findByFinalAndCliente(boolean finalizada, Cliente cliente);
+	
+	
 }
+

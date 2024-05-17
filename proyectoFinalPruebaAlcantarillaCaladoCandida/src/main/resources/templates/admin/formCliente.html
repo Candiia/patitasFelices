@@ -4,20 +4,22 @@
     <body class="d-flex flex-column justify-content-between min-vh-100">
         <header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
         <div class="mx-auto w-50">
-            <form th:action="${cliente.id != 0} ? @{/admin/agregarCliente/submit} :  @{/admin/editarCliente/submit} " method="POST" th:object="${cliente}" class="rounded-1 border mt-2 mb-2">
+            <form th:action="${cliente.id != 0} ? @{/admin/agregarCliente/submit} :  @{/admin/editarCliente/submit} "
+                method="POST" th:object="${cliente}" class="rounded-1 border mt-2 mb-2" id="formCliente">
                 <input th:if="${cliente.id != 0}" type="hidden" name="id" th:field="*{id}">
                 <div class="mb-3 mx-2 mt-2">
                     <label for="exampleInputNombreUsu" class="form-label fw-bold">Nombre de usuario <span
                             class="text-danger">*</span> </label>
-                    <input type="text" class="form-control w-50" id="exampleInputNombreUsu" th:field="*{username}"
+                    <input type="text" class="form-control w-50" name="username" id="exampleInputNombreUsu" th:field="*{username}"
                         aria-describedby="nombreUsuario"
                         required>
                 </div>
 
                 <div class="mb-3 mx-2">
-                    <label 	th:if="${editar}" for="password" class="form-label fw-bold">Contraseña <span
+                    <label th:if="${editar}" for="password" class="form-label fw-bold">Contraseña <span
                             class="text-danger">*</span></label>
-                    <input type="password" th:type="${password}" name="password" class="form-control" th:field="*{password}"  id="password" required>
+                    <input type="password" th:type="${password}" name="password" class="form-control" th:field="*{password}"
+                        id="password" required>
                 </div>
 
                 <div class="mb-3 mx-2 mt-2">
