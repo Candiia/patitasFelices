@@ -1,15 +1,13 @@
 package com.salesianostriana.dam.proyectofinalprueba.service;
 
 import java.time.LocalDate;
-import java.util.Map;
+import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Administrador;
-import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
 import com.salesianostriana.dam.proyectofinalprueba.model.LineaVenta;
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
 import com.salesianostriana.dam.proyectofinalprueba.model.Venta;
@@ -19,6 +17,8 @@ public class CarritoService {
 	
 	@Autowired
 	private VentaService ventaService;
+	@Autowired
+	private ClienteService clienteService;
 	
 	public void addProducto(Producto producto, int cantidad, Administrador admin) {
 		Venta carrito = getCarrito(admin);
@@ -28,6 +28,7 @@ public class CarritoService {
 					LineaVenta.builder()
 					.producto(producto)
 					.cantidad(cantidad)
+					.subtotal(cantidad * producto.getPrecio())
 					.build()
 					);	
 		}else {
@@ -41,7 +42,7 @@ public class CarritoService {
 	}
 	
 	
-	public void borrarProducto( Producto producto, Administrador admin){
+	public void borrarProducto(Producto producto, Administrador admin){
 		Venta carrito = getCarrito(admin);
 		Optional<LineaVenta> eliminar = buscarPorProducto(producto, admin);
 		
@@ -59,14 +60,13 @@ public class CarritoService {
 	}
 	
 	
-	public void finalizarCompra(Administrador admin, Cliente cliente) {
+	public void finalizarCompra(Administrador admin, Long idCliente) {
 		Venta carrito = getCarrito(admin);
 		
 		carrito.setFinalizada(true);
 		carrito.setFechaVenta(LocalDate.now());
 		carrito.setImporteTotal(getImporte(admin));
-		carrito.setCliente(cliente);
-		
+		carrito.setCliente(clienteService.buscarClientePorId(idCliente));
 		ventaService.edit(carrito);
 
 	}
@@ -80,7 +80,8 @@ public class CarritoService {
 			Optional<LineaVenta> lv = buscarPorProducto(producto, admin);
 			if(lv.isPresent()) {
 				LineaVenta a = lv.get();
-				a.setCantidad(cantidad);;
+				a.setCantidad(cantidad);
+				a.setSubtotal(a.getPrecioLineaVenta());
 				ventaService.edit(carrito);
 			}else {
 				addProducto(producto, cantidad, admin);
@@ -108,15 +109,12 @@ public class CarritoService {
 	public double getImporte(Administrador admin){
 		return getCarrito(admin).getLineasVentas()
 			.stream()
-			.mapToDouble(LineaVenta::getPrecioLineaVenta)
+			.mapToDouble(lv -> lv.getSubtotal())
 			.sum();
 	}
 	
-	public Map<Producto, Integer> getProductoEnCarrito(Administrador admin){
-		return getCarrito(admin)
-				.getLineasVentas()
-				.stream()
-				.collect(Collectors.toMap(lv -> lv.getProducto(),lv -> lv.getCantidad()));
+	public List<LineaVenta> getProductoEnCarrito(Administrador admin){
+		return getCarrito(admin).getLineasVentas();
 	}
 	
 }

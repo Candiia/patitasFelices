@@ -34,6 +34,7 @@ public class Venta {
 	private Cliente cliente;
 	
 	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name="fk_venta_admin"))
 	private Administrador admin;
 	
 	private double importeTotal;
