@@ -42,11 +42,7 @@ INSERT INTO cliente (id, nombre, apellido, fecha_nacimiento, dni, email, telefon
 INSERT INTO cliente (id, nombre, apellido, fecha_nacimiento, dni, email, telefono, foto) VALUES (3, 'Fran', 'Gamero', '2002-02-11', '47266163J', 'candicalado@gmail.com', '603662811', 'https://robohash.org/Fran');
 ALTER SEQUENCE usuario_seq RESTART WITH 100;
 
-<<<<<<< HEAD
-INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta, finalizada) VALUES (1, 3, 1, 203.2, current_timestamp. false);
-=======
 INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta, finalizada) VALUES (1, 3, 1, 203.2, current_timestamp, true);
->>>>>>> 781b0e30705c155c16f77bc5672153fd83535e42
 INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta, finalizada) VALUES (2, 3, 1, 203.2, current_timestamp, true);
 INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta, finalizada) VALUES (3, 3, 1, 52354.23, current_timestamp, true);
 
