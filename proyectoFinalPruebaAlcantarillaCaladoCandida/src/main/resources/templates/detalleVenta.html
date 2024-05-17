@@ -16,25 +16,25 @@
                 </aside>
                 <main class="col-12 col-lg-10">
                     <div>
-                        <div th:each=" ventas:${venta}" class="border rounded-2 w-100 d-flex">
-                            <p><span class="fw-bold ms-4">Nombre cliente: </span><span
-                                    th:text="${ventas.venta.cliente.nombre}"></span></p>
-                            <p><span class="fw-bold ms-4">DNI: </span><span th:text="${ventas.venta.cliente.dni}"></span></p>
+                        <div class="border rounded-2 w-100 d-flex">
+                            <p><span class="fw-bold ms-2">Nombre cliente: </span><span
+                                    th:text="${ventas[0].venta.cliente.nombre}"></span></p>
+                            <p><span class="fw-bold ms-4">DNI: </span><span th:text="${ventas[0].venta.cliente.dni}"></span></p>
                             <p><span class="fw-bold ms-4">Teléfono: </span><span
-                                    th:text="${ventas.venta.cliente.telefono}"></span></p>
-                            <p><span class="fw-bold ms-4">Email: </span><span th:text="${ventas.venta.cliente.email}"></span></p>
+                                    th:text="${ventas[0].venta.cliente.telefono}"></span></p>
+                            <p><span class="fw-bold ms-4">Email: </span><span th:text="${ventas[0].venta.cliente.email}"></span></p>
 
                             <div>
                                 <p><span class="fw-bold ms-4">Total:</span><span
-                                        th:text="${#numbers.formatDecimal(ventas.venta.importeTotal, 1, 2 )+'€'}"></span></p>
+                                        th:text="${#numbers.formatDecimal(ventas[0].venta.importeTotal, 1, 2 )+'€'}"></span></p>
                             </div>
                         </div>
 
-                        <div th:each=" ventas:${venta}" class="border rounded-2 w-100 mt-2">
-                            <p><span class="fw-bold ms-2">Productos: </span><span th:text="${ventas.producto.nombre}"></span></p>
-                            <p><span class="fw-bold ms-2">Cantidad: </span><span th:text="${ventas.cantidad}"></span></p>
+                        <div th:each=" venta:${ventas}" class="border rounded-2 w-100 mt-2">
+                            <p><span class="fw-bold ms-2">Productos: </span><span th:text="${venta.producto.nombre}"></span></p>
+                            <p><span class="fw-bold ms-2">Cantidad: </span><span th:text="${venta.cantidad}"></span></p>
                             <p><span class="fw-bold ms-2">Precio unitario:</span><span
-                                    class="ms-2" th:text="${#numbers.formatDecimal(ventas.precioUnitario, 1, 2 )+'€'}"></span></p>
+                                    class="ms-2" th:text="${#numbers.formatDecimal(venta.precioUnitario, 1, 2 )+'€'}"></span></p>
                         </div>
                     </div>
                 </main>

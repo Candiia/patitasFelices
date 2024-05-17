@@ -74,7 +74,7 @@ public class ClienteControlador {
 	public String detalleVenta(@PathVariable("id") Long id, Model model) {
 		if(ventaService.findById(id).isPresent()) {
 			List<LineaVenta> LineaVentaEncontrada = ventaService.findById(id).get().getLineasVentas();
-			model.addAttribute("venta", LineaVentaEncontrada);	
+			model.addAttribute("ventas", LineaVentaEncontrada);	
 			return "detalleVenta";
 		}
 		return "redirect:/cliente/misCompras";
