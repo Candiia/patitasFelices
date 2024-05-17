@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragmentos/head::cabeza}"></head>
+    <body class=" d-flex flex-column justify-content-between min-vh-100">
+
+        <header th:replace="~{fragmentos/headerCliente::encabezadoCliente}"></header>
+
+        <div class="container-fluid mt-4 flex-grow-1">
+            <div class="row m-0">
+
+                <aside class="col-12 col-lg-2 d-flex flex-column gap-2">
+                    <a href="/cliente/misCompras" class="btn w-75 mx-auto" type="button">Mis pedidos</a>
+                    <a href="/cliente/misAdopciones" class="btn w-75 mx-auto" type="button">Mis adopciones</a>
+                    <a href="/cliente/perfilCliente" class="btn w-75 mx-auto" type="button">Mis datos</a>
+
+                </aside>
+                <main class="col-12 col-lg-10">
+                    <div>
+                        <div class="border rounded-2 w-100 d-flex">
+                            <p><span class="fw-bold ms-2">Nombre cliente: </span><span
+                                    th:text="${ventas[0].venta.cliente.nombre}"></span></p>
+                            <p><span class="fw-bold ms-4">DNI: </span><span th:text="${ventas[0].venta.cliente.dni}"></span></p>
+                            <p><span class="fw-bold ms-4">Teléfono: </span><span
+                                    th:text="${ventas[0].venta.cliente.telefono}"></span></p>
+                            <p><span class="fw-bold ms-4">Email: </span><span th:text="${ventas[0].venta.cliente.email}"></span></p>
+
+                            <div>
+                                <p><span class="fw-bold ms-4">Total:</span><span
+                                        th:text="${#numbers.formatDecimal(ventas[0].venta.importeTotal, 1, 2 )+'€'}"></span></p>
+                            </div>
+                        </div>
+
+                        <div th:each=" venta:${ventas}" class="border rounded-2 w-100 mt-2">
+                            <p><span class="fw-bold ms-2">Productos: </span><span th:text="${venta.producto.nombre}"></span></p>
+                            <p><span class="fw-bold ms-2">Cantidad: </span><span th:text="${venta.cantidad}"></span></p>
+                            <p><span class="fw-bold ms-2">Precio unitario:</span><span
+                                    class="ms-2" th:text="${#numbers.formatDecimal(venta.precioUnitario, 1, 2 )+'€'}"></span></p>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <footer th:replace="~{fragmentos/pie::pie}"></footer>
+
+    </body>
+</html>
