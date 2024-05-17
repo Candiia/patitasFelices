@@ -1,11 +1,13 @@
 package com.salesianostriana.dam.proyectofinalprueba.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.salesianostriana.dam.proyectofinalprueba.exception.ProductoNoEncontradoException;
 import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
+import com.salesianostriana.dam.proyectofinalprueba.model.exception.ProductoNoEncontradoException;
 import com.salesianostriana.dam.proyectofinalprueba.repository.ProductoRepository;
 import com.salesianostriana.dam.proyectofinalprueba.repository.VentaRepository;
 import com.salesianostriana.dam.proyectofinalprueba.service.base.BaseServiceImple;
@@ -43,6 +45,10 @@ public class ProductoService extends BaseServiceImple<Producto, Long, ProductoRe
 	public int numVentaProducto(Producto producto) {
 		return ventaRepository.findNumVentaByProducto(producto);
 	}
+	
+	/*public List<Producto> buscar(String cadena){
+		return this.repository.findByNombreContainsIgnoreCaseOrDescripcionContains(cadena);
+	}*/
 }
 
 

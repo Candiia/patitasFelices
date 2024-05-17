@@ -21,7 +21,7 @@ public class LineaVenta {
 	private Long id;
 	
 	private int cantidad;
-	private double precioUnitario;
+	private double subtotal;
 	
 	@ManyToOne
 	private Producto producto;
@@ -29,4 +29,8 @@ public class LineaVenta {
 	@Id
 	@ManyToOne
 	private Venta venta;
+	
+	public double getPrecioLineaVenta() {
+		return subtotal = producto.getPrecio() * cantidad;
+	}
 }

@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.proyectofinalprueba.exception;
+package com.salesianostriana.dam.proyectofinalprueba.model.exception;
 
 public class TipoNoEncontradoException extends RuntimeException{
 
