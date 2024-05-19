@@ -62,7 +62,7 @@ public class ClienteControlador {
 	@PostMapping("/registroCliente/submit")
 	public String submit(@ModelAttribute("cliente") Cliente cliente) {
 		clienteService.save(cliente); 
-		return "redirect:/admin/listaCliente/";
+		return "redirect:/paginaInicial";
 	}
 	
 	@GetMapping("/cliente/misCompras")
