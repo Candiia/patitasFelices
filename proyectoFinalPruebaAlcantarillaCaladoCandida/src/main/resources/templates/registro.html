@@ -84,7 +84,11 @@
                         <input type="date" class="form-control w-25" th:field="*{fechaNacimiento}" id="exampleInputFecha"
                             aria-describedby="fecha" required>
                     </div>
-
+                    <div class="mb-3 mx-2 mt-2">
+                        <label for="foto" class="form-label fw-bold">Imagen<span
+                                class="text-danger ms-1">*</span></label>
+                        <input type="url" class="form-control w-100" th:field="*{foto}" name="foto" id="foto">
+                    </div>
                     <button type="submit" class="btn mx-2 mb-2" value="Enviar">Enviar</button>
                 </form>
             </div>

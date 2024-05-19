@@ -20,20 +20,7 @@
         <div class="container-fluid mt-4 flex-grow-1">
             <div class="row m-0">
 
-                <aside class="col-12 col-lg-2 d-flex flex-column gap-2">
-                    <a href="/admin/ventasRealizadas" class="btn w-75 mx-auto" type="button">Mis ventas</a>
-                    <a href="/admin/perfilAdmin" class="btn w-75 mx-auto" type="button">Mis datos</a>
-
-                    <hr>
-
-                    <a href="/admin/listaCliente/" class="btn w-75 mx-auto" type="button">Clientes</a>
-                    <a href="/admin/detalleAdminProducto/" class="btn w-75 mx-auto" type="button">Productos</a>
-                    <a href="/admin/detalleCategoria/" class="btn w-75 mx-auto" type="button">Categorías</a>
-                    <a href="/admin/detalleAdminAnimal/" class="btn w-75 mx-auto" type="button">Animales</a>
-                    <a href="/admin/listadoTipoAnimal/" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
-                    <a href="/admin/listaAdopciones/" class="btn w-75 mx-auto" type="button">Adopciones</a>
-
-                </aside>
+                <aside th:replace="~{fragmentos/asideAdmin::asideAdmin}"></aside>
 
                 <main class="col-12 col-lg-10">
 
