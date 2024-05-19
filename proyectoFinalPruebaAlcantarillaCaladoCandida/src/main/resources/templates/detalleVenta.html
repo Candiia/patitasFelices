@@ -36,7 +36,8 @@
                             <p><span class="fw-bold ms-4">DNI: </span><span th:text="${ventas[0].venta.cliente.dni}"></span></p>
                             <p><span class="fw-bold ms-4">Teléfono: </span><span
                                     th:text="${ventas[0].venta.cliente.telefono}"></span></p>
-                            <p><span class="fw-bold ms-4">Email: </span><span th:text="${ventas[0].venta.cliente.email}"></span></p>
+                            <p><span class="fw-bold ms-4">Email: </span><span
+                                    th:text="${ventas[0].venta.cliente.email}"></span></p>
 
                             <div>
                                 <p><span class="fw-bold ms-4">Total:</span><span
@@ -48,7 +49,7 @@
                             <p><span class="fw-bold ms-2">Productos: </span><span th:text="${venta.producto.nombre}"></span></p>
                             <p><span class="fw-bold ms-2">Cantidad: </span><span th:text="${venta.cantidad}"></span></p>
                             <p><span class="fw-bold ms-2">Precio unitario:</span><span
-                                    class="ms-2" th:text="${#numbers.formatDecimal(venta.precioUnitario, 1, 2 )+'€'}"></span></p>
+                                    class="ms-2" th:text="${#numbers.formatDecimal(venta.subtotal, 1, 2 )+'€'}"></span></p>
                         </div>
                     </div>
                 </main>
