@@ -25,7 +25,7 @@
         <div class="container-fluid mt-4 flex-grow-1">
             <div class="row m-0">
                 <aside class="col-12 col-lg-2 d-flex flex-column gap-2" th:if="${isAdmin}">
-                    <a href="/admin/ventasRealizadas" class="btn w-75 mx-auto" type="button">Mis ventas</a>
+                    <a href="/admin/ventasRealizadas" class="btn w-75 mx-auto" type="button">Ventas</a>
                     <a href="/admin/perfilAdmin" class="btn w-75 mx-auto" type="button">Mis datos</a>
                     <hr>
                     <a href="/admin/listaCliente/" class="btn w-75 mx-auto" type="button">Clientes</a>
@@ -35,6 +35,7 @@
                     <a href="/admin/listadoTipoAnimal/" class="btn w-75 mx-auto" type="button">Tipos de Animales</a>
                     <a href="/admin/listaAdopciones/" class="btn w-75 mx-auto" type="button">Adopciones</a>
                 </aside>
+
                 <aside th:unless="${isAdmin}" class="col-12 col-lg-2 d-flex flex-column gap-2">
                     <a href="/cliente/misCompras" class="btn w-75 mx-auto" type="button">Mis pedidos</a>
                     <a href="/cliente/misAdopciones" class="btn w-75 mx-auto" type="button">Mis adopciones</a>

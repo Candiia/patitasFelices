@@ -90,6 +90,12 @@ public class AdminControlador {
 		model.addAttribute("ventas", ventaService.findAll());
 		return "/admin/ventasRealizadas";
 	}
+	
+	@GetMapping("/eliminarVenta/{id}")
+	public String eliminarVenta(Model model , @PathVariable("id") Long id) {
+		ventaService.deleteById(id);
+		return "redirect:/admin/ventasRealizadas";
+	}
 
 
 }
