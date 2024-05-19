@@ -54,8 +54,7 @@ public class Venta {
 	}
 	
 	public void removeLineaVenta(LineaVenta lineaVenta) {
-		lineaVenta.setVenta(null);
-		this.getLineasVentas().remove(lineaVenta);
+		this.lineasVentas.remove(lineaVenta);
 	}
 
 }

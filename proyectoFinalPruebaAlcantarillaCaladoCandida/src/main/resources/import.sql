@@ -52,10 +52,10 @@ ALTER SEQUENCE venta_seq RESTART WITH 100;
 INSERT INTO adopcion (animal_id, cliente_id, fecha_adopcion) VALUES (3, 2, '2014-02-14');
 INSERT INTO adopcion (animal_id, cliente_id, fecha_adopcion) VALUES (1, 2, '2023-10-23');
 
-INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (1, 3, 50.3, 3, 2);
-INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (2, 2, 50.3, 2, 1);
-INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (3, 3, 50.3, 2, 3);
-INSERT INTO linea_venta(id, cantidad, precio_unitario, producto_id, venta_id) VALUES (4, 3, 50.3, 1, 2);
+INSERT INTO linea_venta(id, cantidad, subtotal, producto_id, venta_id) VALUES (1, 3, 20.3, 3, 2);
+INSERT INTO linea_venta(id, cantidad, subtotal, producto_id, venta_id) VALUES (2, 2, 10.3, 2, 1);
+INSERT INTO linea_venta(id, cantidad, subtotal, producto_id, venta_id) VALUES (3, 3, 20, 2, 3);
+INSERT INTO linea_venta(id, cantidad, subtotal, producto_id, venta_id) VALUES (4, 3, 30.1, 5, 2);
 
 
 ALTER SEQUENCE linea_venta_seq RESTART WITH 100;

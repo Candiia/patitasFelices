@@ -3,16 +3,16 @@
     height: 70px;
 }
 
-body{
+body {
     font-family: "mons" !important;
 }
 
 @font-face {
-    font-family: "mons" ;
+    font-family: "mons";
     src: url(../fonts/Montserrat-Light.ttf);
 }
 
-.fondoAzul{
+.fondoAzul {
     background-color: #3aafa9 !important;
 }
 
@@ -21,7 +21,7 @@ body{
     color: white !important;
 }
 
-.fondoBlanco{
+.fondoBlanco {
     background-color: white !important;
 }
 
@@ -30,7 +30,7 @@ body{
 }
 
 .imagen-cartas {
-    width: 400px;    
+    width: 400px;
 }
 
 .tamayo-carta {
@@ -39,7 +39,7 @@ body{
 }
 
 .tamayo-carrito {
-    width:150px;
+    width: 150px;
 }
 
 .precio-tamayo {
@@ -48,6 +48,10 @@ body{
 
 a {
     color: #3aafa9 !important;
+}
+
+.tamayo-form {
+    width: 30px;
 }
 
 
