@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.proyectofinalprueba.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -41,5 +42,7 @@ public interface VentaRepository extends JpaRepository<Venta, Long>{
 			= ?1 and lv.producto = ?2 AND finalizada = false
 			""")
 	boolean hayProductoEnCarrito(Administrador admin, Producto producto);
+	
+	List<Venta> findByFinalizadaTrue();
 }
 

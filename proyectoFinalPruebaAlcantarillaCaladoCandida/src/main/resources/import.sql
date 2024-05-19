@@ -44,7 +44,7 @@ ALTER SEQUENCE usuario_seq RESTART WITH 100;
 
 INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta, finalizada) VALUES (1, 3, 1, 203.2, current_timestamp, true);
 INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta, finalizada) VALUES (2, 3, 1, 203.2, current_timestamp, true);
-INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta, finalizada) VALUES (3, 3, 1, 52354.23, current_timestamp, true);
+INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta, finalizada) VALUES (3, 3, 1, 20.5, current_timestamp, true);
 
 
 ALTER SEQUENCE venta_seq RESTART WITH 100;

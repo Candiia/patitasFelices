@@ -26,7 +26,8 @@
                     </div>
 
                     <div th:each=" categoria:${listaCateg}">
-                        <a href="#" class="btn w-75 ms-4" th:text="${categoria.nombre}" type="button">Pipetas</a>
+                        <a th:href="@{/admin/mostrarProductos/{id}(id=${categoria.id})}" class="btn w-75 ms-4"
+                            th:text="${categoria.nombre}" type="button">Pipetas</a>
                     </div>
 
                 </aside>

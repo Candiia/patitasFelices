@@ -27,8 +27,15 @@ public class ProductoControlador {
 	private CategoriaService catServ;;
 	
 	@GetMapping("/mostrarProductos")
-	public String todosProductos(Model model, Usuario usuario) {
+	public String todosProductos(Model model) {
 		model.addAttribute("listaProductos", productServ.findAll());
+		model.addAttribute("listaCateg", catServ.findAll());
+		return "tienda";
+	} 
+	
+	@GetMapping("/mostrarProductos/{id}")
+	public String todosProductosPorCategoriaId(Model model, @PathVariable("id") Long id) {
+		model.addAttribute("listaProductos", productServ.findByCategoriaId(id));
 		model.addAttribute("listaCateg", catServ.findAll());
 		return "tienda";
 	} 
