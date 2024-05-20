@@ -33,12 +33,30 @@
 						<a href="/cliente/mostrarAnimales" class="btn w-75 ms-4" type="button">Todos</a>
 					</div>
 
-					<div th:each=" tipo:${listaTipos}">
+					<div th:each=" tipo:${listaTipos}" th:if="${isAdmin}">
 						<a th:href="@{/admin/mostrarAnimales/{id}(id=${tipo.id})}" class="btn w-75 ms-4" th:text="${tipo.nombre}"
+							type="button"></a>
+					</div>
+
+					<div th:each=" tipo:${listaTipos}" th:unless="${isAdmin}">
+						<a th:href="@{/cliente/mostrarAnimales/{id}(id=${tipo.id})}" class="btn w-75 ms-4" th:text="${tipo.nombre}"
 							type="button"></a>
 					</div>
 				</aside>
 				<main class="container col-12 col-lg-10 ">
+					<form th:action="@{/admin/mostrarAnimales/buscarAnimal}" method="GET" th:if="${isAdmin}">
+						<div class="d-flex">
+						 <input class="form-control me-2 w-50 " name="buscar" type="text" placeholder="Buscar">
+						 <button class="btn fondoBlanco" type="button"><i class="bi bi-search fondoAzul"></i></button>
+						</div> 
+					</form>
+
+					<form th:action="@{/cliente/mostrarAnimales/buscarAnimal}" method="GET" th:unless="${isAdmin}">
+						<div class="d-flex justify-content-end me-3 mt-3">
+						 <input class="form-control me-2 w-50 " name="buscar" type="text" placeholder="Buscar">
+						 <button class="btn fondoBlanco" type="button"><i class="bi bi-search texto-color"></i></button>
+						</div> 
+					</form>
 					<h1 class="texto-color text-center mt-4">Nuestros Animales</h1>
 					<div class="row">
 						<div class="col-12 col-lg-4 p-3" th:each="animal:${listaAnimales}">

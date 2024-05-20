@@ -33,7 +33,7 @@ ALTER SEQUENCE producto_seq RESTART WITH 100;
 
 
 INSERT INTO usuario (id, username, password) VALUES (1, 'admin', '{bcrypt}$2a$12$GFIYSJdDr8eNSdI9d3ETsOzgDmpqI7cy7ZZbd/UJL.0QAOV4L97AS');
-INSERT INTO usuario (id, username, password) VALUES (2, 'candiAC', '{bcrypt}$2a$12$6KyxxGwzMpdgHdymIelRwOgYrP6nxu9er6SCfBK5hDH7CPaULFcre');
+INSERT INTO usuario (id, username, password) VALUES (2, 'user', '{bcrypt}$2a$12$6KyxxGwzMpdgHdymIelRwOgYrP6nxu9er6SCfBK5hDH7CPaULFcre');
 INSERT INTO usuario (id, username, password) VALUES (3, 'sevi', '{bcrypt}$2a$12$Lx61frsIDTl7LZAEthRbauNGPHQDRbQxVYtNMGJpHIFbykZsHWOAS');
 
 INSERT INTO administrador (id, nombre, apellido, foto) VALUES (1, 'admin', 'admin', 'https://robohash.org/admin');

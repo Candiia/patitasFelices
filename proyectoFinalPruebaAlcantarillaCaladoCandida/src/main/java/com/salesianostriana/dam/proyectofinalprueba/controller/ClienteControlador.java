@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
 import com.salesianostriana.dam.proyectofinalprueba.model.LineaVenta;
+import com.salesianostriana.dam.proyectofinalprueba.model.Usuario;
 import com.salesianostriana.dam.proyectofinalprueba.service.AnimalService;
 import com.salesianostriana.dam.proyectofinalprueba.service.ClienteService;
 import com.salesianostriana.dam.proyectofinalprueba.service.TipoAnimalService;
@@ -36,6 +38,20 @@ public class ClienteControlador {
 	@GetMapping("/cliente/mostrarAnimales")
 	public String listaAnimalAdopcion(Model model) {
 		model.addAttribute("listaAnimales", animalServ.findAll());
+		model.addAttribute("listaTipos", tipoServ.findAll());
+		return "adoptar";
+	} 
+	
+	@GetMapping("/cliente/mostrarAnimales/buscarAnimal")
+	public String listaAnimalBuscar(Model model, @AuthenticationPrincipal Usuario usuario, @RequestParam("buscar") String buscar) {
+		model.addAttribute("listaAnimales", animalServ.buscar(buscar));
+		model.addAttribute("listaTipos", tipoServ.findAll());
+		return "adoptar";
+	} 
+
+	@GetMapping("/cliente/mostrarAnimales/{id}")
+	public String listaAnimalAdopcionPorTipo(Model model, @PathVariable("id") Long id) {
+		model.addAttribute("listaAnimales", animalServ.findByTipoAnimalId(id));
 		model.addAttribute("listaTipos", tipoServ.findAll());
 		return "adoptar";
 	} 

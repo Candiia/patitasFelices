@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Animal;
+import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
 import com.salesianostriana.dam.proyectofinalprueba.model.exception.AnimalNoEncontradoException;
 import com.salesianostriana.dam.proyectofinalprueba.repository.AdoptarRepository;
 import com.salesianostriana.dam.proyectofinalprueba.repository.AnimalRepository;
@@ -30,6 +31,10 @@ public class AnimalService extends BaseServiceImple<Animal, Long, AnimalReposito
 	
 	public List<Animal> findByTipoAnimalId (Long id){
 		return animalRepository.findByTipoAnimalId(id);
+	}
+	
+	public List<Animal> buscar(String buscar){
+		return repository.findByNombreContainsIgnoreCaseOrApodoContainsIgnoreCase(buscar, buscar);
 	}
 
 }

@@ -10,7 +10,7 @@ import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
 
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
 	
-	List<Producto>findByNombreContainsIgnoreCase(String nombre);
+	List<Producto>findByNombreContainsIgnoreCaseOrDescripcionContainsIgnoreCase(String nombre, String descripcion);
 	
 	@Query("SELECT p FROM Producto p WHERE p.catProducto.id = ?1")
 	List<Producto> findByCategoriaId(Long id);

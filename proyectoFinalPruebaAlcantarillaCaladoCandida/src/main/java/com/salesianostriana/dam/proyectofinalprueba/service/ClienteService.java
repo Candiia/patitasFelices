@@ -29,7 +29,7 @@ public class ClienteService extends BaseServiceImple<Cliente, Long, ClienteRepos
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	public Cliente buscarClientePorId(Long id) throws ClienteNoEncontradoException {
+	public Cliente buscarClientePorId(Long id){
 		return clienteRepository.findById(id)
 				.orElseThrow(() -> new ClienteNoEncontradoException("Cliente no encontrado"));
 	}

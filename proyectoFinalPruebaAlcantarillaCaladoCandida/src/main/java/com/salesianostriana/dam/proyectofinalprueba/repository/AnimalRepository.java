@@ -12,4 +12,6 @@ public interface AnimalRepository extends JpaRepository<Animal, Long>{
 	@Query("SELECT a FROM Animal a WHERE a.tipoAnimal.id = ?1")
 	List<Animal> findByTipoAnimalId(Long id);
 
+	List<Animal>findByNombreContainsIgnoreCaseOrApodoContainsIgnoreCase(String nombre, String apodo);
+
 }

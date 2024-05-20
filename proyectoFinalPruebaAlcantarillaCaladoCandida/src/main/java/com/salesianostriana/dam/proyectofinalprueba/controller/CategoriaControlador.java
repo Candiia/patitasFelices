@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
 import com.salesianostriana.dam.proyectofinalprueba.service.CategoriaService;
@@ -23,6 +24,12 @@ public class CategoriaControlador {
 	@GetMapping("/detalleCategoria/")
 	public String mostrarCategorias(Model model) {
 		model.addAttribute("listaCateg", catService.findAll());
+		return "/admin/listaCategoria";
+	}
+	
+	@GetMapping("/detalleCategoria/buscarCateg")
+	public String mostrarCategoriasBuscar(Model model, @RequestParam("buscar") String buscar) {
+		model.addAttribute("listaCateg", catService.buscar(buscar));
 		return "/admin/listaCategoria";
 	}
 	
