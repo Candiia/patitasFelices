@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Formulario de añadir o editar un animal">
         <title>Formulario animal</title>
         <link th:href="@{/css/estilos.css}" href="../static/css/estilos.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -13,13 +14,14 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="icon" href="../static/img/logo.png" th:href="@{/img/logo.png}" type="image/x-icon">
+        <script th:src="@{/js/formAnimal.js}" src="../static/js/formAnimal.js" defer></script>
 
     </head>
     <body class="d-flex flex-column justify-content-between min-vh-100">
         <header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
         <div class="mx-auto w-50">
             <form th:action="${animal.id != 0} ?  @{/admin/agregarAnimal/submit} : @{/admin/editarAnimal/submit}" method="post"
-                th:object="${animal}" class="border rounded-2 mt-3">
+                th:object="${animal}" class="border rounded-2 mt-3" id="formAnimal">
                 <input th:if="${animal.id != 0}" type="hidden" name="id" th:field="*{id}" />
                 <div class="mb-3 mx-2 mt-2 d-flex align-items-center">
                     <label for="exampleInputApodo" class="form-label me-2 fw-bold">Apodo<span
@@ -67,6 +69,7 @@
                             class="text-danger ms-1">*</span></label>
                     <input type="date" class="form-control w-25" id="exampleInputFecha" th:field="*{fechaNacimiento}"
                         required>
+                    <div id="errorFechaNacimiento" class="fw-bold text-danger"></div>
                 </div>
 
                 <div class="mb-3 mx-2 mt-2">

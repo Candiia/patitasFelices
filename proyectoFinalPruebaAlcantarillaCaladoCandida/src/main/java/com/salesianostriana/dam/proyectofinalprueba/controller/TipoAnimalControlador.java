@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.TipoAnimal;
 import com.salesianostriana.dam.proyectofinalprueba.service.TipoAnimalService;
@@ -22,6 +23,12 @@ public class TipoAnimalControlador {
 	@GetMapping("/listadoTipoAnimal/")
 	public String mostrarTiposAnimales(Model model) {
 		model.addAttribute("listaTipo", tipoService.findAll());
+		return "/admin/listaTipoAnimal";
+	}
+	
+	@GetMapping("/listadoTipoAnimal/buscar/")
+	public String mostrarTiposAnimalesBuscar(Model model, @RequestParam("buscar") String nombre) {
+		model.addAttribute("listaTipo", tipoService.buscar(nombre));
 		return "/admin/listaTipoAnimal";
 	}
 	

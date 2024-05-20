@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Administrador;
 import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
@@ -35,6 +36,12 @@ public class AdminControlador {
 	@GetMapping("/listaCliente/")
 	public String mostrarClientes(Model model) {
 		model.addAttribute("listaCliente", clienteServ.findAll());
+		return "/admin/listaClientes";
+	}
+	
+	@GetMapping("/listaCliente/buscar/")
+	public String mostrarClientesBuscar(Model model, @RequestParam("buscar") String nombreUsername) {
+		model.addAttribute("listaCliente", clienteServ.buscar(nombreUsername));
 		return "/admin/listaClientes";
 	}
 

@@ -57,7 +57,13 @@ public class ProductoControlador {
 		model.addAttribute("listaProductos", productServ.findAll());
 		return "/admin/listaProducto";
 	} 
-
+	
+	@GetMapping("/detalleAdminProducto/buscar/")
+	public String detalleAdminBuscar(Model model, @RequestParam("buscar") String nombreDescrip) {
+		model.addAttribute("listaProductos", productServ.buscar(nombreDescrip));
+		return "/admin/listaProducto";
+	} 
+	
 	
 	@GetMapping("/agregarProducto")
 	public String agregarProducto(Model model) {

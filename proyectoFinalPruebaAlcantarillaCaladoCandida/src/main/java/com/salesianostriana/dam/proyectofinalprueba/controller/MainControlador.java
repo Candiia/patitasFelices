@@ -18,5 +18,16 @@ public class MainControlador {
 		return "paginaInicial";
 	}
 	
+	@GetMapping("/politicaPrivacidad")
+	public String politicaPrivacidad(Model model,@AuthenticationPrincipal Usuario usuario) {
+		model.addAttribute("isAdmin", usuario.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")));
+		return "politicaPrivacidad";
+	}
+	
+	@GetMapping("/avisoLegal")
+	public String avisoLegal(Model model,@AuthenticationPrincipal Usuario usuario) {
+		model.addAttribute("isAdmin", usuario.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")));
+		return "avisoLegal";
+	}
 
 }

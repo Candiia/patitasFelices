@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página donde nos dice el aviso legal">
+
+        <title>Aviso legal</title>
+        <link th:href="@{/css/estilos.css}" href="../static/css/estilos.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="icon" href="../static/img/logo.png" th:href="@{/img/logo.png}" type="image/x-icon">
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    </head>
+    <body class=" d-flex flex-column justify-content-between min-vh-100">
+        <div th:if="${isAdmin}">
+            <header th:replace="~{fragmentos/headerAdmin::encabezadoAdmin}"></header>
+        </div>
+        <div th:unless="${isAdmin}">
+            <header th:replace="~{fragmentos/headerCliente::encabezadoCliente}"></header>
+        </div>
+        <main class="container">
+            <h1 class="texto-color mt-5"><span class="mov"></span></h1>
+            <p>
+                Este Aviso Legal establece los términos y condiciones de uso del sitio web y los servicios ofrecidos por Patitas
+                Felices. Al acceder y utilizar nuestro sitio web, usted acepta cumplir con estos términos y condiciones. Si no
+                está de acuerdo con alguna parte de este aviso, le solicitamos que no utilice nuestros servicios.
+            </p>
+
+            <h2 class="texto-color mt-2">
+                1. Propiedad Intelectual:
+
+            </h2>
+            <p>
+                Todo el contenido presente en este sitio web, incluyendo pero no limitado a textos, imágenes, logotipos, gráficos,
+                videos, y cualquier otro material, está protegido por derechos de autor y otras leyes de propiedad intelectual. La
+                reproducción, distribución, o cualquier otro uso no autorizado de dicho contenido está estrictamente prohibido.
+            </p>
+
+            <h2 class="texto-color mt-2">
+                2. Uso del Sitio Web:
+            </h2>
+            <p>
+                Usted acepta utilizar nuestro sitio web únicamente con fines legales y de acuerdo con estos términos y
+                condiciones. No debe utilizar nuestro sitio de manera que pueda causar daño, perjuicio o molestias a otros
+                usuarios o terceros. <br>
+                Nos reservamos el derecho de modificar, suspender o descontinuar cualquier aspecto de nuestro sitio web en
+                cualquier momento y sin previo aviso.
+
+            </p>
+
+            <h2 class="texto-color mt-2">
+                3. Enlaces a Terceros:
+            </h2>
+            <p>
+                Nuestro sitio web puede contener enlaces a sitios web de terceros que no están bajo nuestro control. No somos
+                responsables del contenido, la exactitud, la legalidad o cualquier otro aspecto relacionado con estos sitios web
+                externos. El uso de dichos enlaces es bajo su propio riesgo.
+            </p>
+
+            <h2 class="texto-color mt-2">
+                4. Responsabilidad:
+
+            </h2>
+            <p>
+                Nos esforzamos por mantener la exactitud y la integridad del contenido de nuestro sitio web, pero no garantizamos
+                que esté libre de errores, virus u otros elementos dañinos. Usted utiliza nuestro sitio web bajo su propio riesgo.
+                <br>
+                No seremos responsables de ningún daño directo, indirecto, incidental, consecuente o punitivo derivado del uso de
+                nuestro sitio web o de cualquier información obtenida a través del mismo.
+            </p>
+
+            <h2 class="texto-color mt-2">
+                5. Privacidad
+
+            </h2>
+            <p>
+                La recopilación y el uso de la información personal se rigen por nuestra Política de Privacidad. Al utilizar
+                nuestros servicios, usted acepta las prácticas de privacidad descritas en dicha política.
+            </p>
+
+            <h2 class="texto-color mt-2">
+                6. Cambios en el Aviso Legal:
+            </h2>
+            <p>
+                Nos reservamos el derecho de actualizar este Aviso Legal en cualquier momento sin previo aviso. Le recomendamos
+                revisar periódicamente esta página para estar al tanto de cualquier cambio.
+            </p>
+
+        </main>
+        <footer th:replace="~{fragmentos/pie::pie}"></footer>
+        <script>
+            let typed = new Typed(".mov", {
+                    strings: ["Aviso", "Aviso Legal ", "Aviso Legal de", "Aviso Legal de Patitas", "Aviso Legal de Patitas Felices"],
+                    typeSpeed: 10,
+                    backSpeed: 80,
+                    loop: false
+                })
+        </script>
+    </body>
+</html>

@@ -43,8 +43,8 @@ public class ClienteControlador {
 	} 
 	
 	@GetMapping("/cliente/mostrarAnimales/buscarAnimal")
-	public String listaAnimalBuscar(Model model, @AuthenticationPrincipal Usuario usuario, @RequestParam("buscar") String buscar) {
-		model.addAttribute("listaAnimales", animalServ.buscar(buscar));
+	public String listaAnimalBuscar(Model model, @AuthenticationPrincipal Usuario usuario, @RequestParam("buscar") String nombreApodo) {
+		model.addAttribute("listaAnimales", animalServ.buscar(nombreApodo));
 		model.addAttribute("listaTipos", tipoServ.findAll());
 		return "adoptar";
 	} 

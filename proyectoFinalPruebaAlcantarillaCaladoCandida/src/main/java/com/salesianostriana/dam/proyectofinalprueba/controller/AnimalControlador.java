@@ -66,6 +66,12 @@ public class AnimalControlador {
 		return "/admin/listaAnimal";
 	} 
 	
+	@GetMapping("/detalleAdminAnimal/buscar")
+	public String detalleAniamlbuscar(Model model, @RequestParam("buscar") String buscar) {
+		model.addAttribute("listaAnimal", animalServ.buscar(buscar));
+		return "/admin/listaAnimal";
+	} 
+	
 	
 	@GetMapping("/agregarAnimal")
 	public String agregarAnimal(Model model) {
