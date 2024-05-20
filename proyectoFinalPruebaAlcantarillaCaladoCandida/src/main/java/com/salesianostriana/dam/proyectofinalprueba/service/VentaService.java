@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.proyectofinalprueba.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -24,5 +25,12 @@ public class VentaService  extends BaseServiceImple<Venta, Long, VentaRepository
 	public boolean hayProductosEnCarrito(Administrador admin, Producto producto) {
 		return this.repository.hayProductoEnCarrito(admin, producto);
 	}
+	
+	public double calcularTotalRecaudado() {
+        List<Venta> ventas = this.repository.findByFinalizadaTrue();
+        return ventas.stream()
+                     .mapToDouble(Venta::getImporteTotal)
+                     .sum();
+    }
 
 }

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.salesianostriana.dam.proyectofinalprueba.model.Administrador;
 import com.salesianostriana.dam.proyectofinalprueba.model.Cliente;
 import com.salesianostriana.dam.proyectofinalprueba.model.Usuario;
+import com.salesianostriana.dam.proyectofinalprueba.service.AdopcionService;
 import com.salesianostriana.dam.proyectofinalprueba.service.ClienteService;
+import com.salesianostriana.dam.proyectofinalprueba.service.ProductoService;
 import com.salesianostriana.dam.proyectofinalprueba.service.VentaService;
 
 @Controller
@@ -25,6 +27,10 @@ public class AdminControlador {
 	private ClienteService clienteServ;
 	@Autowired
 	private VentaService  ventaService;
+	@Autowired
+	private AdopcionService adopcionService;
+	@Autowired
+	private ProductoService productoService;
 		
 	@GetMapping("/listaCliente/")
 	public String mostrarClientes(Model model) {
@@ -97,5 +103,13 @@ public class AdminControlador {
 		return "redirect:/admin/ventasRealizadas";
 	}
 
+	@GetMapping("/estadisticas")
+	public String estadisticas(Model model) {
+		model.addAttribute("mesMasAdopciones", adopcionService.buscarMesMasAdopciones());
+		model.addAttribute("clienteMasAdopciones", clienteServ.buscarClienteConMasAdopciones());
+		model.addAttribute("totalRecaudado", ventaService.calcularTotalRecaudado());
+		model.addAttribute("productoMasVendido", productoService.buscarProductoMasVendido());
+		return "/admin/estadisticas";
+	}
 
 }

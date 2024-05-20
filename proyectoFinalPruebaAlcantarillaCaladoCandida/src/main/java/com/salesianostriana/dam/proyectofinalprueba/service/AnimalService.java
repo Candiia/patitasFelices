@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.proyectofinalprueba.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,10 @@ public class AnimalService extends BaseServiceImple<Animal, Long, AnimalReposito
 	
 	public int numAdopcion(Animal animal) {
 		return adoptarRepository.findNumAdopcionByAnimal(animal);
+	}
+	
+	public List<Animal> findByTipoAnimalId (Long id){
+		return animalRepository.findByTipoAnimalId(id);
 	}
 
 }
