@@ -26,12 +26,18 @@
                     </div>
 
                     <div th:each=" categoria:${listaCateg}">
-                        <a href="#" class="btn w-75 ms-4" th:text="${categoria.nombre}" type="button">Pipetas</a>
+                        <a th:href="@{/admin/mostrarProductos/{id}(id=${categoria.id})}" class="btn w-75 ms-4"
+                            th:text="${categoria.nombre}" type="button">Pipetas</a>
                     </div>
 
                 </aside>
                 <main class="container col-12 col-lg-10 ">
-                    <form th:action="@{/logout}" method="POST" id="logoutForm"></form>
+                    <form th:action="@{/admin/mostrarProductos/buscarProduc}" method="GET">
+                       <div class="d-flex justify-content-end me-3 mt-3">
+                        <input class="form-control me-2 w-50 " name="buscar" type="text" placeholder="Buscar">
+                        <button class="btn fondoBlanco" type="button"><i class="bi bi-search texto-color"></i></button>
+                       </div>   
+                    </form>
                     <h1 class="texto-color text-center mt-4">Nuestros productos</h1>
                     <div class="row">
                         <div class="col-12 col-lg-4 p-3" th:each="producto:${listaProductos}">

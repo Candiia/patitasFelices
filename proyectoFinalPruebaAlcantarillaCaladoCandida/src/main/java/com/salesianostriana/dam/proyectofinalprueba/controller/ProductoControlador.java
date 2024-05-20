@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
-import com.salesianostriana.dam.proyectofinalprueba.model.Usuario;
 import com.salesianostriana.dam.proyectofinalprueba.service.CategoriaService;
 import com.salesianostriana.dam.proyectofinalprueba.service.ProductoService;
 
@@ -27,8 +26,22 @@ public class ProductoControlador {
 	private CategoriaService catServ;;
 	
 	@GetMapping("/mostrarProductos")
-	public String todosProductos(Model model, Usuario usuario) {
+	public String todosProductos(Model model) {
 		model.addAttribute("listaProductos", productServ.findAll());
+		model.addAttribute("listaCateg", catServ.findAll());
+		return "tienda";
+	} 
+	
+	@GetMapping("/mostrarProductos/buscarProduc")
+	public String todosProductosBuscar(Model model, @RequestParam("buscar") String buscar) {
+		model.addAttribute("listaProductos", productServ.buscar(buscar));
+		model.addAttribute("listaCateg", catServ.findAll());
+		return "tienda";
+	} 
+	
+	@GetMapping("/mostrarProductos/{id}")
+	public String todosProductosPorCategoriaId(Model model, @PathVariable("id") Long id) {
+		model.addAttribute("listaProductos", productServ.findByCategoriaId(id));
 		model.addAttribute("listaCateg", catServ.findAll());
 		return "tienda";
 	} 

@@ -33,7 +33,7 @@ ALTER SEQUENCE producto_seq RESTART WITH 100;
 
 
 INSERT INTO usuario (id, username, password) VALUES (1, 'admin', '{bcrypt}$2a$12$GFIYSJdDr8eNSdI9d3ETsOzgDmpqI7cy7ZZbd/UJL.0QAOV4L97AS');
-INSERT INTO usuario (id, username, password) VALUES (2, 'candiAC', '{bcrypt}$2a$12$6KyxxGwzMpdgHdymIelRwOgYrP6nxu9er6SCfBK5hDH7CPaULFcre');
+INSERT INTO usuario (id, username, password) VALUES (2, 'user', '{bcrypt}$2a$12$6KyxxGwzMpdgHdymIelRwOgYrP6nxu9er6SCfBK5hDH7CPaULFcre');
 INSERT INTO usuario (id, username, password) VALUES (3, 'sevi', '{bcrypt}$2a$12$Lx61frsIDTl7LZAEthRbauNGPHQDRbQxVYtNMGJpHIFbykZsHWOAS');
 
 INSERT INTO administrador (id, nombre, apellido, foto) VALUES (1, 'admin', 'admin', 'https://robohash.org/admin');
@@ -44,7 +44,7 @@ ALTER SEQUENCE usuario_seq RESTART WITH 100;
 
 INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta, finalizada) VALUES (1, 3, 1, 203.2, current_timestamp, true);
 INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta, finalizada) VALUES (2, 3, 1, 203.2, current_timestamp, true);
-INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta, finalizada) VALUES (3, 3, 1, 52354.23, current_timestamp, true);
+INSERT INTO venta (id, cliente_id, admin_id, importe_total, fecha_venta, finalizada) VALUES (3, 3, 1, 20.5, current_timestamp, true);
 
 
 ALTER SEQUENCE venta_seq RESTART WITH 100;

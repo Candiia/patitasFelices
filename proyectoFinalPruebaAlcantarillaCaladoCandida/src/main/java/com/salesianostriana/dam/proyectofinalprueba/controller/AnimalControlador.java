@@ -36,6 +36,22 @@ public class AnimalControlador {
 		return "adoptar";
 	} 
 	
+	@GetMapping("/mostrarAnimales/buscarAnimal")
+	public String listaAnimalBuscar(Model model, @AuthenticationPrincipal Usuario usuario, @RequestParam("buscar") String buscar) {
+		model.addAttribute("listaAnimales", animalServ.buscar(buscar));
+		model.addAttribute("listaTipos", tipoServ.findAll());
+		model.addAttribute("isAdmin", usuario.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")));
+		return "adoptar";
+	} 
+	
+	
+	@GetMapping("/mostrarAnimales/{id}")
+	public String listaAnimalAdopcionPorTipo(Model model, @AuthenticationPrincipal Usuario usuario, @PathVariable("id") Long id) {
+		model.addAttribute("listaAnimales", animalServ.findByTipoAnimalId(id));
+		model.addAttribute("listaTipos", tipoServ.findAll());
+		model.addAttribute("isAdmin", usuario.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")));
+		return "adoptar";
+	} 
 
 	@GetMapping("/detalleAnimal")
 	public String detalleAnimal(@RequestParam Long id,  Model model, Usuario usuario) {

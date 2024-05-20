@@ -1,12 +1,17 @@
 package com.salesianostriana.dam.proyectofinalprueba.service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.proyectofinalprueba.model.Categoria;
+import com.salesianostriana.dam.proyectofinalprueba.model.LineaVenta;
 import com.salesianostriana.dam.proyectofinalprueba.model.Producto;
+import com.salesianostriana.dam.proyectofinalprueba.model.Venta;
 import com.salesianostriana.dam.proyectofinalprueba.model.exception.ProductoNoEncontradoException;
 import com.salesianostriana.dam.proyectofinalprueba.repository.ProductoRepository;
 import com.salesianostriana.dam.proyectofinalprueba.repository.VentaRepository;
@@ -46,9 +51,27 @@ public class ProductoService extends BaseServiceImple<Producto, Long, ProductoRe
 		return ventaRepository.findNumVentaByProducto(producto);
 	}
 	
-	/*public List<Producto> buscar(String cadena){
-		return this.repository.findByNombreContainsIgnoreCaseOrDescripcionContains(cadena);
-	}*/
+	public List<Producto> buscar(String buscar){
+		return repository.findByNombreContainsIgnoreCaseOrDescripcionContainsIgnoreCase(buscar, buscar);
+	}
+	
+
+	public Producto buscarProductoMasVendido() {
+		List<Venta> ventas = ventaRepository.findAll();
+		        
+		Map<Producto, Integer> productoCantidadMap = ventas.stream()
+				.flatMap(v -> v.getLineasVentas().stream())
+		        .collect(Collectors.groupingBy(LineaVenta::getProducto, Collectors.summingInt(LineaVenta::getCantidad)));
+
+		return productoCantidadMap.entrySet().stream()
+		        .max(Comparator.comparingInt(Map.Entry::getValue))
+		        .map(Map.Entry::getKey)
+				.orElseThrow(() -> new ProductoNoEncontradoException("Producto no encontrado"));
+	}
+	
+	public List<Producto> findByCategoriaId(Long id){
+		return repository.findByCategoriaId(id);
+	}
 }
 
 

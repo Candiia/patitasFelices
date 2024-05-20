@@ -1,5 +1,8 @@
 package com.salesianostriana.dam.proyectofinalprueba.service;
 
+import java.util.Comparator;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -26,7 +29,7 @@ public class ClienteService extends BaseServiceImple<Cliente, Long, ClienteRepos
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	public Cliente buscarClientePorId(Long id) throws ClienteNoEncontradoException {
+	public Cliente buscarClientePorId(Long id){
 		return clienteRepository.findById(id)
 				.orElseThrow(() -> new ClienteNoEncontradoException("Cliente no encontrado"));
 	}
@@ -43,6 +46,12 @@ public class ClienteService extends BaseServiceImple<Cliente, Long, ClienteRepos
 	
 	public int numAdopcionCliente(Cliente cliente) {
 		return adoptarRepository.findNumAdopcionByCliente(cliente);
+	}
+	
+	public Cliente buscarClienteConMasAdopciones() {
+		return findAll().stream()
+                .max(Comparator.comparingInt(cliente -> cliente.getListaAdopcion().size()))
+				.orElseThrow(() -> new ClienteNoEncontradoException("Cliente no encontrado"));
 	}
 
 	

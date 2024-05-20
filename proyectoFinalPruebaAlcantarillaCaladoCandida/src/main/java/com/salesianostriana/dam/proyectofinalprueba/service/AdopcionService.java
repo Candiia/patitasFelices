@@ -1,6 +1,10 @@
 package com.salesianostriana.dam.proyectofinalprueba.service;
 
 import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.Locale;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,17 +32,17 @@ public class AdopcionService extends BaseServiceImple<Adopcion, AdopcionPK, Adop
 	
 		Animal animal = animalService.buscarAnimalPorId(id);
 		
-		 	AdopcionPK adopcionPK = new AdopcionPK();
-	        adopcionPK.setClienteId(cliente.getId());
-	        adopcionPK.setAnimalId(animal.getId());
+		AdopcionPK adopcionPK = new AdopcionPK();
+	    adopcionPK.setClienteId(cliente.getId());
+	    adopcionPK.setAnimalId(animal.getId());
 
-	        Adopcion adopcion = new Adopcion();
-	        adopcion.setFechaAdopcion(LocalDate.now());
+	    Adopcion adopcion = new Adopcion();
+	    adopcion.setFechaAdopcion(LocalDate.now());
 
-	        adopcion.addToCliente(cliente);
-	        adopcion.addToAnimal(animal); 
+	    adopcion.addToCliente(cliente);
+	    adopcion.addToAnimal(animal); 
 	        
-	        adoptarRepository.save(adopcion);
+	    save(adopcion);
 	}
 	
 	public Adopcion buscarAdopcionPorId(Long animalId, Long clienteId){
@@ -46,22 +50,36 @@ public class AdopcionService extends BaseServiceImple<Adopcion, AdopcionPK, Adop
 		adopcionPk.setClienteId(clienteId);
 	    adopcionPk.setAnimalId(animalId);
 	    
-		return adoptarRepository.findById(adopcionPk)
+		return findById(adopcionPk)
 				.orElseThrow(() -> new AdopcionNoEncontradoException("Adopción no encontrada"));
 	} 
 	
 	public void borrarAdopcion(Long clienteId, Long animalId) {
 	    	
-	        Adopcion adopcion = buscarAdopcionPorId(animalId, clienteId);
+		Adopcion adopcion = buscarAdopcionPorId(animalId, clienteId);
 	        
-	        adopcion.removeFromAnimal(adopcion.getAnimal());
-	        adopcion.removeFromCliente(adopcion.getCliente());
+		adopcion.removeFromAnimal(adopcion.getAnimal());
+	    adopcion.removeFromCliente(adopcion.getCliente());
 	        
-	        adoptarRepository.deleteById(adopcion.getAdopcionPK());
+	    deleteById(adopcion.getAdopcionPK());
 	    
 	}
+	
+	public String buscarMesMasAdopciones() {
+		return findAll().stream()
+		        .collect(Collectors.groupingBy(
+	                      adopcion -> adopcion.getFechaAdopcion().getMonth(),
+	                      Collectors.counting()
+	              ))
+		        .entrySet()
+	            .stream()
+	            .max(Map.Entry.comparingByValue())
+	            .map(m -> m.getKey().getDisplayName(TextStyle.FULL, new Locale("es", "ES")))
+	            .orElse("x");
+	}            
 
 	
+
        
 	
 }
