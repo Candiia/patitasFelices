@@ -25,16 +25,11 @@
 
                 <main class="col-12 col-lg-10">
 
-                    <div class="mb-3 d-flex justify-content-end me-3 mt-3">
-                        <input class="form-control me-2 w-50" type="text" placeholder="Buscar">
-                        <button class="btn me-2" type="button"><i class="bi bi-search"></i></button>
-                    </div>
-
                     <div class="table-responsive">
                         <table class="table table-bordered text-center">
                             <thead>
                                 <tr>
-                                    <th>Nombre Cliente</th>
+                                    <th>Nombre usuario Cliente</th>
                                     <th>Nombre animal</th>
                                     <th>Fecha adopción</th>
                                     <th>&nbsp;</th>
@@ -42,7 +37,7 @@
                             </thead>
                             <tbody>
                                 <tr th:each=" adopcion:${adopciones}">
-                                    <td th:text="${adopcion.cliente.nombre}">candiac</td>
+                                    <td th:text="${adopcion.cliente.username}">candiac</td>
                                     <td th:text="${adopcion.animal.nombre}">candi</td>
                                     <td th:text="${#temporals.format(adopcion.fechaAdopcion)}">20/02/2012</td>
 

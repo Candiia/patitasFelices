@@ -70,7 +70,8 @@
                 </div>
 
                 <div class="col-12 col-lg-6 mt-3">
-                    <img th:src="${animal.foto}" class="w-100" alt="perrito">
+                    <img th:src= "${#strings.isEmpty(animal.foto)} ? 'http://placehold.co/400x350' : ${animal.foto}" class="w-100" alt="perrito">
+                 
                 </div>
 
                 <div class="col-12 col-lg-6 mt-3">

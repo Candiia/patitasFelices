@@ -100,7 +100,7 @@ public class AdminControlador {
 	
 	@GetMapping("/ventasRealizadas")
 	public String ventasRealizas(Model model) {
-		model.addAttribute("ventas", ventaService.findAll());
+		model.addAttribute("ventas", ventaService.listaVentaAacabadas());
 		return "/admin/ventasRealizadas";
 	}
 	

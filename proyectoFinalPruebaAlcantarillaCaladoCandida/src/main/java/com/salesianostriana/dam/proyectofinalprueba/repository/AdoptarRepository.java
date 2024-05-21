@@ -1,6 +1,5 @@
 package com.salesianostriana.dam.proyectofinalprueba.repository;
 
-import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,6 +17,7 @@ public interface AdoptarRepository extends JpaRepository<Adopcion, AdopcionPK>{
 	
 	@Query("SELECT COUNT (a) FROM Adopcion a WHERE a.animal = ?1")
 	int findNumAdopcionByAnimal(Animal animal);
+	
 	
 
 }

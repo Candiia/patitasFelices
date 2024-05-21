@@ -35,10 +35,10 @@ public class Animal {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
 	
-	@Column(columnDefinition = "VARCHAR (550)")
+	@Column(columnDefinition = "TEXT")
 	private String historia;
 	
-	@Column(columnDefinition = "VARCHAR (550)")
+	@Column(columnDefinition = "TEXT")
 	private String aspectosVeterinarios;
 	
 	@Column(columnDefinition = "VARCHAR (600)")

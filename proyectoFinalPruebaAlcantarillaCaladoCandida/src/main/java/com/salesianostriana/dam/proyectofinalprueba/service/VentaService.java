@@ -32,5 +32,9 @@ public class VentaService  extends BaseServiceImple<Venta, Long, VentaRepository
                      .mapToDouble(Venta::getImporteTotal)
                      .sum();
     }
+	
+	public List<Venta> listaVentaAacabadas(){
+		return repository.findByFinalizadaTrue();
+	}
 
 }
