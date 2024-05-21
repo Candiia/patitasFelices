@@ -7,5 +7,13 @@
 </h1>
 
 
-## FUNCIONAMIENTO:
+## FUNCIONAMIENTO: :dog:
+ - Para poder acceder a la pagína web debes entrar como cliente:
+ - Aqui te dejo una cuenta de cliente activa: Username: user - Password: 1234
+ - Para acceder a lo que puede realizar el administrador debes entrar como tal: Username: admin - Password: admin
+
+## DESCRIPCIÓN: :pencil2:
+
+- Nuestra página se dedica a la adopciones de animales aparte de tener una tienda de prodcutos:
+- Nuestra tienda tiene varias categorías: Alimentación, accesorios, juguetes y medicinas para nuestros animalitos.
 
